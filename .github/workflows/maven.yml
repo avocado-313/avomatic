@@ -46,9 +46,6 @@ jobs:
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@latest
 
-      - name: Display Chrome version
-        run: chrome --version
-
       - name: Run Maven test and create extentReports directory
         run: |
           mvn clean verify -Dremote=true -Dbrowser=chrome
@@ -68,7 +65,7 @@ jobs:
           path: reports/screenshotsFailure
 
       - name: CINotify Email
-        uses: cinotify/github-action@v1.4.0
+        uses: cinotify/github-action@v1.4.0f
         with:
           to: karim.salem@twerlo.com
           subject: "E2E Test Automation Report - Run ${{ github.run_number }}"

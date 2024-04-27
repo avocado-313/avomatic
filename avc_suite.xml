@@ -6,4 +6,16 @@
             <package name="regression" />
         </packages>
     </test>
+    <test name="chromeTest">
+        <parameter name="browser" value="chrome" />
+        <packages>
+            <package name="regression" />
+        </packages>
+    </test>
+    <test name="edgeTest">
+        <parameter name="browser" value="edge" />
+        <packages>
+            <package name="regression" />
+        </packages>
+    </test>
 </suite>

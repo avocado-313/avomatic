@@ -65,7 +65,7 @@ jobs:
           path: reports/screenshotsFailure
 
       - name: CINotify Email
-        uses: cinotify/github-action@v1.4.0f
+        uses: cinotify/github-action@v1.4.0
         with:
           to: karim.salem@twerlo.com
           subject: "E2E Test Automation Report - Run ${{ github.run_number }}"

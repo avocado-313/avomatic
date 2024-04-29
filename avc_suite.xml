@@ -1,5 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Avocado" parallel="tests" thread-count="2">
+<suite name="Avocado"  parallel="tests" thread-count="3">
+    <test name="SafariTest">
+        <parameter name="browser" value="safari" />
+        <packages>
+            <package name="regression" />
+        </packages>
+    </test>
     <test name="ChromeTest">
         <parameter name="browser" value="chrome" />
         <packages>
@@ -12,5 +18,4 @@
             <package name="regression" />
         </packages>
     </test>
-
 </suite>

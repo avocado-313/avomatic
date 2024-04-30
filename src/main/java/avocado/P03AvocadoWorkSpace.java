@@ -95,6 +95,7 @@ public class P03AvocadoWorkSpace extends PageBase {
         sendTextToInputField("", organization_name_input);
         uploadWorkSpaceImage();
         selectTimeZone();
+        waitForTime(9000);
         clickOnelement(update_workspace_CTA);
 
 

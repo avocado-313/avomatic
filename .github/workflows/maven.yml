@@ -48,7 +48,7 @@ jobs:
 
       - name: Run Maven test and create extentReports directory
         run: |
-          mvn clean verify -Dremote=true 
+          mvn clean verify -Dremote=true -Dbrowser=chrome 
           mkdir -p reports/extentReports
 
       - name: Upload report as artifact
@@ -67,7 +67,7 @@ jobs:
       - name: CINotify Email
         uses: cinotify/github-action@v1.4.0
         with:
-          to: karim.salem@twerlo.com
+          to: karim.salem@twerlo.com,ahmed.zaky@twerlo.com
           subject: "E2E Test Automation Report - Run ${{ github.run_number }}"
           body: |
             The E2E test automation run has completed. Check the attached report for details .

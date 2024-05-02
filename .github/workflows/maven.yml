@@ -70,6 +70,6 @@ jobs:
           to: karim.salem@twerlo.com,ahmed.zaky@twerlo.com,anand@twerlo.com
           subject: "E2E Test Automation Report - Run ${{ github.run_number }}"
           body: |
-            The E2E test automation run has completed. Check the attached report for details .
+            Avodad0 E2E test automation run has completed. Check the attached report for details .
 
           attachment: src/main/SurefireReports/emailable-report.html

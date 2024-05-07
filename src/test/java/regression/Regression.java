@@ -14,6 +14,7 @@ public class Regression extends BaseTest {
     P03AvocadoWorkSpace workSpace;
     P04AvocadoContacts contacts;
     P05AvocadoApps apps;
+    P06AvocadoSearch search ;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -21,6 +22,7 @@ public class Regression extends BaseTest {
         workSpace = new P03AvocadoWorkSpace(driver);
         contacts = new P04AvocadoContacts(driver);
         apps = new P05AvocadoApps(driver);
+        search = new P06AvocadoSearch(driver);
     }
 
     @Test
@@ -67,5 +69,14 @@ public class Regression extends BaseTest {
     public void TC_06ValidateContactsCreation() {
         contacts.createNewContact();
         contacts.validateChatScreen();
+    }
+    @Test
+    public void TC_07ValidateSearchScreen() {
+        search.validateSearchScreen();
+        search.validateSearchXClose();
+        search.validateSearchScreen();
+        search.validateContactsTab();
+        search.validateMessageTab();
+        search.validateLastActivity();
     }
 }

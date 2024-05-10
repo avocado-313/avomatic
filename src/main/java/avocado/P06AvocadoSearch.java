@@ -87,6 +87,9 @@ public class P06AvocadoSearch extends PageBase {
         waitForVisibilityOfElement(last_activity);
         clickOnelement(last_activity_dropdown);
         waitForVisibilityOfElement(calender_title);
+        clickOnelement(By.xpath("//button[@name='previous-month']"));
+        clickOnelement(By.xpath("(//button[@name='day'])[1]"));
+        clickOnelement(By.xpath("(//button[@name='day'])[10]"));
         clickOnelement(By.xpath("//*[normalize-space()='Confirm']"));
 
     }

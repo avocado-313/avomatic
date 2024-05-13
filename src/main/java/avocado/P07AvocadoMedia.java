@@ -135,7 +135,13 @@ public class P07AvocadoMedia extends PageBase {
         for (String windowHandle : windowHandles) {
             if (!windowHandle.equals(originalWindow)) {
                 driver.switchTo().window(windowHandle);
-                Assert.assertTrue(driver.getCurrentUrl().contains("download"));
+                try {
+                    Assert.assertTrue(driver.getCurrentUrl().contains("download"));
+                }catch (Exception e){
+                    waitForTime(5000);
+                    Assert.assertTrue(driver.getCurrentUrl().contains("download"));
+
+                }
                 driver.close();
                 driver.switchTo().window(originalWindow);
                 waitForVisibilityOfElement(share_CTA);

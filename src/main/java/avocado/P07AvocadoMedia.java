@@ -181,7 +181,11 @@ public class P07AvocadoMedia extends PageBase {
         sendTextToInputField("first " + media + "uploaded", caption_input);
         clickOnelement(upload_media_CTA);
         waitForTime(12000);
-        validateTabsSwitching(media);
+        try {
+            validateTabsSwitching(media);
+        }catch (Exception e){
+            validateTabsSwitching(media);
+        }
         validateMedia(By.xpath("//*[@role='img']"));
         validateGridAndListView();
         if (media.equalsIgnoreCase("Images")) validateSortingFunctionality();

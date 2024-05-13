@@ -56,7 +56,7 @@ public class P04AvocadoContacts extends PageBase {
         try {
             clickOnelement(edit_icon);
         }catch (Exception e){
-            waitForTime(6000);
+            waitForTime(10000);
             clickOnelement(edit_icon);
         }
         clickOnelement(archive);

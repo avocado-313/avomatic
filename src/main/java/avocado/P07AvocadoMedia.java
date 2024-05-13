@@ -187,6 +187,12 @@ public class P07AvocadoMedia extends PageBase {
             validateTabsSwitching(media);
         }
         validateMedia(By.xpath("//*[@role='img']"));
+
+        try {
+            validateTabsSwitching(media);
+        }catch (Exception e){
+            validateMedia(By.xpath("//*[@role='img']"));
+        }
         validateGridAndListView();
         if (media.equalsIgnoreCase("Images")) validateSortingFunctionality();
         validateSearchFunctionality(file_name);

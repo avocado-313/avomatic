@@ -180,7 +180,7 @@ public class P07AvocadoMedia extends PageBase {
         waitForVisibilityOfElement(caption_input);
         sendTextToInputField("first " + media + "uploaded", caption_input);
         clickOnelement(upload_media_CTA);
-        waitForTime(18000);
+        waitForTime(12000);
         validateTabsSwitching(media);
         validateMedia(By.xpath("//*[@role='img']"));
         validateGridAndListView();

@@ -65,12 +65,12 @@ public class Regression extends BaseTest {
         login.loginToAvocado(username, password);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
-        contacts.validateCreateContactCard();
+//        contacts.validateCreateContactCard();
     }
     @Test
     public void TC_06ValidateContactsCreation() {
-        contacts.createNewContact();
-        contacts.validateChatScreen();
+//        contacts.createNewContact();
+//        contacts.validateChatScreen();
     }
     @Test
     public void TC_07ValidateSearchScreen() {

@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Avocado"  parallel="tests" thread-count="3">
+<suite name="Avocado"  >
 <!--    <test name="SafariTest">-->
 <!--        <parameter name="browser" value="safari" />-->
 <!--        <packages>-->

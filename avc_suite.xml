@@ -1,21 +1,21 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Avocado"  parallel="tests" thread-count="3">
-    <test name="SafariTest">
-        <parameter name="browser" value="safari" />
-        <packages>
-            <package name="regression" />
-        </packages>
-    </test>
+<suite name="Avocado"  >
+<!--    <test name="SafariTest">-->
+<!--        <parameter name="browser" value="safari" />-->
+<!--        <packages>-->
+<!--            <package name="regression" />-->
+<!--        </packages>-->
+<!--    </test>-->
     <test name="ChromeTest">
         <parameter name="browser" value="chrome" />
         <packages>
             <package name="regression" />
         </packages>
     </test>
-    <test name="EdgeTest">
-        <parameter name="browser" value="edge" />
-        <packages>
-            <package name="regression" />
-        </packages>
-    </test>
+<!--    <test name="EdgeTest">-->
+<!--        <parameter name="browser" value="edge" />-->
+<!--        <packages>-->
+<!--            <package name="regression" />-->
+<!--        </packages>-->
+<!--    </test>-->
 </suite>

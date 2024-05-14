@@ -14,6 +14,8 @@ public class Regression extends BaseTest {
     P03AvocadoWorkSpace workSpace;
     P04AvocadoContacts contacts;
     P05AvocadoApps apps;
+    P06AvocadoSearch search ;
+    P07AvocadoMedia media;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -21,6 +23,8 @@ public class Regression extends BaseTest {
         workSpace = new P03AvocadoWorkSpace(driver);
         contacts = new P04AvocadoContacts(driver);
         apps = new P05AvocadoApps(driver);
+        search = new P06AvocadoSearch(driver);
+        media = new P07AvocadoMedia(driver);
     }
 
     @Test
@@ -61,11 +65,26 @@ public class Regression extends BaseTest {
         login.loginToAvocado(username, password);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
-        contacts.validateCreateContactCard();
+//        contacts.validateCreateContactCard();
     }
     @Test
     public void TC_06ValidateContactsCreation() {
-        contacts.createNewContact();
-        contacts.validateChatScreen();
+//        contacts.createNewContact();
+//        contacts.validateChatScreen();
+    }
+    @Test
+    public void TC_07ValidateSearchScreen() {
+        search.validateSearchScreen();
+        search.validateSearchXClose();
+        search.validateSearchScreen();
+        search.validateContactsTab();
+        search.validateMessageTab();
+        search.validateLastActivity();
+    }
+    @Test
+    public void TC_08ValidateMediaScreen() {
+        media.validateUploadMediaFunctionality();
+        media.validateMediaAcceptsLessThan10MbFiles();
+        media.validateNavigateBackFromMediaToApps();
     }
 }

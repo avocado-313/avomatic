@@ -33,14 +33,14 @@ public class P04AvocadoContacts extends PageBase {
     String currentDir = System.getProperty("user.dir");
     String file_path = currentDir + "//images//avocad0.jpg";
     public void navigateAndValidateContactsScreen(){
-        clickOnelement(contact_icon_from_label);
+        clickOnElement(contact_icon_from_label);
         waitForVisibilityOfElement(create_contact_CTA);
         Assert.assertTrue(driver.findElement(contacts_title_from_contacts_screen).getText().contains("Contacts"));
         Assert.assertTrue(driver.findElement(contacts_subTitle_from_contacts_screen).getText().contains("Manage your contacts"));
         Assert.assertTrue(assertElementDisplayed(bulk_action_CTA));
     }
     public void validateCreateContactCard(){
-        clickOnelement(create_contact_CTA);
+        clickOnElement(create_contact_CTA);
         waitForVisibilityOfElement(create_new_contact_title);
         ElementsValidator(x_close_create_contact,upload_image_CTA,contact_name_input,contact_phone_input,contact_email_input,contact_whatsappChannel_input,tags,cancel_CTA);
     }
@@ -51,15 +51,15 @@ public class P04AvocadoContacts extends PageBase {
         sendTextToInputField("name" + generateRandomDigits(5),contact_name_input);
         sendTextToInputField("test.automation"+generateRandomDigits(5)+"@gmail.com",contact_email_input);
         sendTextToInputField(generateRandomNumber(),contact_phone_input);
-        clickOnelement(save_CTA);
+        clickOnElement(save_CTA);
         waitForVisibilityOfElement(edit_icon);
         try {
-            clickOnelement(edit_icon);
+            clickOnElement(edit_icon);
         }catch (Exception e){
             waitForTime(10000);
-            clickOnelement(edit_icon);
+            clickOnElement(edit_icon);
         }
-        clickOnelement(archive);
+        clickOnElement(archive);
 
     }
     public void validateAndCreateNewContact(){
@@ -71,15 +71,15 @@ public class P04AvocadoContacts extends PageBase {
         sendTextToInputField("name" + generateRandomDigits(5),contact_name_input);
         sendTextToInputField("test.automation"+generateRandomDigits(5)+"@gmail.com",contact_email_input);
         sendTextToInputField(generateRandomNumber(),contact_phone_input);
-        clickOnelement(save_CTA);
+        clickOnElement(save_CTA);
         waitForVisibilityOfElement(edit_icon);
         try {
-            clickOnelement(edit_icon);
+            clickOnElement(edit_icon);
         }catch (Exception e){
             waitForTime(6000);
-            clickOnelement(edit_icon);
+            clickOnElement(edit_icon);
         }
-        clickOnelement(archive);
+        clickOnElement(archive);
     }
     private final By archive = By.xpath("//button[normalize-space()='Archive Contact']");
     public void validateEmptyFields(){
@@ -87,11 +87,11 @@ public class P04AvocadoContacts extends PageBase {
         validateCreateContactCard();
         validateErrorScreens(contact_phone_input,contact_email_input,phone_error_message);
         validateErrorScreens(contact_name_input,contact_email_input,contact_error_message);
-        clickOnelement(cancel_CTA);
+        clickOnElement(cancel_CTA);
     }
     private void validateErrorScreens(By by , By by1 ,By by2){
-        clickOnelement(by);
-        clickOnelement(by1);
+        clickOnElement(by);
+        clickOnElement(by1);
         Assert.assertTrue(assertElementDisplayed(by2));
         Assert.assertTrue(driver.findElement(by2).getText().contains("This field can't be empty"));
     }
@@ -99,10 +99,10 @@ public class P04AvocadoContacts extends PageBase {
         try {
             waitForVisibilityOfElement(karim_salem_chat);
             try {
-                clickOnelement(karim_salem_chat);
+                clickOnElement(karim_salem_chat);
             } catch (Exception e) {
                 waitForTime(12000);
-                clickOnelement(karim_salem_chat);
+                clickOnElement(karim_salem_chat);
             }
             waitForVisibilityOfElement(By.xpath("//button[normalize-space()='+ New Chat']"));
             Assert.assertTrue(assertElementDisplayed(By.xpath("//button[normalize-space()='+ New Chat']")));

@@ -31,18 +31,18 @@ public class PageBase {
     private final By logout_dropdown_from_settings = By.xpath("//p[normalize-space()='Logout']");
     public void logout(){
         waitForTime(7000);
-        clickOnelement(profile_icon_from_menu);
+        clickOnElement(profile_icon_from_menu);
         try {
-            clickOnelement(logout_dropdown_from_settings);
+            clickOnElement(logout_dropdown_from_settings);
         }catch (Exception e){
             refreshDriver(driver.getCurrentUrl(), profile_icon_from_menu);
             waitForTime(25000);
-            clickOnelement(logout_dropdown_from_settings);
+            clickOnElement(logout_dropdown_from_settings);
         }
         Assert.assertTrue(assertElementDisplayed(input_email));
     }
 
-    public void clickOnelement(By by) {
+    public void clickOnElement(By by) {
         waitForVisibilityOfElement(by);
         driver.findElement(by).click();
 
@@ -138,8 +138,8 @@ public class PageBase {
 
     public void validateErrorMessage(By inputField, By secondInput, By Message) {
         scrollToElement(inputField);
-        clickOnelement(inputField);
-        clickOnelement(secondInput);
+        clickOnElement(inputField);
+        clickOnElement(secondInput);
         Assert.assertTrue(assertElementDisplayed(Message));
     }
 
@@ -209,6 +209,23 @@ public class PageBase {
 
         return stringBuilder.toString();
     }
+    public static int generateIntRandomDigits(int length) {
+        if (length <= 0) {
+            throw new IllegalArgumentException("Length should be greater than 0");
+        }
+
+        Random random = new Random();
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 0; i < length; i++) {
+            int digit = random.nextInt(10); // Generates a random digit (0 to 9)
+            stringBuilder.append(digit);
+        }
+
+        return Integer.parseInt(stringBuilder.toString());
+    }
+
+
 
 
     public int extractAndConvertToInt(String input) {
@@ -304,7 +321,7 @@ public class PageBase {
 
     public void selectFromListByText(By by , String text){
             scrollToElement(by);
-            clickOnelement(by);
+            clickOnElement(by);
             By optionLocator = By.xpath("//*[@text contains(text(), ' " + text + " ')]");
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
             WebElement optionElement = wait.until(ExpectedConditions.elementToBeClickable(optionLocator));
@@ -317,7 +334,7 @@ public class PageBase {
     }
 
     public void SelectWorkspace(By by ,String text){
-        clickOnelement(by);
+        clickOnElement(by);
 
         By optionLocator = By.xpath("//*[@role='option' and contains(text(), ' " + text + " ')]");
 

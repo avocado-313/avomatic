@@ -37,13 +37,13 @@ public class P01AvocadoLogin extends PageBase {
         sendTextToInputField(email,input_email);
         scrollToElement(input_password);
         sendTextToInputField(password,input_password);
-        clickOnelement(input_password);
+        clickOnElement(input_password);
         waitForVisibilityOfElement(workspace_dropdown);
         ElementsValidator(workspace_dropdown);
         sendTextToInputField("Automat",workspace_dropdown);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ARROW_DOWN);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ENTER);
-        clickOnelement(login_CTA);
+        clickOnElement(login_CTA);
         waitForVisibilityOfElement(avocado_logo_from_home);
     }
     private Boolean validateElementsTexts(String text , By by){
@@ -64,10 +64,10 @@ public class P01AvocadoLogin extends PageBase {
 
     private void validateForgetPasswordScreen(){
         scrollToElement(forget_password_link);
-        clickOnelement(forget_password_link);
+        clickOnElement(forget_password_link);
         Assert.assertTrue(assertElementDisplayed(forget_password_label));
         Assert.assertTrue(assertElementDisplayed(reset_link));
-        clickOnelement(login_From_forget_password);
+        clickOnElement(login_From_forget_password);
         Assert.assertTrue(assertElementDisplayed(forget_password_link));
     }
     private final By create_an_account_label = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-6f19s'])[1]");
@@ -75,10 +75,10 @@ public class P01AvocadoLogin extends PageBase {
     private final By login_from_register = By .xpath("//a[normalize-space()='Login']");
     private void validateRegisterScreen(){
         scrollToElement(dont_have_an_account_register);
-        clickOnelement(dont_have_an_account_register);
+        clickOnElement(dont_have_an_account_register);
         ElementsValidator(create_an_account_label,create_account_CTA,login_from_register);
         scrollToElement(login_from_register);
-        clickOnelement(login_from_register);
+        clickOnElement(login_from_register);
         Assert.assertTrue(assertElementDisplayed(dont_have_an_account_register));
     }
     public void loginToAvocado(String email,String password){
@@ -88,13 +88,13 @@ public class P01AvocadoLogin extends PageBase {
         sendTextToInputField(email,input_email);
         scrollToElement(input_password);
         sendTextToInputField(password,input_password);
-        clickOnelement(input_password);
+        clickOnElement(input_password);
         waitForVisibilityOfElement(workspace_dropdown);
         ElementsValidator(workspace_dropdown);
         sendTextToInputField("Automat",workspace_dropdown);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ARROW_DOWN);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ENTER);
-        clickOnelement(login_CTA);
+        clickOnElement(login_CTA);
         waitForVisibilityOfElement(avocado_logo_from_home);
     }
 

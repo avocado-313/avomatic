@@ -49,10 +49,10 @@ public class P03AvocadoWorkSpace extends PageBase {
 
     public void navigateToProfileWorkspace() {
         scrollToElement(profile_from_side_menu);
-        clickOnelement(profile_from_side_menu);
+        clickOnElement(profile_from_side_menu);
         Assert.assertTrue(assertElementDisplayed(profile_from_profile_menu));
         Assert.assertTrue(assertElementDisplayed(profile_icon_from_profile_menu));
-        clickOnelement(profile_from_profile_menu);
+        clickOnElement(profile_from_profile_menu);
         waitForVisibilityOfElement(settings_title_into_profile_screen);
     }
 
@@ -69,18 +69,18 @@ public class P03AvocadoWorkSpace extends PageBase {
 
     public void validateChangePassword() {
         scrollToElement(change_password);
-        clickOnelement(change_password);
+        clickOnElement(change_password);
         waitForVisibilityOfElement(current_password_input);
         ElementsValidator(new_password_input, cancel_CTA);
         sendTextToInputField("123456789", current_password_input);
         sendTextToInputField("Testing@1", new_password_input);
         ElementsValidator(change_password_CTA);
-        clickOnelement(cancel_CTA);
+        clickOnElement(cancel_CTA);
         waitForVisibilityOfElement(change_password);
     }
 
     public void checkWorkSpaceProfile() {
-        clickOnelement(workspace_profile_from_side_menu);
+        clickOnElement(workspace_profile_from_side_menu);
         waitForVisibilityOfElement(work_space_profile_subTitle_from_workspace);
         ElementsValidator(work_space_profile_title_from_workspace, profile_upload_image_title
                 , upload_workspace_image_CTA, email_input, organization_name_input,
@@ -96,7 +96,7 @@ public class P03AvocadoWorkSpace extends PageBase {
         uploadWorkSpaceImage();
         selectTimeZone();
         waitForTime(9000);
-        clickOnelement(update_workspace_CTA);
+        clickOnElement(update_workspace_CTA);
 
 
     }
@@ -111,18 +111,18 @@ public class P03AvocadoWorkSpace extends PageBase {
 
     private void uploadWorkSpaceImage() {
         scrollToElement(upload_workspace_image_CTA);
-        clickOnelement(upload_workspace_image_CTA);
+        clickOnElement(upload_workspace_image_CTA);
         waitForTime(4000);
         driver.findElement(By.id("upload-button")).sendKeys(file_path);
        try {
            waitForTime(2000);
-           clickOnelement(By.xpath("//button[contains(@class, 'MuiButtonBase-root') and contains(@class, 'css-1sgkwlu')]"));
-           clickOnelement(By.xpath("//button[@data-testid='select-attach-file-save-button']"));
+           clickOnElement(By.xpath("//button[contains(@class, 'MuiButtonBase-root') and contains(@class, 'css-1sgkwlu')]"));
+           clickOnElement(By.xpath("//button[@data-testid='select-attach-file-save-button']"));
            waitForTime(4000);
        }catch (Exception e){
            waitForTime(2000);
-           clickOnelement(By.xpath("//button[contains(@class, 'MuiButtonBase-root') and contains(@class, 'css-1sgkwlu')]"));
-           clickOnelement(By.xpath("//button[@data-testid='select-attach-file-save-button']"));
+           clickOnElement(By.xpath("//button[contains(@class, 'MuiButtonBase-root') and contains(@class, 'css-1sgkwlu')]"));
+           clickOnElement(By.xpath("//button[@data-testid='select-attach-file-save-button']"));
            waitForTime(4000);
        }
     }

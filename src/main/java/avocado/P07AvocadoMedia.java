@@ -10,10 +10,6 @@ import org.testng.Assert;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.time.temporal.ChronoField;
 import java.util.Date;
 import java.util.Set;
 
@@ -68,9 +64,9 @@ public class P07AvocadoMedia extends PageBase {
     public void validateMediaDeletedSuccessfully(String fileName) {
         scrollToElement(three_dots_action_btn);
         waitForTime(5000);
-        clickOnelement(three_dots_action_btn);
+        clickOnElement(three_dots_action_btn);
         waitForVisibilityOfElement(delete_video);
-        clickOnelement(delete_video);
+        clickOnElement(delete_video);
         waitForVisibilityOfElement(confirm_delete_msg);
         Assert.assertTrue(assertElementDisplayed(confirm_delete_msg));
         Assert.assertTrue(driver.findElement(confirm_delete_msg).getText().contains(fileName));
@@ -79,12 +75,12 @@ public class P07AvocadoMedia extends PageBase {
     }
 
     public void validateMediaAcceptsLessThan10MbFiles() {
-        clickOnelement(media_icon_from_label);
+        clickOnElement(media_icon_from_label);
         waitForVisibilityOfElement(media_library_title);
         driver.findElement(upload_media).sendKeys(file_path + tenMbFileName);
         waitForVisibilityOfElement(size_warning_logo);
         Assert.assertTrue(assertElementDisplayed(By.xpath("//*[normalize-space()='The size of this file is more than 10MB']")));
-        clickOnelement(By.xpath("(//*[normalize-space()='Cancel'])[2]"));
+        clickOnElement(By.xpath("(//*[normalize-space()='Cancel'])[2]"));
     }
 
     private void validateSearchFunctionality(String search) {
@@ -97,7 +93,7 @@ public class P07AvocadoMedia extends PageBase {
 
     private void validateGridAndListView() {
         if (driver.findElement(grid_view).getAttribute("aria-pressed").contains("true")) {
-            clickOnelement(list_view);
+            clickOnElement(list_view);
             waitForVisibilityOfElement(By.xpath("//*[normalize-space()='Created by']"));
             Assert.assertTrue(assertElementDisplayed(By.xpath("//*[normalize-space()='Created by']")));
             Assert.assertTrue(assertElementDisplayed(By.xpath("//*[normalize-space()='Created at']")));
@@ -111,7 +107,7 @@ public class P07AvocadoMedia extends PageBase {
     private void validateTabsSwitching(String... texts) {
         for (String text : texts) {
             By elem = By.xpath("//*[normalize-space()='" + text + "']");
-            clickOnelement(elem);
+            clickOnElement(elem);
             waitForTime(1000);
             Assert.assertTrue(driver.findElement(elem).getAttribute("aria-selected").equalsIgnoreCase("true"));
         }
@@ -119,16 +115,16 @@ public class P07AvocadoMedia extends PageBase {
 
     public void validateNavigateBackFromMediaToApps() {
         scrollToElement(backArrow);
-        clickOnelement(backArrow);
+        clickOnElement(backArrow);
         waitForVisibilityOfElement(apps_title);
     }
 
     public void validateMedia(By media) {
-        clickOnelement(media);
+        clickOnElement(media);
         waitForVisibilityOfElement(download);
-        clickOnelement(share_CTA);
+        clickOnElement(share_CTA);
         waitForVisibilityOfElement(copied_Label);
-        clickOnelement(download);
+        clickOnElement(download);
         waitForTime(5000);
         String originalWindow = driver.getWindowHandle();
         Set<String> windowHandles = driver.getWindowHandles();
@@ -146,7 +142,7 @@ public class P07AvocadoMedia extends PageBase {
                 driver.switchTo().window(originalWindow);
                 waitForVisibilityOfElement(share_CTA);
                 System.out.println("navigating back to original screen...");
-                clickOnelement(close_media_CTa);
+                clickOnElement(close_media_CTa);
                 waitForVisibilityOfElement(media_library_title);
 
             }
@@ -157,7 +153,7 @@ public class P07AvocadoMedia extends PageBase {
 
     private void uploadMedia(String... medias) {
         for (String media : medias) {
-            clickOnelement(media_icon_from_label);
+            clickOnElement(media_icon_from_label);
             waitForVisibilityOfElement(media_library_title);
             switch (media) {
                 case "Video":
@@ -185,7 +181,7 @@ public class P07AvocadoMedia extends PageBase {
         driver.findElement(upload_media).sendKeys(file_path + file_name);
         waitForVisibilityOfElement(caption_input);
         sendTextToInputField("first " + media + "uploaded", caption_input);
-        clickOnelement(upload_media_CTA);
+        clickOnElement(upload_media_CTA);
         waitForTime(12000);
         try {
             validateTabsSwitching(media);
@@ -238,8 +234,8 @@ public class P07AvocadoMedia extends PageBase {
 
 
     private void validateSortingFunctionality() {
-        clickOnelement(sortBy);
-        clickOnelement(latest_selection);
+        clickOnElement(sortBy);
+        clickOnElement(latest_selection);
         scrollToElement(first_Date);
         waitForTime(5000);
         try {
@@ -248,7 +244,7 @@ public class P07AvocadoMedia extends PageBase {
             System.out.println(e);
         }
         scrollToElement(sortBy);
-        clickOnelement(oldest_selection);
+        clickOnElement(oldest_selection);
         waitForTime(10000);
         scrollToElement(first_Date);
         Assert.assertFalse(compareDates(driver.findElement(first_Date).getText(), driver.findElement(second_Date).getText()));

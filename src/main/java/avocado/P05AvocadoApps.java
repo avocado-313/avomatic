@@ -23,10 +23,10 @@ public class P05AvocadoApps extends PageBase {
     private final By message_input = By.xpath("(//*[@placeholder='Type your message...'])[1]");
     public void navigateToGreetingScreen(){
         scrollToElement(apps_from_menu);
-        clickOnelement(apps_from_menu);
+        clickOnElement(apps_from_menu);
         waitForVisibilityOfElement(greeting_and_away);
         scrollToElement(greeting_and_away);
-        clickOnelement(greeting_and_away);
+        clickOnElement(greeting_and_away);
     }
     public void validateGreetingsScreen(){
         try {
@@ -40,38 +40,38 @@ public class P05AvocadoApps extends PageBase {
     }
     public void validateGreetingMessageComponent(){
         scrollToElement(greeting_message_arrow);
-        clickOnelement(greeting_message_arrow);
+        clickOnElement(greeting_message_arrow);
         waitForVisibilityOfElement(greeting_message_title_after_arrow);
         Assert.assertTrue(assertElementDisplayed(greeting_message_title_after_arrow));
     }
     public void sendGreetingMessage(){
-        clickOnelement(greeting_message_toggle);
+        clickOnElement(greeting_message_toggle);
         sendTextToInputField("welcome from Avocado test automation",message_input);
-        clickOnelement(By.xpath("(//*[normalize-space()='Save'])[2]"));
+        clickOnElement(By.xpath("(//*[normalize-space()='Save'])[2]"));
     }
     public void setWorkingHours(String starting_hour_AM,String ending_hour_PM){
-        clickOnelement(working_hours_arrow);
+        clickOnElement(working_hours_arrow);
         waitForVisibilityOfElement(By.xpath("//*[@data-testid='switch-button']"));
         List<WebElement> working_days_toggle = driver.findElements(By.xpath("//*[@data-testid='switch-button']"));
         for(int i = 0 ; i < working_days_toggle.size();i++){
             scrollToElement(By.xpath("(//*[@data-testid='switch-button'])[" +(i+1) + "]"));
-            clickOnelement(By.xpath("(//*[@data-testid='switch-button'])[" +(i+1) + "]"));
-            clickOnelement(By.xpath("(//*[@data-testid='open-hour'])[" +(i+1) + "]"));
-            clickOnelement(By.xpath("(//li[normalize-space()='AM'])[" +1 + "]"));
+            clickOnElement(By.xpath("(//*[@data-testid='switch-button'])[" +(i+1) + "]"));
+            clickOnElement(By.xpath("(//*[@data-testid='open-hour'])[" +(i+1) + "]"));
+            clickOnElement(By.xpath("(//li[normalize-space()='AM'])[" +1 + "]"));
             scrollToElement(By.xpath("(//li[normalize-space()='" + starting_hour_AM + "'])[1]"));
-            clickOnelement(By.xpath("(//li[normalize-space()='" + starting_hour_AM + "'])[1]"));
+            clickOnElement(By.xpath("(//li[normalize-space()='" + starting_hour_AM + "'])[1]"));
             scrollToElement(By.xpath("//li[normalize-space()='30']"));
-            clickOnelement(By.xpath("//li[normalize-space()='30']"));
-            clickOnelement(By.xpath("//p[normalize-space()='Sunday']"));
-            clickOnelement(By.xpath("(//*[@data-testid='close-hour'])[" +(i+1) + "]"));
-            clickOnelement(By.xpath("(//li[normalize-space()='PM'])[" +1 + "]"));
+            clickOnElement(By.xpath("//li[normalize-space()='30']"));
+            clickOnElement(By.xpath("//p[normalize-space()='Sunday']"));
+            clickOnElement(By.xpath("(//*[@data-testid='close-hour'])[" +(i+1) + "]"));
+            clickOnElement(By.xpath("(//li[normalize-space()='PM'])[" +1 + "]"));
             scrollToElement(By.xpath("(//li[normalize-space()='" + ending_hour_PM + "'])[1]"));
-            clickOnelement(By.xpath("(//li[normalize-space()='" + ending_hour_PM + "'])[1]"));
+            clickOnElement(By.xpath("(//li[normalize-space()='" + ending_hour_PM + "'])[1]"));
             scrollToElement(By.xpath("//li[normalize-space()='30']"));
-            clickOnelement(By.xpath("//li[normalize-space()='30']"));
-            clickOnelement(By.xpath("//p[normalize-space()='Sunday']"));
+            clickOnElement(By.xpath("//li[normalize-space()='30']"));
+            clickOnElement(By.xpath("//p[normalize-space()='Sunday']"));
         }
-        clickOnelement(By.xpath("(//*[normalize-space()='Reset'])[1]"));
+        clickOnElement(By.xpath("(//*[normalize-space()='Reset'])[1]"));
 
     }
 }

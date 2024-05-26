@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 
 public class P06AvocadoSearch extends PageBase {
     public P06AvocadoSearch(WebDriver driver) {
@@ -43,15 +42,15 @@ public class P06AvocadoSearch extends PageBase {
 
 
     public void validateSearchXClose(){
-        clickOnelement(search_icon_from_menu);
+        clickOnElement(search_icon_from_menu);
         waitForVisibilityOfElement(search_title);
         waitForVisibilityOfElement(x_close);
-        clickOnelement(x_close);
+        clickOnElement(x_close);
         waitForTime(5000);
     }
     public void validateSearchClosedOnceClickingOutsideSearchContainer(){
-        clickOnelement(search_icon_from_menu);
-        clickOnelement(search_icon_from_menu);
+        clickOnElement(search_icon_from_menu);
+        clickOnElement(search_icon_from_menu);
         waitForVisibilityOfElement(search_title);
         waitForVisibilityOfElement(x_close);
         WebElement elem = driver.findElement(phrase_outside_search_container).findElement(By.xpath("..")).findElement(By.xpath(".."));
@@ -59,7 +58,7 @@ public class P06AvocadoSearch extends PageBase {
         waitForVisibilityOfElement(new_chat_icon);
     }
     public void validateSearchScreen(){
-        clickOnelement(search_icon_from_menu);
+        clickOnElement(search_icon_from_menu);
         waitForVisibilityOfElement(search_title);
         waitForTime(5000);
         ElementsValidator(message_tab_icon,message_tab_title,contact_tab_icon,contact_tab_title,search_icon_into_input_search);
@@ -71,44 +70,44 @@ public class P06AvocadoSearch extends PageBase {
     private void validateDirectionDropdown(){
         waitForVisibilityOfElement(direction_dropdown);
         selectOptions(1,incoming_from_direction,outgoing_from_direction);
-        clickOnelement(direction_dropdown_arrow);
+        clickOnElement(direction_dropdown_arrow);
         waitForVisibilityOfElement(incoming_from_direction);
         ElementsValidator(incoming_from_direction,outgoing_from_direction);
 
     }
     private void validateMessageTypeDropdown(){
         waitForVisibilityOfElement(message_type_dropdown);
-        clickOnelement(message_type_dropdown_arrow);
+        clickOnElement(message_type_dropdown_arrow);
         waitForVisibilityOfElement(text_from_message_type_dropdown);
         ElementsValidator(text_from_message_type_dropdown,image_from_message_type_dropdown,video_from_message_type_dropdown);
         selectOptions(2,text_from_message_type_dropdown,image_from_message_type_dropdown,video_from_message_type_dropdown,document_from_message_type_dropdown);
     }
     public void validateLastActivity(){
         waitForVisibilityOfElement(last_activity);
-        clickOnelement(last_activity_dropdown);
+        clickOnElement(last_activity_dropdown);
         waitForVisibilityOfElement(calender_title);
-        clickOnelement(By.xpath("//button[@name='previous-month']"));
-        clickOnelement(By.xpath("(//button[@name='day'])[1]"));
-        clickOnelement(By.xpath("(//button[@name='day'])[10]"));
-        clickOnelement(By.xpath("//*[normalize-space()='Confirm']"));
+        clickOnElement(By.xpath("//button[@name='previous-month']"));
+        clickOnElement(By.xpath("(//button[@name='day'])[1]"));
+        clickOnElement(By.xpath("(//button[@name='day'])[10]"));
+        clickOnElement(By.xpath("//*[normalize-space()='Confirm']"));
 
     }
     private void selectOptions(int elm,By... elements ){
         By arrow  = By.xpath("(//*[@data-testid='ArrowDropDownIcon'])[" + elm + "]");
         waitForVisibilityOfElement(arrow);
         for (By element : elements) {
-            if(elm<=1) clickOnelement(arrow);
+            if(elm<=1) clickOnElement(arrow);
             scrollToElement(element);
-            clickOnelement(element);
+            clickOnElement(element);
             if(elm<=1)driver.findElement(By.xpath("(//*[@data-testid='CloseIcon'])[1]")).click();
         }
 
     }
     public void validateContactsTab(){
-        clickOnelement(contact_tab_title);
+        clickOnElement(contact_tab_title);
         waitForVisibilityOfElement(chats_from_contacts);
         ElementsValidator(chats_from_contacts,Tags_from_contacts,Last_activity_from_contacts,Assigned_to_from_contacts);
-        clickOnelement(message_tab_title);
+        clickOnElement(message_tab_title);
     }
 
 }

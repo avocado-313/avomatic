@@ -16,6 +16,7 @@ public class Regression extends BaseTest {
     P05AvocadoApps apps;
     P06AvocadoSearch search ;
     P07AvocadoMedia media;
+    P08AvocadoTags tags;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -25,6 +26,7 @@ public class Regression extends BaseTest {
         apps = new P05AvocadoApps(driver);
         search = new P06AvocadoSearch(driver);
         media = new P07AvocadoMedia(driver);
+        tags = new P08AvocadoTags(driver);
     }
 
     @Test
@@ -86,5 +88,11 @@ public class Regression extends BaseTest {
         media.validateUploadMediaFunctionality();
         media.validateMediaAcceptsLessThan10MbFiles();
         media.validateNavigateBackFromMediaToApps();
+    }
+    @Test
+    public void TC_09ValidateTagsScreen() {
+        tags.validateTagsScreen();
+        tags.validateTagCreation();
+        tags.validateDeleteTag();
     }
 }

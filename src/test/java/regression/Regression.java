@@ -51,17 +51,7 @@ public class Regression extends BaseTest {
         workSpace.checkWorkSpaceProfile();
         login.logout();
     }
-    @Test
-    public void TC_04ValidateGreetingScreenFullScenario(){
-        login.loginToAvocado(username,password);
-        home.checkHomeScreen();
-        apps.navigateToGreetingScreen();
-        apps.validateGreetingsScreen();
-        apps.setWorkingHours("07","04");
-        apps.validateGreetingMessageComponent();
-        apps.sendGreetingMessage();
-        login.logout();
-    }
+
     @Test
     public void TC_05ValidateContacts() {
         login.loginToAvocado(username, password);
@@ -94,5 +84,17 @@ public class Regression extends BaseTest {
         tags.validateTagsScreen();
         tags.validateTagCreation();
         tags.validateDeleteTag();
+        login.logout();
+    }
+    @Test
+    public void TC_10ValidateGreetingScreenFullScenario(){
+        login.loginToAvocado(username,password);
+        home.checkHomeScreen();
+        apps.navigateToGreetingScreen();
+        apps.validateGreetingsScreen();
+        apps.setWorkingHours("07","04");
+        apps.validateGreetingMessageComponent();
+        apps.sendGreetingMessage();
+        login.logout();
     }
 }

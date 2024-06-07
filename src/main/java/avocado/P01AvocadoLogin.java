@@ -40,7 +40,7 @@ public class P01AvocadoLogin extends PageBase {
         clickOnElement(input_password);
         waitForVisibilityOfElement(workspace_dropdown);
         ElementsValidator(workspace_dropdown);
-        sendTextToInputField("Automat",workspace_dropdown);
+        sendTextToInputField("AVC CORE",workspace_dropdown);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ARROW_DOWN);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ENTER);
         clickOnElement(login_CTA);
@@ -92,7 +92,7 @@ public class P01AvocadoLogin extends PageBase {
         clickOnElement(input_password);
         waitForVisibilityOfElement(workspace_dropdown);
         ElementsValidator(workspace_dropdown);
-        sendTextToInputField("Automat",workspace_dropdown);
+        sendTextToInputField("AVC CORE",workspace_dropdown);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ARROW_DOWN);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ENTER);
         clickOnElement(login_CTA);

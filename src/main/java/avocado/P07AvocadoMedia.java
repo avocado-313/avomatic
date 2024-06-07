@@ -79,7 +79,7 @@ public class P07AvocadoMedia extends PageBase {
         waitForVisibilityOfElement(media_library_title);
         driver.findElement(upload_media).sendKeys(file_path + tenMbFileName);
         waitForVisibilityOfElement(size_warning_logo);
-        Assert.assertTrue(assertElementDisplayed(By.xpath("//*[normalize-space()='The size of this file is more than 10MB']")));
+        Assert.assertTrue(assertElementDisplayed(By.xpath("//*[normalize-space()='The size of this file is 10.01MB, exceeds the limit (10MB)']")));
         clickOnElement(By.xpath("(//*[normalize-space()='Cancel'])[2]"));
     }
 

@@ -8,8 +8,7 @@ import avocado.P04AvocadoContacts;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Base.ReadProperties.password;
-import static Base.ReadProperties.username;
+import static Base.ReadProperties.*;
 
 public class M03ContactsTest extends BaseTest {
     P01AvocadoLogin login ;
@@ -23,27 +22,27 @@ public class M03ContactsTest extends BaseTest {
     }
     @Test
     public void TC_01ValidateContacts() {
-        login.loginToAvocado(username, password);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
         contacts.validateCreateContactCard();
     }
     @Test
     public void TC_02ValidateContactsCreation() {
-        login.loginToAvocado(username, password);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateAndCreateNewContact();
     }
 
     @Test
     public void TC_03ValidateEmptyFields() {
-        login.loginToAvocado(username, password);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateEmptyFields();
     }
     @Test
     public void TC_04ValidateChatScreen() {
-        login.loginToAvocado(username, password);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateAndCreateNewContact();
         contacts.validateChatScreen();

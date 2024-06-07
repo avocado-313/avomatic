@@ -5,8 +5,7 @@ import avocado.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Base.ReadProperties.password;
-import static Base.ReadProperties.username;
+import static Base.ReadProperties.*;
 
 public class M05SearchTest extends BaseTest {
     P01AvocadoLogin login ;
@@ -21,7 +20,7 @@ public class M05SearchTest extends BaseTest {
     }
     @Test
     public void TC_01ValidateSearchScreen() {
-        login.loginToAvocado(username, password);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         search.validateSearchScreen();
         search.validateSearchXClose();

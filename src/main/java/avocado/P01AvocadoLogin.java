@@ -27,7 +27,7 @@ public class P01AvocadoLogin extends PageBase {
     private final By forget_password_label = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-6f19s'])[1]");
     private final By login_From_forget_password = By.xpath("//a[normalize-space()='Login']");
     private final By avocado_logo_from_home = By.xpath("//img[@alt='avocado icon']");
-    public void validateLoginScreenLocators(String email,String password) {
+    public void validateLoginScreenLocators(String email,String password,String workspace) {
         waitForVisibilityOfElement(input_password);
         ElementsValidator(mottasl_logo,mottasl_3_label,a_trello_product_label,sign_into_your_account_label,input_email,input_password,remember_me_label,login_CTA,forget_password_link,dont_have_an_account_register,language);
         validateScreenTexts();
@@ -40,7 +40,7 @@ public class P01AvocadoLogin extends PageBase {
         clickOnElement(input_password);
         waitForVisibilityOfElement(workspace_dropdown);
         ElementsValidator(workspace_dropdown);
-        sendTextToInputField("Automat",workspace_dropdown);
+        sendTextToInputField(workspace,workspace_dropdown);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ARROW_DOWN);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ENTER);
         clickOnElement(login_CTA);
@@ -82,7 +82,7 @@ public class P01AvocadoLogin extends PageBase {
         clickOnElement(login_from_register);
         Assert.assertTrue(assertElementDisplayed(dont_have_an_account_register));
     }
-    public void loginToAvocado(String email,String password){
+    public void loginToAvocado(String email,String password,String workspace){
         waitForVisibilityOfElement(input_password);
         ElementsValidator(mottasl_logo,mottasl_3_label,a_trello_product_label,sign_into_your_account_label,input_email,input_password,remember_me_label,login_CTA,forget_password_link,dont_have_an_account_register,language);
         scrollToElement(input_email);
@@ -92,7 +92,7 @@ public class P01AvocadoLogin extends PageBase {
         clickOnElement(input_password);
         waitForVisibilityOfElement(workspace_dropdown);
         ElementsValidator(workspace_dropdown);
-        sendTextToInputField("Automat",workspace_dropdown);
+        sendTextToInputField(workspace,workspace_dropdown);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ARROW_DOWN);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ENTER);
         clickOnElement(login_CTA);

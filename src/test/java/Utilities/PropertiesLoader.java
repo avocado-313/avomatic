@@ -41,50 +41,5 @@ public class PropertiesLoader {
         File file = new File("src/config/env.properties");
         return getPropertyValue(key,file);
     }
-    public static String readBBranchFile(String key){
-        File file = new File("src/config/branch.properties");
-        return getPropertyValue(key,file);
-    }
-    public static String readManagerFile(String key){
-        File file = new File("src/config/manager.properties");
-        return getPropertyValue(key,file);
-    }
-    public static String readLeaderFile(String key){
-        File file = new File("src/config/leader.properties");
-        return getPropertyValue(key,file);
-    }
-    public static String readCashierFile(String key){
-        File file = new File("src/config/cashier.properties");
-        return getPropertyValue(key,file);
-    }
-    public static String readGroupFile(String key){
-        File file = new File("src/config/group.properties");
-        return getPropertyValue(key,file);
-    }
-
-    public static String readCategoryFile(String key){
-        File file = new File("src/config/category.properties");
-        return getPropertyValue(key,file);
-    }
-    public static String readProductFile(String key){
-        File file = new File("src/config/product.properties");
-        return getPropertyValue(key,file);
-    }
-    public static String readModifierFile(String key){
-        File file = new File("src/config/modifier.properties");
-        return getPropertyValue(key,file);
-    }
-    public static String readOptionFile(String key){
-        File file = new File("src/config/option.properties");
-        return getPropertyValue(key,file);
-    }
-    public static String readClientFile(String key){
-        File file = new File("src/config/client.properties");
-        return getPropertyValue(key,file);
-    }
-    public static String readDriverFile(String key){
-        File file = new File("src/config/driver.properties");
-        return getPropertyValue(key,file);
-    }
 
 }

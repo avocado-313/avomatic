@@ -7,8 +7,7 @@ import avocado.P03AvocadoWorkSpace;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Base.ReadProperties.password;
-import static Base.ReadProperties.username;
+import static Base.ReadProperties.*;
 
 public class M02WorkspceTest extends BaseTest {
     P01AvocadoLogin login ;
@@ -22,7 +21,7 @@ public class M02WorkspceTest extends BaseTest {
     }
     @Test
     public void TC_01ValidateWorkspace(){
-        login.loginToAvocado(username,password);
+        login.loginToAvocado(username,password,Workspace);
         home.checkHomeScreen();
         workspace.navigateToProfileWorkspace();
         workspace.validateWorkspaceElements();

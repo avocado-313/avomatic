@@ -8,8 +8,7 @@ import avocado.P05AvocadoApps;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Base.ReadProperties.password;
-import static Base.ReadProperties.username;
+import static Base.ReadProperties.*;
 
 public class M04AppsTest extends BaseTest {
     P01AvocadoLogin login ;
@@ -25,7 +24,7 @@ public class M04AppsTest extends BaseTest {
     }
     @Test
     public void TC_01ValidateGreetingScreen(){
-        login.loginToAvocado(username,password);
+        login.loginToAvocado(username,password,Workspace);
         home.checkHomeScreen();
         apps.navigateToGreetingScreen();
         apps.validateGreetingsScreen();
@@ -34,7 +33,7 @@ public class M04AppsTest extends BaseTest {
     }
     @Test
     public void TC_02ValidateWorkingHoursComponent(){
-        login.loginToAvocado(username,password);
+        login.loginToAvocado(username,password,Workspace);
         home.checkHomeScreen();
         apps.navigateToGreetingScreen();
         apps.validateGreetingsScreen();
@@ -42,7 +41,7 @@ public class M04AppsTest extends BaseTest {
     }
     @Test
     public void TC_03ValidateGreetingScreenFullScenario(){
-        login.loginToAvocado(username,password);
+        login.loginToAvocado(username,password,Workspace);
         home.checkHomeScreen();
         apps.navigateToGreetingScreen();
         apps.validateGreetingsScreen();

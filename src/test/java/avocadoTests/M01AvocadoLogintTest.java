@@ -5,8 +5,7 @@ import avocado.P01AvocadoLogin;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Base.ReadProperties.password;
-import static Base.ReadProperties.username;
+import static Base.ReadProperties.*;
 
 public class M01AvocadoLogintTest extends BaseTest {
     P01AvocadoLogin login ;
@@ -16,7 +15,7 @@ public class M01AvocadoLogintTest extends BaseTest {
     }
     @Test
     public void TC_01ValidateLoginToAvocado(){
-       login.validateLoginScreenLocators(username,password);
+       login.validateLoginScreenLocators(username,password,Workspace);
        login.logout();
     }
 }

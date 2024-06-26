@@ -5,8 +5,7 @@ import avocado.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Base.ReadProperties.password;
-import static Base.ReadProperties.username;
+import static Base.ReadProperties.*;
 
 public class M07TagsTest extends BaseTest {
     P01AvocadoLogin login ;
@@ -25,11 +24,15 @@ public class M07TagsTest extends BaseTest {
     }
     @Test
     public void TC_01ValidateTagsScreen() {
-        login.loginToAvocado(username, password);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         tags.validateTagsScreen();
         tags.validateTagCreation();
         tags.validateDeleteTag();
+    }
+    @Test
+    public void TC_02ValidateNavigateBackFromTags() {
+        tags.checkNavigateBackFromTags();
     }
 
 }

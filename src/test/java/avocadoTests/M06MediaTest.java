@@ -8,8 +8,7 @@ import avocado.P07AvocadoMedia;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static Base.ReadProperties.password;
-import static Base.ReadProperties.username;
+import static Base.ReadProperties.*;
 
 public class M06MediaTest extends BaseTest {
     P01AvocadoLogin login ;
@@ -26,7 +25,7 @@ public class M06MediaTest extends BaseTest {
     }
     @Test
     public void TC_01ValidateMediaScreen() {
-        login.loginToAvocado(username, password);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         media.validateUploadMediaFunctionality();
         media.validateMediaAcceptsLessThan10MbFiles();

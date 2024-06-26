@@ -88,5 +88,9 @@ public class P08AvocadoTags extends PageBase {
         waitForVisibilityOfElement(confirm_delete);
         clickOnElement(confirm_delete);
     }
+    public void checkNavigateBackFromTags(){
+        clickOnElement(back_CTA_from_tags_Screen);
+        Assert.assertTrue(assertElementDisplayed(tags_icon));
+    }
 
 }

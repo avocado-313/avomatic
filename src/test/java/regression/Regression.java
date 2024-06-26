@@ -105,13 +105,23 @@ public class Regression extends BaseTest {
         broadcast.validateBroadCastFromApps();
         broadcast.navigateToBroadcastFromApps();
         broadcast.checkBroadCastScreen();
+
     }
     @Test
-    public void TC_012validateCreateBroadCastScreen(){
-        broadcast.checkCreateBroadcastScreen();
-    }
-    @Test
-    public void TC_013validateNavigateBAckFunctionalityIntoBroadcast(){
+    public void TC_012validateNavigateBAckFunctionalityIntoBroadcast(){
         broadcast.checkNavigateBackIntoBroadcastScreen();
+        login.logout();
     }
+    @Test
+    public void TC_013validateCreateBroadCastScreen(){
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        broadcast.validateBroadCastFromApps();
+        broadcast.navigateToBroadcastFromApps();
+        broadcast.checkBroadCastScreen();
+        broadcast.checkCreateBroadcastScreen();
+        broadcast.selectTemplate();
+        broadcast.completeRecipientScreen(CONTACT);
+    }
+
 }

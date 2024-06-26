@@ -13,6 +13,7 @@ public class ReadProperties {
     public static final String username2 = getPropertyFromEnv("username2");
     public static final String password2 = getPropertyFromEnv("password2");
     public static final String Workspace2 = getPropertyFromEnv("workspace2");
+    public static final String CONTACT = getPropertyFromEnv("contact");
 
 
     private static String getPropertyFromEnv(String propertyName) {

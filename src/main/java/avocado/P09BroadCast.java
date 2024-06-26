@@ -3,6 +3,7 @@ package avocado;
 import PageBase.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class P09BroadCast extends PageBase {
@@ -17,6 +18,7 @@ public class P09BroadCast extends PageBase {
     private final By select_a_status = By.xpath("//*[@placeholder='Select a Status']");
     private final By select_by_date = By.xpath("//*[@data-testid='date-range-last-activity']");
     private final By search_input_field = By.xpath("//input[@placeholder='Search']");
+    private final By searchByTemplate_input_field = By.xpath("//input[@placeholder='Search by template id']");
     private final By grid_view = By.xpath("//*[@data-testid='GridViewOutlinedIcon']");
     private final By list_view = By.xpath("//*[@data-testid='FormatListBulletedRoundedIcon']");
     private final By apps_from_menu = By.xpath("//a[@aria-label='Apps']//*[name()='svg']");
@@ -41,6 +43,8 @@ public class P09BroadCast extends PageBase {
     private final By next_CTA = By.xpath("//*[normalize-space()='Next']");
     private final By dropdownArrow2 = By.xpath("(//*[@data-testid='ExpandMoreIcon'])[2]");
     private final By dropdownArrow3 = By.xpath("(//*[@data-testid='ExpandMoreIcon'])[3]");
+    private final By testQuick_template = By.xpath("//*[@data-testid='image-container']");
+
 
     public void validateBroadCastFromApps(){
         clickOnElement(apps_from_menu);
@@ -53,6 +57,7 @@ public class P09BroadCast extends PageBase {
 
     public void navigateToBroadcastFromApps(){
         clickOnElement(broadcast_from_apps);
+        waitForTime(6000);
         waitForVisibilityOfElement(broad_Cast_title);
     }
     public void checkBroadCastScreen(){
@@ -104,5 +109,72 @@ public class P09BroadCast extends PageBase {
         validateLocatorsWIthTexts(create_broadcast_schedule_or_send_broadcast_description,"Send your broadcast or schedule it here");
         Assert.assertTrue(assertElementDisplayed(dropdownArrow3));
     }
-
+    public void selectTemplate(){
+        scrollToElement(searchByTemplate_input_field);
+        sendTextToInputField("test_quick" , searchByTemplate_input_field);
+        waitForTime(5000);
+        scrollToElement(testQuick_template);
+        clickOnElement(testQuick_template);
+        scrollToElement(next_CTA);
+        clickOnElement(next_CTA);
+    }
+    private final By recipient_selection_title = By.xpath("//*[normalize-space()='Recipient Selection']");
+    private final By select_target_here = By.xpath("//*[normalize-space()='Select your broadcast targets here']");
+    private final By reset_target_CTA = By.xpath("//button[normalize-space()='Reset Targets']");
+    private final By all_contact_option = By.xpath("//*[normalize-space()='All Contacts']");
+    private final By contacts_option = By.xpath("(//button[normalize-space()='Contacts'])[1]");
+    private final By Last_assigned_to_agent_option = By.xpath("//button[normalize-space()='Last Assigned to Agent']");
+    private final By Customer_created_option = By.xpath("//button[normalize-space()='Customer Created']");
+    private final By All_closed_chats_option = By.xpath("//*[normalize-space()='All Closed Chats']");
+    private final By Tags_option = By.xpath("(//button[normalize-space()='Tags'])[1]");
+    private final By Last_assigned_to_teams_option = By.xpath("//button[normalize-space()='Last Assigned to Teams']");
+    private final By Country_option = By.xpath("//button[normalize-space()='Country']");
+    private final By All_unread_chats_option = By.xpath("//*[normalize-space()='All Unread Chats']");
+    private final By Custom_fields_option = By.xpath("//button[normalize-space()='Custom Fields']");
+    private final By Last_activity_option = By.xpath("//button[normalize-space()='Last Activity']");
+    private final By whatsapp_title = By.xpath("//*[normalize-space()='WhatsApp']");
+    private final By Filter_opted_out_option = By.xpath("//button[normalize-space()='Filter Opted Out']");
+    private final By Select_do_not_target_option = By.xpath("//*[normalize-space()='Select Do Not Target']");
+    private final By Tags_not_target_option = By.xpath("(//button[normalize-space()='Tags'])[2]");
+    private final By contacts_not_target_option = By.xpath("(//button[normalize-space()='Contacts'])[2]");
+    private final By add_rounded_icon = By.xpath("//*[@data-testid='AddRoundedIcon']");
+    private final By select_contacts_Screen_title = By.xpath("(//*[normalize-space()='Select Contacts'])[2]");
+    private final By Template_variables = By.xpath("(//*[normalize-space()='Template Variables'])[2]");
+    private final By upload_image_CTA = By.xpath("//button[normalize-space()='Upload image']");
+    private final By first_image = By.xpath("//*[@aria-label='kingston-negroni-720x720-primary1-ef87562fea8240de92dd09c36457a8c2.webp']");
+    private final By select_image = By.xpath("//button[normalize-space()='Select']");
+    private void uploadImage(){
+        scrollToElement(Template_variables);
+        scrollToElement(upload_image_CTA);
+        clickOnElement(upload_image_CTA);
+        clickOnElement(first_image);
+        scrollToElement(select_image);
+        clickOnElement(select_image);
+    }
+    private void validateRecipientScreen(){
+        waitForVisibilityOfElement(recipient_selection_title);
+        ElementsValidator(select_target_here,reset_target_CTA,all_contact_option,contacts_option,Last_assigned_to_agent_option,
+                Customer_created_option,All_closed_chats_option,Tags_option,Last_assigned_to_teams_option,Country_option,
+                All_unread_chats_option,Custom_fields_option,Last_activity_option,whatsapp_title,Filter_opted_out_option,
+                Select_do_not_target_option,Tags_not_target_option,contacts_not_target_option);
+    }
+    private void selectContact(String contact){
+        scrollToElement(contacts_option);
+        WebElement add_sign_of_contacts = driver.findElement(contacts_option).findElement(By.xpath("..")).findElement(add_rounded_icon);
+        add_sign_of_contacts.click();
+        waitForVisibilityOfElement(select_contacts_Screen_title);
+        sendTextToInputField(contact,By.xpath("//input[@placeholder='Search']"));
+        waitForVisibilityOfElement(By.xpath("//*[normalize-space()='" + contact + "']"));
+        clickOnElement(By.xpath("//*[normalize-space()='" + contact + "']"));
+        clickOnElement(By.xpath("//button[normalize-space()='Add to Filters']"));
+    }
+    public void completeRecipientScreen(String contact){
+        validateRecipientScreen();
+        selectContact(contact);
+        uploadImage();
+        scrollToElement(next_CTA);
+        clickOnElement(By.xpath("//button[normalize-space()='Next']"));
+        scrollToElement(By.xpath("//button[normalize-space()='Send Now']"));
+        clickOnElement(By.xpath("//button[normalize-space()='Send Now']"));
+    }
 }

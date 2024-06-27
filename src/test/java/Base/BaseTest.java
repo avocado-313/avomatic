@@ -87,7 +87,7 @@ public class BaseTest {
     @AfterClass(alwaysRun = true)
     public void tearDown(){
         if (driver != null){
-            driver.quit();
+//            driver.quit();
         }
         flushReport();
         System.out.println("Report path is here:  " + reportName );

@@ -143,6 +143,10 @@ public class P09BroadCast extends PageBase {
     private final By upload_image_CTA = By.xpath("//button[normalize-space()='Upload image']");
     private final By first_image = By.xpath("//*[@aria-label='kingston-negroni-720x720-primary1-ef87562fea8240de92dd09c36457a8c2.webp']");
     private final By select_image = By.xpath("//button[normalize-space()='Select']");
+    private final By X_Close = By.xpath("(//button[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-dflwta' and @type='button'])[7]");
+    private final By select_agent = By.xpath("(//*[normalize-space()='Select Agent'])[2]");
+    private final By search_on = By.xpath("//*[@placeholder='Search']");
+    private final By select_tags = By.xpath("(//*[normalize-space()='Select Tags'])[2]");
     private void uploadImage(){
         scrollToElement(Template_variables);
         scrollToElement(upload_image_CTA);
@@ -168,13 +172,35 @@ public class P09BroadCast extends PageBase {
         clickOnElement(By.xpath("//*[normalize-space()='" + contact + "']"));
         clickOnElement(By.xpath("//button[normalize-space()='Add to Filters']"));
     }
+    private void validateLastAgent(){
+        scrollToElement(Last_assigned_to_agent_option);
+        WebElement add_assigned_to_agent_option = driver.findElement(By.xpath("(//*[@data-testid='AddRoundedIcon'])[2]"));
+        add_assigned_to_agent_option.click();
+        waitForVisibilityOfElement(X_Close);
+        Assert.assertTrue(assertElementDisplayed(search_on));
+        Assert.assertTrue(assertElementDisplayed(select_agent));
+        clickOnElement(X_Close);
+    }
+    private void validateTags(){
+        scrollToElement(Tags_option);
+        WebElement add_tags = driver.findElement(By.xpath("(//*[@data-testid='AddRoundedIcon'])[3]"));
+        add_tags.click();
+        waitForVisibilityOfElement(X_Close);
+        Assert.assertTrue(assertElementDisplayed(search_on));
+        Assert.assertTrue(assertElementDisplayed(select_tags));
+        clickOnElement(X_Close);
+    }
     public void completeRecipientScreen(String contact){
         validateRecipientScreen();
+        validateLastAgent();
+        validateTags();
         selectContact(contact);
         uploadImage();
         scrollToElement(next_CTA);
         clickOnElement(By.xpath("//button[normalize-space()='Next']"));
-        scrollToElement(By.xpath("//button[normalize-space()='Send Now']"));
-        clickOnElement(By.xpath("//button[normalize-space()='Send Now']"));
+        scrollToElement(By.xpath("//*[normalize-space()='Send Now']"));
+        clickOnElement(By.xpath("//*[normalize-space()='Send Now']"));
+        waitForVisibilityOfElement(By.xpath("//*[normalize-space()='Continue']"));
+        clickOnElement(By.xpath("//*[normalize-space()='Continue']"));
     }
 }

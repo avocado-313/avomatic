@@ -84,6 +84,7 @@ public class P09BroadCast extends PageBase {
     }
     public void checkCreateBroadcastScreen(){
         clickOnElement(new_broadcast_CTA);
+        waitForTime(9000);
         waitForVisibilityOfElement(create_broadcast_title);
         validateLocatorsWIthTexts(create_broadcast_title,"Create Broadcast");
         validateLocatorsWIthTexts(create_broadcast_description,"Create new broadcast to start using it");

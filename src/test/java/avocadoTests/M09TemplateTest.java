@@ -25,7 +25,7 @@ public class M09TemplateTest extends BaseTest {
         template = new P10Template(driver);
     }
     @Test
-    public void TC_01ValidateBroadcastScreen() {
+    public void TC_01ValidateTemplateScreen() {
         login.loginToAvocado(username2, password2,Workspace2);
         home.checkHomeScreen();
         template.validateTemplateScreen();

@@ -17,6 +17,7 @@ public class Regression extends BaseTest {
     P07AvocadoMedia media;
     P08AvocadoTags tags;
     P09BroadCast broadcast;
+    P10Template template;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -28,6 +29,7 @@ public class Regression extends BaseTest {
         media = new P07AvocadoMedia(driver);
         tags = new P08AvocadoTags(driver);
         broadcast = new P09BroadCast(driver);
+        template = new P10Template(driver);
     }
 
     @Test
@@ -122,6 +124,15 @@ public class Regression extends BaseTest {
         broadcast.checkCreateBroadcastScreen();
         broadcast.selectTemplate();
         broadcast.completeRecipientScreen(CONTACT);
+        login.logout();
+    }
+    @Test
+    public void TC_014ValidateTemplateScreen() {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.validateCreateTemplateScreen();
+
     }
 
 }

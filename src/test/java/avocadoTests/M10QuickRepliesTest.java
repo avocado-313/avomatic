@@ -22,7 +22,7 @@ public class M10QuickRepliesTest extends BaseTest {
         reply = new P11QuickReplies(driver);
     }
     @Test
-    public void TC_01ValidateTemplateScreen() {
+    public void TC_01ValidateQuickReplyScreen() {
         login.loginToAvocado(username2, password2,Workspace2);
         home.checkHomeScreen();
         reply.validateQuickRepliesFromApps();

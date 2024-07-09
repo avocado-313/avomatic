@@ -41,6 +41,7 @@ public class P11QuickReplies extends PageBase {
         Assert.assertTrue(driver.findElement(quick_replies_title_fromQuick_replies_screen).getText().contains("Quick Replies"));
         waitForVisibilityOfElement(quick_Replies_description_from_quickReplies_screen);
         Assert.assertTrue(driver.findElement(quick_Replies_description_from_quickReplies_screen).getText().contains("Respond to customers faster by setting pre-composed messages."));
+        waitForTime(5000);
         ElementsValidator(back_CTA_from_quick_replies,create_quick_reply_CTA,back_CTA_from_quick_replies,quick_replies_icon,
                 search_icon,search_input,all_types_of_quick_replies_list,grid_view_icon,list_view_icon);
 

@@ -18,6 +18,7 @@ public class Regression extends BaseTest {
     P08AvocadoTags tags;
     P09BroadCast broadcast;
     P10Template template;
+    P11QuickReplies reply;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -30,6 +31,7 @@ public class Regression extends BaseTest {
         tags = new P08AvocadoTags(driver);
         broadcast = new P09BroadCast(driver);
         template = new P10Template(driver);
+        reply = new P11QuickReplies(driver);
     }
 
     @Test
@@ -132,6 +134,16 @@ public class Regression extends BaseTest {
         home.checkHomeScreen();
         template.validateTemplateScreen();
         template.validateCreateTemplateScreen();
+        login.logout();
+
+    }
+    @Test
+    public void TC_15ValidateQuickRepliesScreen() {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        reply.validateQuickRepliesFromApps();
+        reply.validateQuickRepliesScreen();
+        reply.validateCreateNewQuickReplyTemplate();
 
     }
 

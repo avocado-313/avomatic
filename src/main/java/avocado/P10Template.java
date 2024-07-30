@@ -14,8 +14,6 @@ public class P10Template extends PageBase {
     private final By submit_template_CTA = By.xpath("//*[@data-testid='header-create-submit-templates-button2']");
     private final By sync_template = By.xpath("//*[@data-testid='header-sync-templates-button1']");
     private final By back_arrow = By.xpath("//*[@data-testid='ArrowBackIosNewRoundedIcon']");
-    private final By apps_from_menu = By.xpath("//a[@aria-label='Apps']//*[name()='svg']");
-    private final By greeting_and_away = By.xpath("//p[normalize-space()='Greetings & Away']");
     private final By template_from_apps = By.xpath("//p[normalize-space()='Templates']");
     private final By template_id_input_field = By.xpath("//*[@placeholder='Template ID']");
     private final By template_description_input_field = By.xpath("//*[@placeholder='Description (Optional)']");
@@ -45,14 +43,14 @@ public class P10Template extends PageBase {
                 allow_category_change,media_title,none_media,image_media,video_media,docs_media,body_text,
                 add_footer_text,buttons,none_buttons,CTA_Buttons, quick_replies_button,whats_app_message_preview);
     }
-    public void validateBroadCastFromApps(){
+    public void validateTemplateFromApps(){
         clickOnElement(apps_from_menu);
         waitForVisibilityOfElement(greeting_and_away);
         scrollToElement(template_from_apps);
         Assert.assertTrue(driver.findElement(template_from_apps).getText().contains("Templates"));
     }
     public void validateTemplateScreen(){
-        validateBroadCastFromApps();
+        validateTemplateFromApps();
         clickOnElement(template_from_apps);
         waitForVisibilityOfElement(template_title);
         Assert.assertTrue(driver.findElement(template_title).getText().contains("Templates"));

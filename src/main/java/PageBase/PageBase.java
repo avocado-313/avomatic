@@ -29,6 +29,8 @@ public class PageBase {
     private final By input_email = By.xpath("(//input[@id=':r0:'])[1]");
     private final By profile_icon_from_menu = By.xpath("//button[@aria-label='Profile']");
     private final By logout_dropdown_from_settings = By.xpath("//p[normalize-space()='Logout']");
+    public final By apps_from_menu = By.xpath("//a[@aria-label='Apps']//*[name()='svg']");
+    public final By greeting_and_away = By.xpath("//p[normalize-space()='Greetings & Away']");
     public void logout(){
         waitForTime(7000);
         clickOnElement(profile_icon_from_menu);

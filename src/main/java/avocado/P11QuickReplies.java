@@ -56,6 +56,7 @@ public class P11QuickReplies extends PageBase {
         waitForTime(10000);
         fillQuickReplyForm();
     }
+
     private void fillQuickReplyForm(){
         try {
             clickOnElement(available_to_list);

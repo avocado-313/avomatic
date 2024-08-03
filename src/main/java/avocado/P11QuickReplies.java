@@ -61,15 +61,22 @@ public class P11QuickReplies extends PageBase {
         try {
             clickOnElement(available_to_list);
             clickOnElement(By.xpath("//*[normalize-space()='All']"));
-            clickOnElement(short_code_input_field);
-            sendKeysWithJs(short_code_input_field, "quickReplyCode");
-            clickOnElement(keywords_input_field);
-            sendTextToInputField("keyWord", keywords_input_field);
-            clickOnElement(body_text_input_field);
-            sendTextToInputField("body", body_text_input_field);
+//            clickOnElement(short_code_input_field);
+            sendTextToInputField( generateRandomDigits(5),By.xpath("//div[@class='MuiFormControl-root MuiTextField-root devias-textbox small css-i44wyl']//input\n"));
+//            clickOnElement(keywords_input_field);
+            sendTextToInputField("keyWord", By.xpath("//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiAutocomplete-inputRoot css-zykvm2']//input"));
+//            clickOnElement(body_text_input_field);
+            sendTextToInputField("body", By.xpath("(//textarea[@class='MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-u36398'])[1]"));
             clickOnElement(By.xpath("//*[normalize-space()='Save']"));
+            waitForTime(5000);
+            deleteQuickReply();
         }catch (Exception e){
             clickOnElement(By.xpath("//*[normalize-space()='Cancel']"));
         }
+    }
+    private void deleteQuickReply(){
+        clickOnElement(By.xpath("(//*[@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[5]"));
+        clickOnElement(By.xpath("//button[normalize-space()='Delete']"));
+        clickOnElement(By.xpath("//button[normalize-space()='Delete']"));
     }
 }

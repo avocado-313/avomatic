@@ -201,6 +201,7 @@ public class P09BroadCast extends PageBase {
         clickOnElement(By.xpath("//button[normalize-space()='Next']"));
         scrollToElement(By.xpath("//*[normalize-space()='Send Now']"));
         clickOnElement(By.xpath("//*[normalize-space()='Send Now']"));
+        waitForTime(5000);
         waitForVisibilityOfElement(By.xpath("//*[normalize-space()='Continue']"));
         clickOnElement(By.xpath("//*[normalize-space()='Continue']"));
     }

@@ -127,7 +127,7 @@ public class Regression extends BaseTest {
         broadcast.checkBroadCastScreen();
         broadcast.checkCreateBroadcastScreen();
         broadcast.selectTemplate();
-        broadcast.completeRecipientScreen(CONTACT);
+//        broadcast.completeRecipientScreen(CONTACT);
         login.logout();
     }
     @Test

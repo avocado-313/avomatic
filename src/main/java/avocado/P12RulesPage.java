@@ -91,7 +91,7 @@ public class P12RulesPage extends PageBase {
 //        driver.findElement(equalTo).click();
 //        waitForTime(2000);
         scrollToElement(createNEwRuleCTA);
-        driver.findElement(createNEwRuleCTA).click();
+        driver.findElement(By.xpath("(//*[@data-testid='CloseIcon'])[1]")).click();
 
     }
     private void scrollAndSendText(By by , String text){

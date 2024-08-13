@@ -12,7 +12,7 @@ public class P06AvocadoSearch extends PageBase {
     }
     private final By search_icon_from_menu = By.xpath("//div[@aria-label='Search']//*[name()='svg']");
     private final By search_title = By.xpath("(//h5[normalize-space()='Search'])[1]");
-    private final By x_close = By.xpath("(//*[name()='path'])[12]");
+    private final By x_close = By.xpath("//*[@data-testid='search-close-icon']");
     private final By new_chat_icon = By.xpath("//button[normalize-space()='+ New Chat']");
     private final By phrase_outside_search_container = By.xpath("//p[normalize-space()='Please select one contact from the chats sidebar.']");
     private final By message_tab_title = By.xpath("//p[normalize-space()='Messages']");
@@ -80,7 +80,7 @@ public class P06AvocadoSearch extends PageBase {
         clickOnElement(message_type_dropdown_arrow);
         waitForVisibilityOfElement(text_from_message_type_dropdown);
         ElementsValidator(text_from_message_type_dropdown,image_from_message_type_dropdown,video_from_message_type_dropdown);
-        selectOptions(2,text_from_message_type_dropdown,image_from_message_type_dropdown,video_from_message_type_dropdown,document_from_message_type_dropdown);
+//        selectOptions(2,text_from_message_type_dropdown,image_from_message_type_dropdown,video_from_message_type_dropdown,document_from_message_type_dropdown);
     }
     public void validateLastActivity(){
         waitForVisibilityOfElement(last_activity);

@@ -68,7 +68,6 @@ public class P01AvocadoLogin extends PageBase {
         Assert.assertTrue(assertElementDisplayed(forget_password_label));
         Assert.assertTrue(assertElementDisplayed(reset_link));
         clickOnElement(login_From_forget_password);
-        clickOnElement(login_From_forget_password);
         Assert.assertTrue(assertElementDisplayed(forget_password_link));
     }
     private final By create_an_account_label = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-6f19s'])[1]");

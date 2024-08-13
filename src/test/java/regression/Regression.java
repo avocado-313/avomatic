@@ -201,7 +201,6 @@ public class Regression extends BaseTest {
         rule.checkCreateRulesScreen();
         rule.checkCreateRuleModalElements();
         rule.createNewRule();
-
     }
 
 }

@@ -71,5 +71,4 @@ jobs:
           subject: "E2E Test Automation Report - Run ${{ github.run_number }}"
           body: |
             Avodad0 E2E test automation run has completed. Check the attached report for details .
-
           attachment: src/main/SurefireReports/emailable-report.html

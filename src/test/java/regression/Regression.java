@@ -20,6 +20,7 @@ public class Regression extends BaseTest {
     P10Template template;
     P11QuickReplies reply;
     P12RulesPage rule;
+    P013CustomAttributes custom;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -34,6 +35,7 @@ public class Regression extends BaseTest {
         template = new P10Template(driver);
         reply = new P11QuickReplies(driver);
         rule = new P12RulesPage(driver);
+        custom = new P013CustomAttributes(driver);
     }
 
     @Test
@@ -201,6 +203,30 @@ public class Regression extends BaseTest {
         rule.checkCreateRulesScreen();
         rule.checkCreateRuleModalElements();
         rule.createNewRule();
+        login.logout();
+    }
+    @Test
+    public void TC_21validateCustomAttributesFromApp() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        custom.checkCustomAttributesFromApps();
+    }
+    @Test
+    public void TC_22validateCustomAttributesScreenElements() {
+        custom.navigateToCustomAttributes();
+        custom.checkCustomAttributesScreen();
+    }
+    @Test
+    public void TC_23validateCustomAttributesScreenTemplate() {
+        custom.validateCreateCustomAttributeTemplate();
+    }
+    @Test
+    public void TC_24validateCustomAttributesCreation() {
+        custom.fillCreateCustomAttributesTemplate();
+    }
+    @Test
+    public void TC_25validateDeleteCustomAttributes() {
+        custom.deleteCustomAttributes();
     }
 
 }

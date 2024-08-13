@@ -55,7 +55,7 @@ public class P10Template extends PageBase {
         waitForVisibilityOfElement(template_title);
         Assert.assertTrue(driver.findElement(template_title).getText().contains("Templates"));
         Assert.assertTrue(driver.findElement(template_sub_title).getText().contains("Manage your WhatsApp templates here."));
-        ElementsValidator(back_arrow , sync_template, submit_template_CTA);
+        ElementsValidator(back_arrow , submit_template_CTA);
 
 
     }

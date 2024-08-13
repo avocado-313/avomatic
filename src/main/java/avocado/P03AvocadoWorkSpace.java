@@ -39,8 +39,8 @@ public class P03AvocadoWorkSpace extends PageBase {
     private final By profile_upload_image_title = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-9l3uo3'])[1]");
     private final By upload_workspace_image_CTA = By.xpath("//button[normalize-space()='Upload Image']");
     private final By email_input = By.xpath("(//input[@type='text'])[2]");
-    private final By organization_name_input = By.xpath("(//input[@type='text'])[1]");
-    private final By legal_name_input = By.xpath("(//input[@type='text'])[3]");
+    private final By organization_name_input = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq'])[2]");
+    private final By legal_name_input = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq'])[2]");
     private final By i_icon = By.xpath("(//*[name()='svg'][@aria-label='Timezone selected here will be used by the rules, greetings away messages and other modules'])[1]");
     private final By business_time_zone_title = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-wje1bd'])[1]");
     private final By select_time_zone = By.xpath("(//fieldset[contains(@class, 'MuiOutlinedInput-notchedOutline')])[4]");

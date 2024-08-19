@@ -32,8 +32,9 @@ public class PageBase {
     public final By apps_from_menu = By.xpath("//a[@aria-label='Apps']//*[name()='svg']");
     public final By greeting_and_away = By.xpath("//p[normalize-space()='Greetings & Away']");
     public void logout(){
-        waitForTime(7000);
-        clickOnElement(profile_icon_from_menu);
+        Actions actions = new Actions(driver);
+        waitForTime(6000);
+        driver.navigate().to("https://test.app.avocad0.dev/settings/account/profile");
         try {
             clickOnElement(logout_dropdown_from_settings);
         }catch (Exception e){
@@ -115,6 +116,7 @@ public class PageBase {
         waitForVisibilityOfElement(by);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].dispatchEvent(new Event('click'));", driver.findElement(by));
+        System.out.println("element clicked using JS");
     }
 
     public void sendTextToInputField(String text, By by) {

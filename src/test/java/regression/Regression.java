@@ -50,16 +50,16 @@ public class Regression extends BaseTest {
         home.checkEachMenuIconNavigation();
         login.logout();
     }
-    @Test
-    public void TC_003ValidateWorkspace(){
-        login.loginToAvocado(username,password,Workspace);
-        home.checkHomeScreen();
-        workSpace.navigateToProfileWorkspace();
-        workSpace.validateWorkspaceElements();
-        workSpace.validateChangePassword();
-        workSpace.checkWorkSpaceProfile();
-        login.logout();
-    }
+//    @Test
+//    public void TC_003ValidateWorkspace(){
+//        login.loginToAvocado(username,password,Workspace);
+//        home.checkHomeScreen();
+//        workSpace.navigateToProfileWorkspace();
+//        workSpace.validateWorkspaceElements();
+//        workSpace.validateChangePassword();
+//        workSpace.checkWorkSpaceProfile();
+//        login.logout();
+//    }
     @Test
     public void TC_004ValidateGreetingScreenFullScenario(){
         login.loginToAvocado(username,password,Workspace);

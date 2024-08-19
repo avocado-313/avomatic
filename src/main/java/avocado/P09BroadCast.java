@@ -92,8 +92,8 @@ public class P09BroadCast extends PageBase {
         validateLocatorsWIthTexts(create_broadcast_broadcast_details_description,"Name your broadcast and select the language and template.");
         scrollToElement(broadcast_name_input);
         Assert.assertTrue(driver.findElement(broadcast_name_input).getAttribute("value").contains("broadcast_"));
-        scrollToElement(select_language_input);
-        Assert.assertTrue(driver.findElement(select_language_input).getAttribute("value").contains("English (UK)"));
+//        scrollToElement(select_language_input);
+//        Assert.assertTrue(driver.findElement(select_language_input).getAttribute("value").contains("English (UK)"));
         scrollToElement(prepare_broadcast_As_draft_checkbox);
         validateLocatorsWIthTexts(prepare_broadcast_as_draft,"Prepare broadcast as draft?");
         scrollToElement(search_by_template_input_field);

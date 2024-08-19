@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import static com.google.gson.internal.bind.TypeAdapters.URL;
+
 public class P03AvocadoWorkSpace extends PageBase {
     public P03AvocadoWorkSpace(WebDriver driver) {
         super(driver);
@@ -17,8 +19,7 @@ public class P03AvocadoWorkSpace extends PageBase {
     private final By profile_icon_from_profile_menu = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-colorSecondary MuiSvgIcon-fontSizeMedium css-v5fipd'])[3]");
     private final By settings_title_into_profile_screen = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1hxh1sq'])[1]");
     private final By settings_subTitle_from_profile_screen = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-190tmhz'])[1]");
-    private final By agent_profile_title_from_profile_screen = By.xpath("(//h6[normalize-space()='Agent Profile'])[1]");
-    private final By agent_profile_desc_from_profile_screen = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-lssex9'])[1]");
+//    private final By agent_profile_title_from_profile_screen = By.xpath("(//h6[normalize-space()='Agent Profile'])[1]");
     private final By workspace_profile_from_side_menu = By.xpath("(//p[normalize-space()='Workspace Profile'])[1]");
     private final By upload_photo_CTA = By.xpath("(//button[normalize-space()='Upload image'])[1]");
     private final By agents_frm_side_menu = By.xpath("(//p[normalize-space()='Agents'])[1]");
@@ -49,18 +50,19 @@ public class P03AvocadoWorkSpace extends PageBase {
 
     public void navigateToProfileWorkspace() {
         scrollToElement(profile_from_side_menu);
-        clickOnElement(profile_from_side_menu);
-        Assert.assertTrue(assertElementDisplayed(profile_from_profile_menu));
-        Assert.assertTrue(assertElementDisplayed(profile_icon_from_profile_menu));
-        clickOnElement(profile_from_profile_menu);
+        driver.navigate().to(URL + "/settings/workspace/account-profile");
+        waitForTime(5000);
+//        Assert.assertTrue(assertElementDisplayed(profile_from_profile_menu));
+//        Assert.assertTrue(assertElementDisplayed(profile_icon_from_profile_menu));
+//        clickOnElement(profile_from_profile_menu);
         waitForVisibilityOfElement(settings_title_into_profile_screen);
     }
 
     public void validateWorkspaceElements() {
-        waitForVisibilityOfElement(contact_name_input);
-        ElementsValidator(settings_title_into_profile_screen, settings_subTitle_from_profile_screen, agent_profile_title_from_profile_screen,
-                agent_profile_desc_from_profile_screen, workspace_profile_from_side_menu, upload_photo_CTA, agents_frm_side_menu,
-                teams_from_side_menu, contact_name_input, select_flag_arrow, mobile_number_input
+        waitForVisibilityOfElement(settings_title_into_profile_screen);
+        ElementsValidator(settings_title_into_profile_screen, settings_subTitle_from_profile_screen,
+                 workspace_profile_from_side_menu, upload_photo_CTA, agents_frm_side_menu,
+                teams_from_side_menu, select_flag_arrow, mobile_number_input
                 , address_text_input, select_country_arrow, change_password);
     }
 

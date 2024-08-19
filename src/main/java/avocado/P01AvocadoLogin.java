@@ -40,9 +40,12 @@ public class P01AvocadoLogin extends PageBase {
         clickOnElement(input_password);
         waitForVisibilityOfElement(workspace_dropdown);
         ElementsValidator(workspace_dropdown);
-        sendTextToInputField(workspace,workspace_dropdown);
+        waitForTime(5000);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ARROW_DOWN);
-        driver.findElement(workspace_dropdown).sendKeys(Keys.ENTER);
+        waitForTime(5000);
+        System.out.println("down clicked");
+        driver.findElement(By.xpath("//*[normalize-space()='" + workspace+ "']")).click();
+        waitForTime(5000);
         clickOnElement(login_CTA);
         waitForVisibilityOfElement(avocado_logo_from_home);
     }
@@ -91,9 +94,12 @@ public class P01AvocadoLogin extends PageBase {
         clickOnElement(input_password);
         waitForVisibilityOfElement(workspace_dropdown);
         ElementsValidator(workspace_dropdown);
-        sendTextToInputField(workspace,workspace_dropdown);
+        waitForTime(5000);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ARROW_DOWN);
-        driver.findElement(workspace_dropdown).sendKeys(Keys.ENTER);
+        waitForTime(5000);
+        System.out.println("down clicked");
+        driver.findElement(By.xpath("//*[normalize-space()='" + workspace+ "']")).click();
+        waitForTime(7000);
         clickOnElement(login_CTA);
         waitForVisibilityOfElement(avocado_logo_from_home);
     }

@@ -14,6 +14,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -75,6 +76,10 @@ public class PageBase {
     public Boolean assertElementDisplayed(By by) {
         waitForVisibilityOfElement(by);
         return driver.findElement(by).isDisplayed();
+    }
+    public Boolean assertElementNotDisplayed(By by) {
+        List<WebElement> elements = driver.findElements(by);
+         return elements.isEmpty(); // Assert that no elements are found
     }
 
     public void scrollToElement(WebElement element) {

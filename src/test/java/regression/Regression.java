@@ -21,6 +21,7 @@ public class Regression extends BaseTest {
     P11QuickReplies reply;
     P12RulesPage rule;
     P013CustomAttributes custom;
+    P14ECommerce commerce;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -35,6 +36,7 @@ public class Regression extends BaseTest {
         template = new P10Template(driver);
         reply = new P11QuickReplies(driver);
         rule = new P12RulesPage(driver);
+        custom = new P013CustomAttributes(driver);
         custom = new P013CustomAttributes(driver);
     }
 
@@ -227,6 +229,22 @@ public class Regression extends BaseTest {
     @Test
     public void TC_25validateDeleteCustomAttributes() {
         custom.deleteCustomAttributes();
+        login.logout();
+    }
+    @Test
+    public void TC_26validateEcommerceScreen() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        login.logout();
+    }
+    @Test
+    public void TC_27validateZidCard() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        commerce.checkZidIntegrationCard();
+        login.logout();
     }
 
 }

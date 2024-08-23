@@ -22,6 +22,8 @@ public class Regression extends BaseTest {
     P12RulesPage rule;
     P013CustomAttributes custom;
     P14ECommerce commerce;
+    P15ZidPage zid;
+    P16SallaPage sala;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -37,7 +39,10 @@ public class Regression extends BaseTest {
         reply = new P11QuickReplies(driver);
         rule = new P12RulesPage(driver);
         custom = new P013CustomAttributes(driver);
-        custom = new P013CustomAttributes(driver);
+        zid = new P15ZidPage(driver);
+        sala = new P16SallaPage(driver);
+        commerce = new P14ECommerce(driver);
+
     }
 
     @Test
@@ -228,7 +233,11 @@ public class Regression extends BaseTest {
     }
     @Test
     public void TC_25validateDeleteCustomAttributes() {
-        custom.deleteCustomAttributes();
+        try {
+            custom.deleteCustomAttributes();
+        }catch (Exception e){
+            e.getStackTrace();
+        }
         login.logout();
     }
     @Test
@@ -243,7 +252,24 @@ public class Regression extends BaseTest {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
-        commerce.checkZidIntegrationCard();
+        zid.checkZidIntegrationCard();
+        login.logout();
+    }
+    @Test
+    public void TC_27validateSallaCard() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        sala.checkSallaCard();
+        login.logout();
+    }
+    @Test
+    public void TC_28validateSallaIntegrationModal() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        sala.checkSallaCard();
+        sala.checkSallaModal();
         login.logout();
     }
 

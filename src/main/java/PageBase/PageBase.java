@@ -32,6 +32,8 @@ public class PageBase {
     private final By logout_dropdown_from_settings = By.xpath("//p[normalize-space()='Logout']");
     public final By apps_from_menu = By.xpath("//a[@aria-label='Apps']//*[name()='svg']");
     public final By greeting_and_away = By.xpath("//p[normalize-space()='Greetings & Away']");
+    public final By ECommerceTitle = By.xpath("//*[@data-testid='title']");
+
     public void logout(){
         Actions actions = new Actions(driver);
         waitForTime(6000);
@@ -60,6 +62,10 @@ public class PageBase {
 
     public void waitForVisibilityOfElement(By by) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+    }
+    public void waitForVisibilityOfElement(By by,int durationIntoSec) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(durationIntoSec));
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
     }
 
@@ -361,6 +367,20 @@ public class PageBase {
 
 
     }
+    public void closeSecondAndBackToFirst(By locatorWhichDisplayedIntoFirstScreen) {
+        String currentWindowHandle = driver.getWindowHandle();
+        Set<String> allWindowHandles = driver.getWindowHandles();
+        driver.close();
+        for (String windowHandle : allWindowHandles) {
+            if (!windowHandle.equals(currentWindowHandle)) {
+                driver.switchTo().window(windowHandle);
+                break;
+            }
+        }
+        System.out.println("Current window title: " + driver.getTitle());
+        waitForVisibilityOfElement(locatorWhichDisplayedIntoFirstScreen);
+    }
+
 
 
 }

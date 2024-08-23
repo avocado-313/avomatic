@@ -7,13 +7,18 @@ import java.util.Random;
 
 public class ReadProperties {
     public static final String URL = getPropertyFromEnv("URL");
+
     public static final String username = getPropertyFromEnv("username");
+
     public static final String password = getPropertyFromEnv("password");
+
     public static final String Workspace = getPropertyFromEnv("workspace");
     public static final String username2 = getPropertyFromEnv("username2");
     public static final String password2 = getPropertyFromEnv("password2");
     public static final String Workspace2 = getPropertyFromEnv("workspace2");
     public static final String CONTACT = getPropertyFromEnv("contact");
+    public static final String zidEmail = getPropertyFromEnv("zidEmail");
+    public static final String zidPassword = getPropertyFromEnv("zidPassword");
 
 
     private static String getPropertyFromEnv(String propertyName) {

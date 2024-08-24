@@ -1,6 +1,7 @@
 package avocado;
 
 import PageBase.PageBase;
+import com.beust.ah.A;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -181,6 +182,8 @@ public class P07AvocadoMedia extends PageBase {
         driver.findElement(upload_media).sendKeys(file_path + file_name);
         waitForVisibilityOfElement(caption_input);
         sendTextToInputField("first " + media + "uploaded", caption_input);
+        Actions action = new Actions(driver);
+        action.moveToElement(driver.findElement(upload_media)).doubleClick().perform();
         clickOnElement(upload_media_CTA);
         waitForTime(12000);
         try {
@@ -201,7 +204,6 @@ public class P07AvocadoMedia extends PageBase {
         validateMediaDeletedSuccessfully(file_name);
         waitForTime(5000);
         driver.findElement(search_input).clear();
-        Actions action = new Actions(driver);
         action.sendKeys(Keys.ENTER);
         driver.navigate().refresh();
         waitForTime(3000);

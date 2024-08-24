@@ -23,7 +23,9 @@ public class Regression extends BaseTest {
     P013CustomAttributes custom;
     P14ECommerce commerce;
     P15ZidPage zid;
-    P16SallaPage sala;
+    P16SallaPage salla;
+    P17ShopifyPage shopify;
+    P18WooCommercePage woo;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -40,8 +42,10 @@ public class Regression extends BaseTest {
         rule = new P12RulesPage(driver);
         custom = new P013CustomAttributes(driver);
         zid = new P15ZidPage(driver);
-        sala = new P16SallaPage(driver);
+        salla = new P16SallaPage(driver);
         commerce = new P14ECommerce(driver);
+        shopify = new P17ShopifyPage(driver);
+        woo = new P18WooCommercePage(driver);
 
     }
 
@@ -260,7 +264,7 @@ public class Regression extends BaseTest {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
-        sala.checkSallaCard();
+        salla.checkSallaCard();
         login.logout();
     }
     @Test
@@ -268,8 +272,42 @@ public class Regression extends BaseTest {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
-        sala.checkSallaCard();
-        sala.checkSallaModal();
+        salla.checkSallaCard();
+        salla.checkSallaModal();
+        login.logout();
+    }
+    @Test
+    public void TC_29validateShopifyCard() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        shopify.checkShopifyCardIntoEcommerceScreen();
+        login.logout();
+    }
+    @Test
+    public void TC_30validateShopifyIntegrationModal() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        shopify.checkShopifyCardIntoEcommerceScreen();
+        shopify.checkShopifyIntegrationCard();
+        login.logout();
+    }
+    @Test
+    public void TC_31validateWooCommerceCard() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        woo.checkWooCommerceCardIntoECommerce();
+        login.logout();
+    }
+    @Test
+    public void TC_32validateWooCommerceIntegrationModal() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        woo.checkWooCommerceCardIntoECommerce();
+        woo.checkWooCommerceIntegrationCard();
         login.logout();
     }
 

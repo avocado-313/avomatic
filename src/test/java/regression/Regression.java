@@ -51,90 +51,92 @@ public class Regression extends BaseTest {
 
     }
 
+    @Test
+    public void TC_001ValidateLoginToAvocado(){
+        login.validateLoginScreenLocators(username,password,Workspace);
+        login.logout();
+    }
+    @Test
+    public void TC_002ValidateIconsOfHomeScreen(){
+        login.loginToAvocado(username,password,Workspace);
+        home.checkHomeScreen();
+        home.checkEachMenuIconNavigation();
+        login.logout();
+    }
 //    @Test
-//    public void TC_001ValidateLoginToAvocado(){
-//        login.validateLoginScreenLocators(username,password,Workspace);
-//        login.logout();
-//    }
-//    @Test
-//    public void TC_002ValidateIconsOfHomeScreen(){
+//    public void TC_003ValidateWorkspace(){
 //        login.loginToAvocado(username,password,Workspace);
 //        home.checkHomeScreen();
-//        home.checkEachMenuIconNavigation();
+//        workSpace.navigateToProfileWorkspace();
+//        workSpace.validateWorkspaceElements();
+//        workSpace.validateChangePassword();
+//        workSpace.checkWorkSpaceProfile();
 //        login.logout();
 //    }
-////    @Test
-////    public void TC_003ValidateWorkspace(){
-////        login.loginToAvocado(username,password,Workspace);
-////        home.checkHomeScreen();
-////        workSpace.navigateToProfileWorkspace();
-////        workSpace.validateWorkspaceElements();
-////        workSpace.validateChangePassword();
-////        workSpace.checkWorkSpaceProfile();
-////        login.logout();
-////    }
-//    @Test
-//    public void TC_004ValidateGreetingScreenFullScenario(){
-//        login.loginToAvocado(username,password,Workspace);
-//        home.checkHomeScreen();
-//        apps.navigateToGreetingScreen();
-//        apps.validateGreetingsScreen();
-//        apps.setWorkingHours("07","04");
-//        apps.validateGreetingMessageComponent();
-//        apps.sendGreetingMessage();
-//        login.logout();
-//    }
-//    @Test
-//    public void TC_005ValidateContacts() {
-//        login.loginToAvocado(username, password,Workspace);
-//        home.checkHomeScreen();
-//        contacts.navigateAndValidateContactsScreen();
-////        contacts.validateCreateContactCard();
-//    }
-//    @Test
-//    public void TC_006ValidateContactsCreation() {
-////        contacts.createNewContact();
-////        contacts.validateChatScreen();
-//    }
-//    @Test
-//    public void TC_007ValidateSearchScreen() {
-//        search.validateSearchScreen();
-//        search.validateSearchXClose();
-//        search.validateSearchScreen();
-//        search.validateContactsTab();
-//        search.validateMessageTab();
-//        search.validateLastActivity();
-//    }
-//    @Test
-//    public void TC_008ValidateMediaScreen() {
-//        media.validateUploadMediaFunctionality();
-//        media.validateMediaAcceptsLessThan10MbFiles();
-//        media.validateNavigateBackFromMediaToApps();
-//    }
-//    @Test
-//    public void TC_009ValidateTagsScreen() {
-//        tags.validateTagsScreen();
-//        tags.validateTagCreation();
-//        tags.validateDeleteTag();
-//    }
-//    @Test
-//    public void TC_010ValidateNavigateBackFromTags() {
-//        tags.checkNavigateBackFromTags();
-//    }
-//    @Test
-//    public void TC_011ValidateBroadcastScreen() {
-//        broadcast.validateBroadCastFromApps();
-//        broadcast.navigateToBroadcastFromApps();
-//        broadcast.checkBroadCastScreen();
-//
-//    }
-//    @Test
-//    public void TC_012validateNavigateBAckFunctionalityIntoBroadcast(){
-//        broadcast.checkNavigateBackIntoBroadcastScreen();
-//        login.logout();
-//    }
-//    @Test
-//    public void TC_013validateCreateBroadCastScreen(){
+    @Test
+    public void TC_004ValidateGreetingScreenFullScenario(){
+        login.loginToAvocado(username,password,Workspace);
+        home.checkHomeScreen();
+        apps.navigateToGreetingScreen();
+        apps.validateGreetingsScreen();
+        apps.setWorkingHours("07","04");
+        apps.validateGreetingMessageComponent();
+        apps.sendGreetingMessage();
+        login.logout();
+    }
+    @Test
+    public void TC_005ValidateContacts() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.navigateAndValidateContactsScreen();
+//        contacts.validateCreateContactCard();
+    }
+    @Test
+    public void TC_006ValidateContactsCreation() {
+//        contacts.createNewContact();
+//        contacts.validateChatScreen();
+    }
+    @Test
+    public void TC_007ValidateSearchScreen() {
+        search.validateSearchScreen();
+        search.validateSearchXClose();
+        search.validateSearchScreen();
+        search.validateContactsTab();
+        search.validateMessageTab();
+        search.validateLastActivity();
+    }
+    @Test
+    public void TC_008ValidateMediaScreen() {
+        media.validateUploadMediaFunctionality();
+        media.validateMediaAcceptsLessThan10MbFiles();
+        media.validateNavigateBackFromMediaToApps();
+    }
+    @Test
+    public void TC_009ValidateTagsScreen() {
+        tags.validateTagsScreen();
+        tags.validateTagCreation();
+        tags.validateDeleteTag();
+    }
+    @Test
+    public void TC_010ValidateNavigateBackFromTags() {
+        tags.checkNavigateBackFromTags();
+        login.logout();
+    }
+    @Test
+    public void TC_011ValidateBroadcastScreen() {
+        login.loginToAvocado(username2,password2,Workspace2);
+        broadcast.validateBroadCastFromApps();
+        broadcast.navigateToBroadcastFromApps();
+        broadcast.checkBroadCastScreen();
+
+    }
+    @Test
+    public void TC_012validateNavigateBAckFunctionalityIntoBroadcast(){
+        broadcast.checkNavigateBackIntoBroadcastScreen();
+        login.logout();
+    }
+    @Test
+    public void TC_013validateCreateBroadCastScreen(){
 //        login.loginToAvocado(username2, password2,Workspace2);
 //        home.checkHomeScreen();
 //        broadcast.validateBroadCastFromApps();
@@ -148,104 +150,104 @@ public class Regression extends BaseTest {
 //        }
 ////        broadcast.completeRecipientScreen(CONTACT);
 //        login.logout();
-//    }
-//    @Test
-//    public void TC_014ValidateTemplateScreen() {
-//        login.loginToAvocado(username2, password2,Workspace2);
-//        home.checkHomeScreen();
-//        template.validateTemplateScreen();
-//        template.validateCreateTemplateScreen();
-//        login.logout();
-//
-//    }
-//    @Test
-//    public void TC_15ValidateQuickRepliesScreen() {
-//        login.loginToAvocado(username, password,Workspace);
-//        home.checkHomeScreen();
-//        reply.validateQuickRepliesFromApps();
-//        reply.validateQuickRepliesScreen();
-//        reply.validateCreateNewQuickReplyTemplate();
-//        login.logout();
-//
-//    }
-//    @Test
-//    public void TC_16validateRulesFromApp() {
-//        login.loginToAvocado(username, password,Workspace);
-//        home.checkHomeScreen();
-//        rule.checkRulesFromApp();
-//        login.logout();
-//
-//    }
-//    @Test
-//    public void TC_17validateNavigationTRules() {
-//        login.loginToAvocado(username, password,Workspace);
-//        home.checkHomeScreen();
-//        rule.checkRulesFromApp();
-//        rule.navigateToRules();
-//        login.logout();
-//
-//    }
-//    @Test
-//    public void TC_18validateCreateRuleScreen() {
-//        login.loginToAvocado(username, password,Workspace);
-//        home.checkHomeScreen();
-//        rule.checkRulesFromApp();
-//        rule.navigateToRules();
-//        rule.checkCreateRulesScreen();
-//        login.logout();
-//
-//    }
-//
-//    @Test
-//    public void TC_19validateCreateRuleModal() {
-//        login.loginToAvocado(username, password, Workspace);
-//        home.checkHomeScreen();
-//        rule.checkRulesFromApp();
-//        rule.navigateToRules();
-//        rule.checkCreateRulesScreen();
-//        rule.checkCreateRuleModalElements();
-//        login.logout();
-//
-//    }
-//    @Test
-//    public void TC_20validateNewRuleCreation() {
-//        login.loginToAvocado(username, password, Workspace);
-//        home.checkHomeScreen();
-//        rule.checkRulesFromApp();
-//        rule.navigateToRules();
-//        rule.checkCreateRulesScreen();
-//        rule.checkCreateRuleModalElements();
-//        rule.createNewRule();
-//        login.logout();
-//    }
-//    @Test
-//    public void TC_21validateCustomAttributesFromApp() {
-//        login.loginToAvocado(username, password, Workspace);
-//        home.checkHomeScreen();
-//        custom.checkCustomAttributesFromApps();
-//    }
-//    @Test
-//    public void TC_22validateCustomAttributesScreenElements() {
-//        custom.navigateToCustomAttributes();
-//        custom.checkCustomAttributesScreen();
-//    }
-//    @Test
-//    public void TC_23validateCustomAttributesScreenTemplate() {
-//        custom.validateCreateCustomAttributeTemplate();
-//    }
-//    @Test
-//    public void TC_24validateCustomAttributesCreation() {
-//        custom.fillCreateCustomAttributesTemplate();
-//    }
-//    @Test
-//    public void TC_25validateDeleteCustomAttributes() {
-//        try {
-//            custom.deleteCustomAttributes();
-//        }catch (Exception e){
-//            e.getStackTrace();
-//        }
-//        login.logout();
-//    }
+    }
+    @Test
+    public void TC_014ValidateTemplateScreen() {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.validateCreateTemplateScreen();
+        login.logout();
+
+    }
+    @Test
+    public void TC_15ValidateQuickRepliesScreen() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        reply.validateQuickRepliesFromApps();
+        reply.validateQuickRepliesScreen();
+        reply.validateCreateNewQuickReplyTemplate();
+        login.logout();
+
+    }
+    @Test
+    public void TC_16validateRulesFromApp() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        rule.checkRulesFromApp();
+        login.logout();
+
+    }
+    @Test
+    public void TC_17validateNavigationTRules() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        rule.checkRulesFromApp();
+        rule.navigateToRules();
+        login.logout();
+
+    }
+    @Test
+    public void TC_18validateCreateRuleScreen() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        rule.checkRulesFromApp();
+        rule.navigateToRules();
+        rule.checkCreateRulesScreen();
+        login.logout();
+
+    }
+
+    @Test
+    public void TC_19validateCreateRuleModal() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        rule.checkRulesFromApp();
+        rule.navigateToRules();
+        rule.checkCreateRulesScreen();
+        rule.checkCreateRuleModalElements();
+        login.logout();
+
+    }
+    @Test
+    public void TC_20validateNewRuleCreation() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        rule.checkRulesFromApp();
+        rule.navigateToRules();
+        rule.checkCreateRulesScreen();
+        rule.checkCreateRuleModalElements();
+        rule.createNewRule();
+        login.logout();
+    }
+    @Test
+    public void TC_21validateCustomAttributesFromApp() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        custom.checkCustomAttributesFromApps();
+    }
+    @Test
+    public void TC_22validateCustomAttributesScreenElements() {
+        custom.navigateToCustomAttributes();
+        custom.checkCustomAttributesScreen();
+    }
+    @Test
+    public void TC_23validateCustomAttributesScreenTemplate() {
+        custom.validateCreateCustomAttributeTemplate();
+    }
+    @Test
+    public void TC_24validateCustomAttributesCreation() {
+        custom.fillCreateCustomAttributesTemplate();
+    }
+    @Test
+    public void TC_25validateDeleteCustomAttributes() {
+        try {
+            custom.deleteCustomAttributes();
+        }catch (Exception e){
+            e.getStackTrace();
+        }
+        login.logout();
+    }
     @Test
     public void TC_26validateEcommerceScreen() {
         login.loginToAvocado(username, password, Workspace);

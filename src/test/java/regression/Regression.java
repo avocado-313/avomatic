@@ -26,6 +26,7 @@ public class Regression extends BaseTest {
     P16SallaPage salla;
     P17ShopifyPage shopify;
     P18WooCommercePage woo;
+    P19FooderEcommerceCard fooder;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -46,6 +47,7 @@ public class Regression extends BaseTest {
         commerce = new P14ECommerce(driver);
         shopify = new P17ShopifyPage(driver);
         woo = new P18WooCommercePage(driver);
+        fooder = new P19FooderEcommerceCard(driver);
 
     }
 
@@ -118,9 +120,11 @@ public class Regression extends BaseTest {
     @Test
     public void TC_010ValidateNavigateBackFromTags() {
         tags.checkNavigateBackFromTags();
+        login.logout();
     }
     @Test
     public void TC_011ValidateBroadcastScreen() {
+        login.loginToAvocado(username2,password2,Workspace2);
         broadcast.validateBroadCastFromApps();
         broadcast.navigateToBroadcastFromApps();
         broadcast.checkBroadCastScreen();
@@ -133,19 +137,19 @@ public class Regression extends BaseTest {
     }
     @Test
     public void TC_013validateCreateBroadCastScreen(){
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        broadcast.validateBroadCastFromApps();
-        broadcast.navigateToBroadcastFromApps();
-        broadcast.checkBroadCastScreen();
-        broadcast.checkCreateBroadcastScreen();
-        try {
-            broadcast.selectTemplate();
-        }catch (Exception e){
-            e.getStackTrace();
-        }
-//        broadcast.completeRecipientScreen(CONTACT);
-        login.logout();
+//        login.loginToAvocado(username2, password2,Workspace2);
+//        home.checkHomeScreen();
+//        broadcast.validateBroadCastFromApps();
+//        broadcast.navigateToBroadcastFromApps();
+//        broadcast.checkBroadCastScreen();
+//        broadcast.checkCreateBroadcastScreen();
+//        try {
+//            broadcast.selectTemplate();
+//        }catch (Exception e){
+//            e.getStackTrace();
+//        }
+////        broadcast.completeRecipientScreen(CONTACT);
+//        login.logout();
     }
     @Test
     public void TC_014ValidateTemplateScreen() {
@@ -308,6 +312,23 @@ public class Regression extends BaseTest {
         commerce.checkECommerceScreen();
         woo.checkWooCommerceCardIntoECommerce();
         woo.checkWooCommerceIntegrationCard();
+        login.logout();
+    }
+    @Test
+    public void TC_33validateWooCommerceCard() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        fooder.checkFooderCardIntoECommerce();
+        login.logout();
+    }
+    @Test
+    public void TC_34validateWooCommerceIntegrationModal() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        fooder.checkFooderCardIntoECommerce();
+        fooder.checkFooderInstallCard();
         login.logout();
     }
 

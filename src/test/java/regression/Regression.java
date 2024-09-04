@@ -331,5 +331,37 @@ public class Regression extends BaseTest {
         fooder.checkFooderInstallCard();
         login.logout();
     }
+    @Test
+    public void TC_35validateZidCard() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        zid.checkZidIntegrationCard();
+        login.logout();
+    }
+    @Test
+    public void TC_36validateZidInstallAndCancelProcess() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        zid.checkZidInstallationFunctionality(zidEmail,zidPassword,false);
+        login.logout();
+    }
+    @Test
+    public void TC_37validateZidInstallAndCompleteProcess() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        zid.checkZidInstallationFunctionality(zidEmail,zidPassword,true);
+        login.logout();
+    }
+    @Test
+    public void TC_38validateZidUnInstallation() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        zid.checkZidUnInstallation(zidEmail,zidPassword);
+        login.logout();
+    }
 
 }

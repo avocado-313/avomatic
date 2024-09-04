@@ -14,6 +14,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -319,6 +320,23 @@ public class PageBase {
         String newWindowHandle = windowHandles.iterator().next();
         driver.switchTo().window(newWindowHandle);
     }
+    public void switchToThirdTab(){
+        String originalWindowHandle = driver.getWindowHandle();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.numberOfWindowsToBe(3));  // Assuming you have 3 tabs open
+        Set<String> windowHandles = driver.getWindowHandles();
+        List<String> windowHandlesList = new ArrayList<>(windowHandles);
+        for (String handle : windowHandlesList) {
+            if (!handle.equals(originalWindowHandle)) {
+                driver.switchTo().window(handle);
+                // Check if this is the third tab
+                if (windowHandlesList.indexOf(handle) == 2) {
+                    break;  // Exit loop after switching to the third tab
+                }
+            }
+        }
+
+    }
 
     public void waitForTime(int timeIntoMilSec) {
         try {
@@ -380,7 +398,31 @@ public class PageBase {
         System.out.println("Current window title: " + driver.getTitle());
         waitForVisibilityOfElement(locatorWhichDisplayedIntoFirstScreen);
     }
+    public void closeSecondAndGoToThird(By locatorWhichDisplayedIntoFirstScreen) {
+        String currentWindowHandle = driver.getWindowHandle();
 
+        // Get all window handles (all open tabs)
+        Set<String> allWindowHandles = driver.getWindowHandles();
+
+        // Close the current window (second tab)
+        driver.close();
+
+        // Convert the Set to a List to access the handles by index
+        List<String> windowHandlesList = new ArrayList<>(allWindowHandles);
+
+        // Find the index of the current window handle (second tab)
+        int currentWindowIndex = windowHandlesList.indexOf(currentWindowHandle);
+
+        // Remove the closed window handle (second tab)
+        windowHandlesList.remove(currentWindowHandle);
+
+        // Switch to the third tab (the next window in the list)
+        if (currentWindowIndex < windowHandlesList.size()) {
+            driver.switchTo().window(windowHandlesList.get(currentWindowIndex));
+            System.out.println("Switched to third window title: " + driver.getTitle());
+        }
+
+    }
 
 
 }

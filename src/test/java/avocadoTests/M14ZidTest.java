@@ -25,20 +25,38 @@ public class M14ZidTest extends BaseTest {
         commerce = new P14ECommerce(driver);
         zid = new P15ZidPage(driver);
     }
+
     @Test
     public void TC_01validateZidCard() {
-        login.loginToAvocado(username2, password2, Workspace2);
+        login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
         zid.checkZidIntegrationCard();
         login.logout();
     }
     @Test
-    public void TC_02validateZidInstall() {
-        login.loginToAvocado(username2, password2, Workspace2);
+    public void TC_02validateZidInstallAndCancelProcess() {
+        login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
-        zid.installZid(zidEmail,zidPassword);
+        zid.checkZidInstallationFunctionality(zidEmail,zidPassword,false);
         login.logout();
     }
+    @Test
+    public void TC_03validateZidInstallAndCompleteProcess() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        zid.checkZidInstallationFunctionality(zidEmail,zidPassword,true);
+        login.logout();
+    }
+    @Test
+    public void TC_04validateZidUnInstallation() {
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        commerce.checkECommerceScreen();
+        zid.checkZidUnInstallation(zidEmail,zidPassword);
+        login.logout();
+    }
+
 }

@@ -103,6 +103,9 @@ public class P01AvocadoLogin extends PageBase {
         clickOnElement(login_CTA);
         waitForVisibilityOfElement(avocado_logo_from_home);
     }
+    public void test(){
+        System.out.println("nothing!");
+    }
 
 
 

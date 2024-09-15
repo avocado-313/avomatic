@@ -65,13 +65,14 @@ jobs:
         with:
           name: Report
           path: src/main/SurefireReports/emailable-report.html
-          retain-artifacts: false
+          if-no-files-found: error
 
       - name: Upload screenshots on failure
         uses: actions/upload-artifact@v3
         with:
           name: failure-screenshots
           path: reports/screenshotsFailure
+          if-no-files-found: ignore
 
       - name: CINotify Email
         uses: cinotify/github-action@v1.4.0

@@ -8,9 +8,9 @@
 <!--    </test>-->
     <test name="ChromeTest">
         <parameter name="browser" value="chrome" />
-        <packages>
-            <package name="regression" />
-        </packages>
+        <classes>
+            <class name="avocadoTests.M14ZidTest" />
+        </classes>
     </test>
 <!--    <test name="EdgeTest">-->
 <!--        <parameter name="browser" value="edge" />-->

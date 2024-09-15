@@ -52,14 +52,14 @@ jobs:
           mkdir -p reports/extentReports
 
       - name: Upload report as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: Report
           path: target/surefire-reports/emailable-report.html
           retain-artifacts: false
 
       - name: Upload screenshots on failure
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: failure-screenshots
           path: reports/screenshotsFailure

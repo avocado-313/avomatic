@@ -51,11 +51,20 @@ jobs:
           mvn clean verify -Dremote=true -Dbrowser=chrome 
           mkdir -p reports/extentReports
 
+      - name: Verify report exists before copy
+        run: ls -l target/surefire-reports/emailable-report.html
+
+      - name: Copy report to SurefireReports
+        run: mvn resources:resources
+
+      - name: Verify report exists after copy
+        run: ls -l src/main/SurefireReports/emailable-report.html
+
       - name: Upload report as artifact
         uses: actions/upload-artifact@v3
         with:
           name: Report
-          path: target/surefire-reports/emailable-report.html
+          path: src/main/SurefireReports/emailable-report.html
           retain-artifacts: false
 
       - name: Upload screenshots on failure
@@ -70,5 +79,5 @@ jobs:
           to: karim.salem@twerlo.com
           subject: "E2E Test Automation Report - Run ${{ github.run_number }}"
           body: |
-            Avodad0 E2E test automation run has completed. Check the attached report for details .
+            Avodad0 E2E test automation run has completed. Check the attached report for details.
             attachment: src/main/SurefireReports/emailable-report.html

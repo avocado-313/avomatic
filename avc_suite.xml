@@ -9,7 +9,7 @@
     <test name="ChromeTest">
         <parameter name="browser" value="chrome" />
         <classes>
-            <class name="avocadoTests.M14ZidTest" />
+            <class name="regression.Regression" />
         </classes>
     </test>
 <!--    <test name="EdgeTest">-->

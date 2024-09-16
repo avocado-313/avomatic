@@ -89,7 +89,7 @@ public class P06AvocadoSearch extends PageBase {
         clickOnElement(By.xpath("//button[@name='previous-month']"));
         clickOnElement(By.xpath("(//button[@name='day'])[1]"));
         clickOnElement(By.xpath("(//button[@name='day'])[10]"));
-        clickOnElement(By.xpath("//*[normalize-space()='Confirm']"));
+        clickOnElement(By.xpath("(//*[normalize-space()='Search'])[4]"));
 
     }
     private void selectOptions(int elm,By... elements ){

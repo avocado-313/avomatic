@@ -18,4 +18,8 @@ public class M01AvocadoLogintTest extends BaseTest {
        login.validateLoginScreenLocators(username,password,Workspace);
        login.logout();
     }
+    @Test
+    public void TC_020validateGitFlow(){
+        System.out.println(" validate git flow ");
+    }
 }

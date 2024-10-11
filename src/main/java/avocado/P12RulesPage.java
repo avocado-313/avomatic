@@ -35,7 +35,8 @@ public class P12RulesPage extends PageBase {
     String dropdown = "(//*[@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconOutlined css-16pr791'])[";
     private final By textInMessage = By.xpath("//*[normalize-space()='Text in Message']");
     private final By equalTo = By.xpath("//*[normalize-space()='Equal to']");
-    private final By createNEwRuleCTA = By.xpath("(//*[normalize-space()='Create New Rule'])[2]");
+    private final By createNEwRuleCTA = By.xpath("//*[normalize-space()='Create New Rule']");
+    private final By createNEwRuleCTA1 = By.xpath("(//*[normalize-space()='Create New Rule'])[2]");
     private final By rules_Channel = By.xpath("//*[@data-testid='channel-input']");
     private final By thenLabel = By.xpath("//*[normalize-space() = 'Then']");
 
@@ -154,8 +155,8 @@ public class P12RulesPage extends PageBase {
 //        action.pause(Duration.ofSeconds(10)).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER);
 
         waitForTime(2000);
-        scrollToElement(createNEwRuleCTA);
-        clickOnElement(createNEwRuleCTA);
+        scrollToElement(createNEwRuleCTA1);
+        clickOnElement(createNEwRuleCTA1);
         waitForTime(2000);
 //        Assert.assertTrue(driver.findElement());
 

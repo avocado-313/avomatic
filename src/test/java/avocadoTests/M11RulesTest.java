@@ -67,6 +67,8 @@ public class M11RulesTest extends BaseTest {
         rule.checkCreateRulesScreen();
         rule.checkCreateRuleModalElements();
         rule.createNewRule();
+        rule.newRuleCreation("kar");
+        rule.deleteRule();
 
     }
 }

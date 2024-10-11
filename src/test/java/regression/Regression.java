@@ -220,6 +220,27 @@ public class Regression extends BaseTest {
         rule.createNewRule();
         login.logout();
     }
+
+    @Test
+    public void TC_39validateNewRuleCreation(){
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        rule.checkRulesFromApp();
+        rule.navigateToRules();
+        rule.checkCreateRulesScreen();
+        rule.checkCreateRuleModalElements();
+        rule.newRuleCreation("karim");
+        login.logout();
+    }
+    @Test
+    public void TC_40validateDeletionOfRule(){
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        rule.checkRulesFromApp();
+        rule.navigateToRules();
+        rule.deleteRule();
+        login.logout();
+    }
     @Test
     public void TC_21validateCustomAttributesFromApp() {
         login.loginToAvocado(username, password, Workspace);

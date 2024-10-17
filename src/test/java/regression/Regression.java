@@ -336,7 +336,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_36validateWooCommerceCard() {
+    public void TC_36validateFooderCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -344,7 +344,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_37validateWooCommerceIntegrationModal() {
+    public void TC_37validateFooderIntegrationModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();

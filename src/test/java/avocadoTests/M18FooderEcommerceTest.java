@@ -23,7 +23,7 @@ public class M18FooderEcommerceTest extends BaseTest {
         fooder = new P19FooderEcommerceCard(driver);
     }
     @Test
-    public void TC_01validateWooCommerceCard() {
+    public void TC_01validateFooderCommerceCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -31,7 +31,7 @@ public class M18FooderEcommerceTest extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_02validateWooCommerceIntegrationModal() {
+    public void TC_02validateFooderIntegrationModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();

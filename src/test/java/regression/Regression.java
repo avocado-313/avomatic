@@ -222,7 +222,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_39validateNewRuleCreation(){
+    public void TC_21validateNewRuleCreation(){
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -233,7 +233,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_40validateDeletionOfRule(){
+    public void TC_22validateDeletionOfRule(){
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -242,26 +242,26 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_21validateCustomAttributesFromApp() {
+    public void TC_23validateCustomAttributesFromApp() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         custom.checkCustomAttributesFromApps();
     }
     @Test
-    public void TC_22validateCustomAttributesScreenElements() {
+    public void TC_24validateCustomAttributesScreenElements() {
         custom.navigateToCustomAttributes();
         custom.checkCustomAttributesScreen();
     }
     @Test
-    public void TC_23validateCustomAttributesScreenTemplate() {
+    public void TC_25validateCustomAttributesScreenTemplate() {
         custom.validateCreateCustomAttributeTemplate();
     }
     @Test
-    public void TC_24validateCustomAttributesCreation() {
+    public void TC_26validateCustomAttributesCreation() {
         custom.fillCreateCustomAttributesTemplate();
     }
     @Test
-    public void TC_25validateDeleteCustomAttributes() {
+    public void TC_27validateDeleteCustomAttributes() {
         try {
             custom.deleteCustomAttributes();
         }catch (Exception e){
@@ -270,14 +270,14 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_26validateEcommerceScreen() {
+    public void TC_28validateEcommerceScreen() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
         login.logout();
     }
     @Test
-    public void TC_27validateZidCard() {
+    public void TC_29validateZidCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -285,7 +285,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_27validateSallaCard() {
+    public void TC_30validateSallaCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -293,7 +293,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_28validateSallaIntegrationModal() {
+    public void TC_31validateSallaIntegrationModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -302,7 +302,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_29validateShopifyCard() {
+    public void TC_32validateShopifyCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -310,7 +310,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_30validateShopifyIntegrationModal() {
+    public void TC_33validateShopifyIntegrationModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -319,7 +319,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_31validateWooCommerceCard() {
+    public void TC_34validateWooCommerceCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -327,7 +327,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_32validateWooCommerceIntegrationModal() {
+    public void TC_35validateWooCommerceIntegrationModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -336,7 +336,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_33validateWooCommerceCard() {
+    public void TC_36validateWooCommerceCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -344,7 +344,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_34validateWooCommerceIntegrationModal() {
+    public void TC_37validateWooCommerceIntegrationModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -353,7 +353,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_35validateZidCard() {
+    public void TC_38validateZidCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -361,7 +361,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_36validateZidInstallAndCancelProcess() {
+    public void TC_39validateZidInstallAndCancelProcess() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -369,7 +369,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_37validateZidInstallAndCompleteProcess() {
+    public void TC_40validateZidInstallAndCompleteProcess() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -377,7 +377,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_38validateZidUnInstallation() {
+    public void TC_41validateZidUnInstallation() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();

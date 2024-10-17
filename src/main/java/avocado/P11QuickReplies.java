@@ -57,12 +57,18 @@ public class P11QuickReplies extends PageBase {
         fillQuickReplyForm();
     }
 
+    private void deleteQuickReply(){
+        clickOnElement(By.xpath("(//*[@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[5]"));
+        clickOnElement(By.xpath("(//*[@data-testid='actions-button'])[1]"));
+        clickOnElement(By.xpath("//button[normalize-space()='Delete']"));
+        clickOnElement(By.xpath("//button[normalize-space()='Delete']"));
+    }
     private void fillQuickReplyForm(){
         try {
             clickOnElement(available_to_list);
             clickOnElement(By.xpath("//*[normalize-space()='All']"));
 //            clickOnElement(short_code_input_field);
-            sendTextToInputField( generateRandomDigits(5),By.xpath("//div[@class='MuiFormControl-root MuiTextField-root devias-textbox small css-i44wyl']//input\n"));
+            sendTextToInputField( generateRandomDigits(6),By.xpath("//div[@class='MuiFormControl-root MuiTextField-root devias-textbox small css-i44wyl']//input\n"));
 //            clickOnElement(keywords_input_field);
             sendTextToInputField("keyWord", By.xpath("//div[@class='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiAutocomplete-inputRoot css-zykvm2']//input"));
 //            clickOnElement(body_text_input_field);
@@ -73,10 +79,5 @@ public class P11QuickReplies extends PageBase {
         }catch (Exception e){
             clickOnElement(By.xpath("//*[normalize-space()='Cancel']"));
         }
-    }
-    private void deleteQuickReply(){
-        clickOnElement(By.xpath("(//*[@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[5]"));
-        clickOnElement(By.xpath("//button[normalize-space()='Delete']"));
-        clickOnElement(By.xpath("//button[normalize-space()='Delete']"));
     }
 }

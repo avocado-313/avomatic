@@ -200,11 +200,11 @@ public class PageBase {
         String formattedNumber = String.valueOf(firstDigit);
 
         // Rest of the digits (8 digits in total)
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 7; i++) {
             int digit = random.nextInt(10);  // Generates a random number between 0 and 9
             formattedNumber += digit;
         }
-        System.out.println("+201" + formattedNumber);
+        System.out.println("+966" + formattedNumber);
 
         return "1" + formattedNumber;
     }

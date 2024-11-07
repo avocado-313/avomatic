@@ -26,12 +26,14 @@ public class M03ContactsTest extends BaseTest {
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
         contacts.validateCreateContactCard();
+        login.logout();
     }
     @Test
     public void TC_02ValidateContactsCreation() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateAndCreateNewContact();
+        login.logout();
     }
 
     @Test
@@ -39,6 +41,7 @@ public class M03ContactsTest extends BaseTest {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateEmptyFields();
+        login.logout();
     }
     @Test
     public void TC_04ValidateChatScreen() {

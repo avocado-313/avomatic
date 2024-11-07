@@ -16,6 +16,7 @@ public class P02AvocadoHomeScreen extends PageBase {
     private final By contact_icon_from_label = By.xpath("//a[@aria-label='Contacts']");
     private final By contains_icon_from_label = By.xpath("//*[@aria-label='E-commerce Apps']");
     private final By broadcast_icon_from_menu = By.xpath("//a[@aria-label='Broadcast']");
+    private final By home_help_icon = By.xpath("//button[@aria-label='Help Center']");
     private final By settings_icon_from_menu = By.xpath("//a[@aria-label='Settings']");
     private final By subscription_billing_icon_from_menu = By.xpath("//button[@value='Billing']//*[name()='svg']");
     private final By language_icon_from_menu = By.xpath("//*[@aria-label='English Language']");
@@ -30,7 +31,7 @@ public class P02AvocadoHomeScreen extends PageBase {
 
     public void checkHomeScreen(){
         ElementsValidator(analytics_icon_from_menu,search_icon_from_menu,chat_icon_from_menu,media_icon_from_label,contact_icon_from_label,broadcast_icon_from_menu
-        ,contains_icon_from_label,settings_icon_from_menu,subscription_billing_icon_from_menu,language_icon_from_menu,account_icon_from_menu);
+        ,contains_icon_from_label,settings_icon_from_menu,subscription_billing_icon_from_menu,language_icon_from_menu,account_icon_from_menu, home_help_icon);
     }
     private void clickAndValidate(By by1, By by2){
         clickOnElement(by1);

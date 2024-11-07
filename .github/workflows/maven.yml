@@ -67,7 +67,7 @@ jobs:
       - name: CINotify Email
         uses: cinotify/github-action@v1.4.0
         with:
-          to: karim.salem@twerlo.com,avc@twerlo.com,arpit.b@twerlo.com
+          to: karim.salem@twerlo.com,avc@twerlo.com
           subject: "E2E Test Automation Report - Run ${{ github.run_number }}"
           body: |
             Avodad0 E2E test automation run has completed. Check the attached report for details .

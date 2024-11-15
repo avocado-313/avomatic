@@ -18,7 +18,7 @@ public class P02AvocadoHomeScreen extends PageBase {
     private final By broadcast_icon_from_menu = By.xpath("//a[@aria-label='Broadcast']");
     private final By home_help_icon = By.xpath("//button[@aria-label='Help Center']");
     private final By settings_icon_from_menu = By.xpath("//a[@aria-label='Settings']");
-    private final By subscription_billing_icon_from_menu = By.xpath("//button[@value='Billing']//*[name()='svg']");
+    private final By subscription_billing_icon_from_menu = By.xpath("//button[@value='Billing']");
     private final By language_icon_from_menu = By.xpath("//*[@aria-label='English Language']");
 //    private final By notification_icon_from_menu = By.xpath("//a[@aria-label='Notifications']//*[name()='svg']");
     private final By account_icon_from_menu = By.xpath("//button[@aria-label='Profile']");

@@ -9,7 +9,7 @@ public class P20Billing extends PageBase {
     public P20Billing(WebDriver driver) {
         super(driver);
     }
-    private final By BillingIconFromSideMenu = By.xpath("//*[@data-testid='CreditCardIcon']");
+    private final By BillingIconFromSideMenu = By.xpath("//button[@value='Billing']//*[name()='svg']");
     private final By BillingTitle = By.xpath("//*[@data-testid='title']");
     private final By BillingDescription = By.xpath("//*[@data-testid='description']");
     private final By BillingDashboardCTA = By.xpath("//button[normalize-space() = 'Billing Dashboard']");

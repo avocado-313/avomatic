@@ -11,7 +11,7 @@ public class P14ECommerce extends PageBase {
     public P14ECommerce(WebDriver driver) {
         super(driver);
     }
-    private final By ECommerceIconFromSIdeMenu = By.xpath("//*[@data-testid='ShoppingCartIcon']");
+    private final By ECommerceIconFromSIdeMenu = By.xpath("//*[@aria-label='E-commerce Apps']");
     private final By EcommerceDescription = By.xpath("//*[@data-testid='description']");
     private final By manageYourStoreLabel = By.xpath("//*[normalize-space()='Manage your store']");
     private final By manageCTA = By.xpath("//button[normalize-space()='Manage']");

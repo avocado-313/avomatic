@@ -22,7 +22,7 @@ public class P07AvocadoMedia extends PageBase {
         super(driver);
     }
 
-    private final By media_icon_from_label = By.xpath("//a[@aria-label='Media Library']//*[name()='svg']");
+    private final By media_icon_from_label = By.xpath("//a[@aria-label='Media Library']");
     private final By media_library_title = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1hxh1sq'])[1]");
     private final By upload_media = By.xpath("//input[@type='file']");
     private final By caption_input = By.xpath("(//input[@type='text'])[3]");
@@ -32,7 +32,7 @@ public class P07AvocadoMedia extends PageBase {
     private final By delete_video = By.xpath("//button[normalize-space()='Delete']");
     private final By confirm_delete_msg = By.xpath("//*[@data-testid='delete-confirm-title']");
     private final By size_warning_logo = By.xpath("//*[@data-testid='WarningAmberRoundedIcon']");
-    private final By search_icon = By.xpath("(//*[@data-testid='SearchIcon'])[2]");
+    private final By search_icon = By.xpath("//*[@data-testid='SearchIcon']");
     private final By search_input = By.xpath("//input[@placeholder='Search']");
     private final By list_view = By.xpath("//button[@data-testid='button-list-view']");
     private final By grid_view = By.xpath("//button[@data-testid='button-grid-view']");
@@ -191,7 +191,7 @@ public class P07AvocadoMedia extends PageBase {
         }catch (Exception e){
             validateTabsSwitching(media);
         }
-        validateMedia(By.xpath("//*[@role='img']"));
+        validateMedia(By.xpath("(//*[@role='img'])[13]"));
 
         try {
             validateTabsSwitching(media);

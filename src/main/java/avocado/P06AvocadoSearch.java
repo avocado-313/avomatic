@@ -10,7 +10,7 @@ public class P06AvocadoSearch extends PageBase {
     public P06AvocadoSearch(WebDriver driver) {
         super(driver);
     }
-    private final By search_icon_from_menu = By.xpath("//div[@aria-label='Search']//*[name()='svg']");
+    private final By search_icon_from_menu = By.xpath("//div[@aria-label='Search']");
     private final By search_title = By.xpath("(//h5[normalize-space()='Search'])[1]");
     private final By x_close = By.xpath("//*[@data-testid='search-close-icon']");
     private final By new_chat_icon = By.xpath("//button[normalize-space()='+ New Chat']");

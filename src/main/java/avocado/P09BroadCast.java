@@ -2,9 +2,13 @@ package avocado;
 
 import PageBase.PageBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class P09BroadCast extends PageBase {
     public P09BroadCast(WebDriver driver) {
@@ -112,7 +116,7 @@ public class P09BroadCast extends PageBase {
     }
     public void selectTemplate(){
         scrollToElement(searchByTemplate_input_field);
-        sendTextToInputField("test_quick" , searchByTemplate_input_field);
+        sendTextToInputField("testing_default" , searchByTemplate_input_field);
         waitForTime(5000);
         scrollToElement(testQuick_template);
         clickOnElement(testQuick_template);
@@ -142,12 +146,14 @@ public class P09BroadCast extends PageBase {
     private final By select_contacts_Screen_title = By.xpath("(//*[normalize-space()='Select Contacts'])[2]");
     private final By Template_variables = By.xpath("(//*[normalize-space()='Template Variables'])[2]");
     private final By upload_image_CTA = By.xpath("//button[normalize-space()='Upload image']");
-    private final By first_image = By.xpath("//*[@aria-label='kingston-negroni-720x720-primary1-ef87562fea8240de92dd09c36457a8c2.webp']");
+    private final By first_image = By.xpath("(//*[@aria-label='image2.jpeg'])[1]");
     private final By select_image = By.xpath("//button[normalize-space()='Select']");
     private final By X_Close = By.xpath("(//button[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-dflwta' and @type='button'])[7]");
     private final By select_agent = By.xpath("(//*[normalize-space()='Select Agent'])[2]");
     private final By search_on = By.xpath("//*[@placeholder='Search']");
     private final By select_tags = By.xpath("(//*[normalize-space()='Select Tags'])[2]");
+    private final By variableBox = By.xpath("//*[@role='combobox']");
+
     private void uploadImage(){
         scrollToElement(Template_variables);
         scrollToElement(upload_image_CTA);
@@ -155,6 +161,14 @@ public class P09BroadCast extends PageBase {
         clickOnElement(first_image);
         scrollToElement(select_image);
         clickOnElement(select_image);
+    }
+    private void addVariable(){
+        scrollToElement(Template_variables);
+        scrollToElement(variableBox);
+        clickOnElement(variableBox);
+        Actions actions = new Actions(driver);
+        actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+
     }
     private void validateRecipientScreen(){
         waitForVisibilityOfElement(recipient_selection_title);
@@ -197,12 +211,22 @@ public class P09BroadCast extends PageBase {
         validateTags();
         selectContact(contact);
         uploadImage();
+        addVariable();
         scrollToElement(next_CTA);
         clickOnElement(By.xpath("//button[normalize-space()='Next']"));
         scrollToElement(By.xpath("//*[normalize-space()='Send Now']"));
         clickOnElement(By.xpath("//*[normalize-space()='Send Now']"));
         waitForTime(5000);
         waitForVisibilityOfElement(By.xpath("//*[normalize-space()='Continue']"));
+
         clickOnElement(By.xpath("//*[normalize-space()='Continue']"));
+        waitForVisibilityOfElement(By.xpath("//*[normalize-space() = 'Estimation']"));
+        waitForVisibilityOfElement(By.xpath("(//*[normalize-space() = 'Send Now'])[2]"));
+        clickOnElement(By.xpath("(//*[normalize-space() = 'Send Now'])[2]"));
+        waitForVisibilityOfElement(new_broadcast_CTA);
     }
+
+
+
+
 }

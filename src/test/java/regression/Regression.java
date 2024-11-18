@@ -27,6 +27,7 @@ public class Regression extends BaseTest {
     P17ShopifyPage shopify;
     P18WooCommercePage woo;
     P19FooderEcommerceCard fooder;
+    P20Billing bill;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -48,6 +49,7 @@ public class Regression extends BaseTest {
         shopify = new P17ShopifyPage(driver);
         woo = new P18WooCommercePage(driver);
         fooder = new P19FooderEcommerceCard(driver);
+        bill = new P20Billing(driver);
 
     }
 
@@ -89,6 +91,7 @@ public class Regression extends BaseTest {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
+        login.logout();
 //        contacts.validateCreateContactCard();
     }
     @Test
@@ -98,27 +101,39 @@ public class Regression extends BaseTest {
     }
     @Test
     public void TC_007ValidateSearchScreen() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
         search.validateSearchScreen();
         search.validateSearchXClose();
         search.validateSearchScreen();
         search.validateContactsTab();
         search.validateMessageTab();
         search.validateLastActivity();
+        login.logout();
     }
     @Test
     public void TC_008ValidateMediaScreen() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
         media.validateUploadMediaFunctionality();
         media.validateMediaAcceptsLessThan10MbFiles();
         media.validateNavigateBackFromMediaToApps();
+        login.logout();
     }
     @Test
     public void TC_009ValidateTagsScreen() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
         tags.validateTagsScreen();
         tags.validateTagCreation();
         tags.validateDeleteTag();
+        login.logout();
     }
     @Test
     public void TC_010ValidateNavigateBackFromTags() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        tags.validateTagsFromApps();
         tags.checkNavigateBackFromTags();
         login.logout();
     }
@@ -128,28 +143,32 @@ public class Regression extends BaseTest {
         broadcast.validateBroadCastFromApps();
         broadcast.navigateToBroadcastFromApps();
         broadcast.checkBroadCastScreen();
+        login.logout();
 
     }
     @Test
     public void TC_012validateNavigateBAckFunctionalityIntoBroadcast(){
+        login.loginToAvocado(username2,password2,Workspace2);
+        broadcast.validateBroadCastFromApps();
+        broadcast.navigateToBroadcastFromApps();
         broadcast.checkNavigateBackIntoBroadcastScreen();
         login.logout();
     }
     @Test
     public void TC_013validateCreateBroadCastScreen(){
-//        login.loginToAvocado(username2, password2,Workspace2);
-//        home.checkHomeScreen();
-//        broadcast.validateBroadCastFromApps();
-//        broadcast.navigateToBroadcastFromApps();
-//        broadcast.checkBroadCastScreen();
-//        broadcast.checkCreateBroadcastScreen();
-//        try {
-//            broadcast.selectTemplate();
-//        }catch (Exception e){
-//            e.getStackTrace();
-//        }
-////        broadcast.completeRecipientScreen(CONTACT);
-//        login.logout();
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        broadcast.validateBroadCastFromApps();
+        broadcast.navigateToBroadcastFromApps();
+        broadcast.checkBroadCastScreen();
+        broadcast.checkCreateBroadcastScreen();
+        try {
+            broadcast.selectTemplate();
+        }catch (Exception e){
+            e.getStackTrace();
+        }
+        broadcast.completeRecipientScreen(CONTACT);
+        login.logout();
     }
     @Test
     public void TC_014ValidateTemplateScreen() {
@@ -382,6 +401,13 @@ public class Regression extends BaseTest {
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
         zid.checkZidUnInstallation(zidEmail,zidPassword);
+        login.logout();
+    }
+    @Test
+    public void TC_01ValidateBillingCreen(){
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
         login.logout();
     }
 

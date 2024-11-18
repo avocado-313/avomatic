@@ -26,6 +26,7 @@ public class M08BroadcastTest extends BaseTest {
         broadcast.validateBroadCastFromApps();
         broadcast.navigateToBroadcastFromApps();
         broadcast.checkBroadCastScreen();
+        login.logout();
     }
     @Test
     public void TC_02validateCreateBroadCastScreen(){
@@ -37,6 +38,7 @@ public class M08BroadcastTest extends BaseTest {
         broadcast.checkCreateBroadcastScreen();
         broadcast.selectTemplate();
         broadcast.completeRecipientScreen(CONTACT);
+
     }
     @Test
     public void TC_03validateNavigateBAckFunctionalityIntoBroadcast(){

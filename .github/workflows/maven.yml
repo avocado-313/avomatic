@@ -1,12 +1,6 @@
 name: Avocado-E2E health checks
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
   workflow_dispatch:
   schedule:
     - cron: '55 21 * * *'

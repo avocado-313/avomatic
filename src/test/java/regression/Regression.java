@@ -28,6 +28,7 @@ public class Regression extends BaseTest {
     P18WooCommercePage woo;
     P19FooderEcommerceCard fooder;
     P20Billing bill;
+    P30WhatsappWidget whatsapp;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -50,6 +51,7 @@ public class Regression extends BaseTest {
         woo = new P18WooCommercePage(driver);
         fooder = new P19FooderEcommerceCard(driver);
         bill = new P20Billing(driver);
+        whatsapp = new P30WhatsappWidget(driver);
 
     }
 
@@ -404,10 +406,18 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_01ValidateBillingCreen(){
+    public void TC_01ValidateBillingScreen(){
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         bill.navigateAndValidateBillingScreen();
+        login.logout();
+    }
+    @Test
+    public void TC_02validateWhatsappWidgetScreenElements() {
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        whatsapp.navigateToWhatsAppWidget();
+        whatsapp.checkWhatsAppWidgetScreen();
         login.logout();
     }
 

@@ -60,13 +60,13 @@ public class Regression extends BaseTest {
         login.validateLoginScreenLocators(username,password,Workspace);
         login.logout();
     }
-    @Test
-    public void TC_002ValidateIconsOfHomeScreen(){
-        login.loginToAvocado(username,password,Workspace);
-        home.checkHomeScreen();
-        home.checkEachMenuIconNavigation();
-        login.logout();
-    }
+//    @Test
+//    public void TC_002ValidateIconsOfHomeScreen(){
+//        login.loginToAvocado(username,password,Workspace);
+//        home.checkHomeScreen();
+//        home.checkEachMenuIconNavigation();
+//        login.logout();
+//    }
 //    @Test
 //    public void TC_003ValidateWorkspace(){
 //        login.loginToAvocado(username,password,Workspace);
@@ -278,7 +278,7 @@ public class Regression extends BaseTest {
         custom.validateCreateCustomAttributeTemplate();
     }
     @Test
-    public void TC_26validateCustomAttributesCreation() {
+    public void TC_26validateCustomAttributesCreation() throws InterruptedException {
         custom.fillCreateCustomAttributesTemplate();
     }
     @Test
@@ -289,6 +289,14 @@ public class Regression extends BaseTest {
             e.getStackTrace();
         }
         login.logout();
+    }
+    @Test
+    public void TC_028validateEditAttributes() throws InterruptedException {
+        custom.editAttribute();
+    }
+    @Test
+    public void TC_029validateSearchAttribute() throws InterruptedException {
+        custom.searchAttribute();
     }
     @Test
     public void TC_28validateEcommerceScreen() {

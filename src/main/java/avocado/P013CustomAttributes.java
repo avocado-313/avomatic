@@ -2,6 +2,7 @@ package avocado;
 
 import PageBase.PageBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -28,6 +29,10 @@ public class P013CustomAttributes extends PageBase {
     private final By threeDots = By.xpath("//*[@data-testid='MoreVertIcon']");
     private final By deleteCTA = By.xpath("//*[@data-testid='undefined-1']");
     private final By confirmDelete = By.xpath("//*[@data-testid='deleted-modal-deleted-btn']");
+    private final By editCTA = By.xpath("//*[@data-testid='undefined-0']");
+    private final By editHeader = By.xpath("//*[@data-testid='custom-attribute-header-title']");
+    private final By updateCTA = By.xpath("//button[.//span[contains(text(),'Update')] and .//span[text() = 'Updating...'] and .//span[text() = 'Updated']]");
+    private final By searchInput = By.xpath("//*[@placeholder='Search Attributes']");
 
     public void checkCustomAttributesFromApps(){
         clickOnElement(apps_from_menu);
@@ -52,7 +57,7 @@ public class P013CustomAttributes extends PageBase {
         waitForVisibilityOfElement(displayedNameTitle);
         ElementsValidator(typeTitle,keyTitle,descriptionTitle,cancelCTA,xCloseCTA);
     }
-    public void fillCreateCustomAttributesTemplate(){
+    public void fillCreateCustomAttributesTemplate() throws InterruptedException {
         scrollToElement(nameInput);
         sendTextToInputField("input" + generateRandomDigits(5),nameInput);
         scrollToElement(descInput);
@@ -61,12 +66,35 @@ public class P013CustomAttributes extends PageBase {
         sendTextToInputField("description" + generateRandomDigits(5),descInput);
         scrollToElement(cancelCTA);
         clickOnElement(addCustom);
+        Thread.sleep(5000);
     }
-    public void deleteCustomAttributes(){
+
+    public void editAttribute() throws InterruptedException {
+        waitForVisibilityOfElement(threeDots);
+        clickOnElement(threeDots);
+        clickOnElement(editCTA);
+        waitForVisibilityOfElement(editHeader,60);
+        scrollToElement(nameInput);
+        driver.findElement(nameInput).sendKeys(Keys.CONTROL + "a");
+        driver.findElement(nameInput).sendKeys(Keys.DELETE);
+        sendTextToInputField("test" + generateRandomDigits(5),nameInput);
+        clickOnElement(updateCTA);
+        Thread.sleep(5000);
+
+
+    }
+    public void searchAttribute() throws InterruptedException {
+        waitForVisibilityOfElement(customAttributeHeader);
+        sendTextToInputField("test", searchInput);
+        Thread.sleep(5000);
+
+    }
+    public void deleteCustomAttributes() throws InterruptedException {
         waitForVisibilityOfElement(threeDots);
         clickOnElement(threeDots);
         clickOnElement(deleteCTA);
         clickOnElement(confirmDelete);
+        Thread.sleep(5000);
 
     }
 

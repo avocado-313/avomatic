@@ -38,11 +38,20 @@ public class M12CustomAttributesTest extends BaseTest {
         custom.validateCreateCustomAttributeTemplate();
     }
     @Test
-    public void TC_04validateCustomAttributesCreation() {
+    public void TC_04validateCustomAttributesCreation() throws InterruptedException {
         custom.fillCreateCustomAttributesTemplate();
     }
+
     @Test
-    public void TC_05validateDeleteCustomAttributes() {
+    public void TC_05validateDeleteCustomAttributes() throws InterruptedException {
         custom.deleteCustomAttributes();
+    }
+    @Test
+    public void TC_06validateEditAttributes() throws InterruptedException {
+        custom.editAttribute();
+    }
+    @Test
+    public void TC_07validateSearchAttribute() throws InterruptedException {
+        custom.searchAttribute();
     }
 }

@@ -3,7 +3,6 @@ package avocadoTests;
 import Base.BaseTest;
 import avocado.P01AvocadoLogin;
 import avocado.P02AvocadoHomeScreen;
-import avocado.P03AvocadoWorkSpace;
 import avocado.P04AvocadoContacts;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -26,12 +25,14 @@ public class M03ContactsTest extends BaseTest {
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
         contacts.validateCreateContactCard();
+        login.logout();
     }
     @Test
     public void TC_02ValidateContactsCreation() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateAndCreateNewContact();
+        login.logout();
     }
 
     @Test
@@ -39,6 +40,7 @@ public class M03ContactsTest extends BaseTest {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateEmptyFields();
+        login.logout();
     }
     @Test
     public void TC_04ValidateChatScreen() {
@@ -46,6 +48,20 @@ public class M03ContactsTest extends BaseTest {
         home.checkHomeScreen();
         contacts.validateAndCreateNewContact();
         contacts.validateChatScreen();
+        login.logout();
     }
+
+
+    @Test
+    public void TC_05ValidateFilters(){
+        login.loginToAvocado(username,password,Workspace);
+        home.checkHomeScreen();
+        contacts.navigateAndValidateContactsScreen();
+        contacts.checkDateAddedFilter();
+        contacts.checkTagsFilter();
+        contacts.checkChannelFilter();
+        login.logout();
+    }
+
 
 }

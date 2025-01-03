@@ -2,6 +2,7 @@ package avocado;
 
 import PageBase.PageBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -110,5 +111,57 @@ public class P04AvocadoContacts extends PageBase {
             e.getStackTrace();
         }
     }
+
+
+    // Filters for Contact section
+
+    private final By contacts_date_filter = By.xpath("(//*[@placeholder='Date Added'])[1]");
+    private final By filter_search = By.xpath("(//button[normalize-space() = 'Search'])[1]");
+    private final By filter_screen_validation = By.xpath("//div[@aria-hidden='false']//th[@class='MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1bigob2'][normalize-space()='Users']");
+    private final By contacts_tags_filter = By.xpath("//div[@aria-hidden='false']//button[@id='search-dropdown-button']");
+    private final By contacts_tags_search = By.xpath("//input[@placeholder='Search Tags']");
+    private final By tags_checkbox = By.xpath("//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-9l3uo3']");
+    private final By contact_channel_filter = By.xpath("(//input[@placeholder= 'Channel'])[1]");
+    private final By contact_clear_filter_btn = By.xpath("//button[normalize-space()='Clear Filter']");
+
+
+    public void checkDateAddedFilter(){
+        waitForVisibilityOfElement(contacts_date_filter);
+        clickOnElement(contacts_date_filter);
+        waitForTime(1000);
+        driver.findElement(contacts_date_filter).sendKeys(Keys.ARROW_DOWN);
+        waitForTime(1000);
+        System.out.println("Down clicked");
+        waitForVisibilityOfElement(filter_search);
+        clickOnElement(filter_search);
+        waitForVisibilityOfElement(filter_screen_validation);
+        assertElementDisplayed(filter_screen_validation);
+        Assert.assertTrue(driver.findElement(filter_screen_validation).getText().contains("Users"));
+    }
+
+    public void checkTagsFilter(){
+        clickOnElement(contacts_tags_filter);
+        waitForTime(1000);
+        clickOnElement(contacts_tags_search);
+        sendTextToInputField("Tags 99949",contacts_tags_search);
+        clickOnElement(tags_checkbox);
+        clickOnElement(filter_search);
+        assertElementDisplayed(filter_screen_validation);
+        Assert.assertTrue(driver.findElement(filter_screen_validation).getText().contains("Users"));
+    }
+
+    public void checkChannelFilter(){
+        clickOnElement(contact_channel_filter);
+        waitForTime(1000);
+        driver.findElement(contact_channel_filter).sendKeys(Keys.ARROW_DOWN);
+        System.out.println("Down clicked");
+        waitForVisibilityOfElement(filter_search);
+        clickOnElement(filter_search);
+        assertElementDisplayed(filter_screen_validation);
+        Assert.assertTrue(driver.findElement(filter_screen_validation).getText().contains("Users"));
+        clickOnElement(contact_clear_filter_btn);
+    }
+
+
 
 }

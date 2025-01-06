@@ -1,12 +1,6 @@
 name: Avocado-E2E health checks
 
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
   workflow_dispatch:
   schedule:
     - cron: '55 21 * * *'
@@ -29,7 +23,7 @@ jobs:
         run: mvn clean install -DskipTests
 
   test:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     needs: build
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' # Run on manual trigger or schedule
     steps:

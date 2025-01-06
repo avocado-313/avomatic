@@ -1,9 +1,7 @@
 package avocado;
 
 import PageBase.PageBase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.testng.Assert;
 
 public class P01AvocadoLogin extends PageBase {
@@ -93,6 +91,7 @@ public class P01AvocadoLogin extends PageBase {
         sendTextToInputField(password,input_password);
         clickOnElement(input_password);
         waitForVisibilityOfElement(workspace_dropdown);
+        clickOnElement(workspace_dropdown);
         ElementsValidator(workspace_dropdown);
         waitForTime(5000);
         driver.findElement(workspace_dropdown).sendKeys(Keys.ARROW_DOWN);

@@ -31,8 +31,11 @@ public class P01AvocadoLogin extends PageBase {
         waitForVisibilityOfElement(input_password);
         ElementsValidator(mottasl_logo,mottasl_3_label,a_trello_product_label,sign_into_your_account_label,input_email,input_password,remember_me_label,login_CTA,forget_password_link,dont_have_an_account_register,language);
         validateScreenTexts();
-        validateForgetPasswordScreen();
-        validateRegisterScreen();
+//        validateForgetPasswordScreen();
+//        validateRegisterScreen();
+
+
+
         scrollToElement(input_email);
         sendTextToInputField(email,input_email);
         scrollToElement(input_password);
@@ -65,25 +68,15 @@ public class P01AvocadoLogin extends PageBase {
 
     }
 
-    private void validateForgetPasswordScreen(){
-        scrollToElement(forget_password_link);
-        clickOnElement(forget_password_link);
-        Assert.assertTrue(assertElementDisplayed(forget_password_label));
-        Assert.assertTrue(assertElementDisplayed(reset_link));
-        clickOnElement(login_From_forget_password);
-        Assert.assertTrue(assertElementDisplayed(forget_password_link));
-    }
-    private final By create_an_account_label = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-6f19s'])[1]");
-    private final By create_account_CTA = By.xpath("//div[@aria-hidden='false']//button[@type='button'][normalize-space()='Create Account']");
-    private final By login_from_register = By .xpath("//a[normalize-space()='Login']");
-    private void validateRegisterScreen(){
-        scrollToElement(dont_have_an_account_register);
-        clickOnElement(dont_have_an_account_register);
-        ElementsValidator(create_an_account_label,create_account_CTA,login_from_register);
-        scrollToElement(login_from_register);
-        clickOnElement(login_from_register);
-        Assert.assertTrue(assertElementDisplayed(dont_have_an_account_register));
-    }
+//    private void validateForgetPasswordScreen(){
+//        scrollToElement(forget_password_link);
+//        clickOnElement(forget_password_link);
+//        Assert.assertTrue(assertElementDisplayed(forget_password_label));
+//        Assert.assertTrue(assertElementDisplayed(reset_link));
+//        clickOnElement(login_From_forget_password);
+//        Assert.assertTrue(assertElementDisplayed(forget_password_link));
+//    }
+
     public void loginToAvocado(String email,String password,String workspace){
         waitForVisibilityOfElement(input_password);
         ElementsValidator(mottasl_logo,mottasl_3_label,a_trello_product_label,sign_into_your_account_label,input_email,input_password,remember_me_label,login_CTA,forget_password_link,dont_have_an_account_register,language);

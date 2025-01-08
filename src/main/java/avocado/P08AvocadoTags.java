@@ -30,6 +30,9 @@ public class P08AvocadoTags extends PageBase {
     private final By three_dots = By.xpath("//*[@data-testid='MoreHorizIcon']");
     private final By delete_from_three_dots = By.xpath("//button[@data-testid='undefined-2']");
     private final By confirm_delete = By.xpath("//button[@data-testid='deleted-modal-deleted-btn']");
+    private final By edit_tag = By.xpath("//button[normalize-space() = 'Edit']");
+    private final By update_tag_CTA = By.xpath("//span[normalize-space()='Update Tag']");
+    private final By search_tag = By.xpath("//*[@placeholder='Search Tags']");
 
 
     public void validateTagsFromApps(){
@@ -81,8 +84,10 @@ public class P08AvocadoTags extends PageBase {
 
     }
     public void validateDeleteTag(){
+        waitForTime(3000);
         waitForVisibilityOfElement(three_dots);
         clickOnElement(three_dots);
+        waitForTime(2000);
         waitForVisibilityOfElement(delete_from_three_dots);
         clickOnElement(delete_from_three_dots);
         waitForVisibilityOfElement(confirm_delete);
@@ -91,6 +96,34 @@ public class P08AvocadoTags extends PageBase {
     public void checkNavigateBackFromTags(){
         clickOnElement(back_CTA_from_tags_Screen);
         Assert.assertTrue(assertElementDisplayed(tags_icon));
+    }
+
+    public void validateEditTag(){
+        waitForVisibilityOfElement(three_dots);
+        clickOnElement(three_dots);
+        waitForTime(2000);
+        waitForVisibilityOfElement(edit_tag);
+        clickOnElement(edit_tag);
+        clickOnElement(tags_description_input);
+        jsclearInputfiels(tags_description_input);
+        waitForTime(2000);
+        String edit_desc = "Edit  " +generateRandomDigits(5);
+        sendTextToInputField(edit_desc,tags_description_input);
+        Assert.assertTrue(assertElementDisplayed(color_text));
+        waitForTime(5000);
+        clickOnElement(select_color_CTA);
+        By color = selectColor();
+        scrollToElement(color);
+        waitForTime(2000);
+        clickOnElement(color);
+        clickOnElement(update_tag_CTA);
+    }
+
+    public void validateTagsSearch(){
+        validateTagsFromApps();
+        clickOnElement(search_tag);
+        sendTextToInputField("Tags",search_tag);
+        Assert.assertTrue(assertElementDisplayed(three_dots));
     }
 
 }

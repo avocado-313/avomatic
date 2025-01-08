@@ -28,11 +28,20 @@ public class M07TagsTest extends BaseTest {
         home.checkHomeScreen();
         tags.validateTagsScreen();
         tags.validateTagCreation();
+        tags.validateEditTag();
         tags.validateDeleteTag();
     }
+
     @Test
-    public void TC_02ValidateNavigateBackFromTags() {
+    public void TC_02ValidateTagSearch(){
+        tags.validateTagsSearch();
         tags.checkNavigateBackFromTags();
     }
+
+
+//    @Test
+//    public void TC_02ValidateNavigateBackFromTags() {
+//        tags.checkNavigateBackFromTags();
+//    }
 
 }

@@ -147,6 +147,14 @@ public class PageBase {
         driver.findElement(by).clear();
     }
 
+    public void jsclearInputfiels(By element){
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement inputField = driver.findElement(element);
+        js.executeScript("arguments[0].value = '';", inputField);
+
+    }
+
     public void doubleClickOnAnElement(By by) {
         Actions actions = new Actions(driver);
         actions.doubleClick(driver.findElement(by)).perform();

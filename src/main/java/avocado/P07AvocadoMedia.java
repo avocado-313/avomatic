@@ -22,8 +22,8 @@ public class P07AvocadoMedia extends PageBase {
         super(driver);
     }
 
-    private final By media_icon_from_label = By.xpath("//a[@aria-label='Media Library']");
-    private final By media_library_title = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1hxh1sq'])[1]");
+    private final By media_icon_from_label = By.xpath("//a[@aria-label='Media Library']//*[name()='svg']");
+    private final By media_library_title = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-1pnptap']");
     private final By upload_media = By.xpath("//input[@type='file']");
     private final By caption_input = By.xpath("(//input[@type='text'])[3]");
     private final By upload_media_CTA = By.xpath("//button[normalize-space()='Upload']");
@@ -191,7 +191,11 @@ public class P07AvocadoMedia extends PageBase {
         }catch (Exception e){
             validateTabsSwitching(media);
         }
-        validateMedia(By.xpath("(//*[@role='img'])[13]"));
+        //validateMedia(By.xpath("//*[@role='img']"));
+        validateMedia(By.xpath("//body/div[@id='root']/div[@class='MuiStack-root css-j7qwjs']" +
+                "/div[@class='MuiStack-root css-yxzoo1']/div[@class='MuiStack-root css-1tweyfy']/div[@class='MuiStack-root css-1owsoc2']" +
+                "/div[@class='MuiStack-root hideScrollbar css-1h9dgjq']/div[@class='MuiStack-root css-1axv494']/div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-12e2y7h']" +
+                "/div[1]/div[1]/div[1]/div[1]"));
 
         try {
             validateTabsSwitching(media);

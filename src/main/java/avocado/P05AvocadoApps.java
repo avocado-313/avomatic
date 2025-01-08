@@ -21,6 +21,12 @@ public class P05AvocadoApps extends PageBase {
     private final By greeting_message_title_after_arrow = By.xpath("(//*[@data-testid='label'])[1]");
     private final By greeting_message_toggle = By.xpath("//*[@data-testid='greeting-switch-button']");
     private final By message_input = By.xpath("(//*[@placeholder='Type your message...'])[1]");
+    private final By away_message_arrow = By.xpath("//div[@data-testid='away-message-accordion']//div[@class='MuiAccordionSummary-expandIconWrapper css-1fx8m19']//*[name()='svg']");
+    private final By away_message_title_after_arrow =By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-1jr28vm'][normalize-space()='Away Message']");
+    private final By away_message_toggle = By.xpath("//span[@data-testid='away-message-switch-button']");
+    private final By away_message_input = By.xpath("(//*[@placeholder='Type your message...'])[2]");
+
+
     public void navigateToGreetingScreen(){
         scrollToElement(apps_from_menu);
         clickOnElement(apps_from_menu);
@@ -44,11 +50,29 @@ public class P05AvocadoApps extends PageBase {
         waitForVisibilityOfElement(greeting_message_title_after_arrow);
         Assert.assertTrue(assertElementDisplayed(greeting_message_title_after_arrow));
     }
+
     public void sendGreetingMessage(){
         clickOnElement(greeting_message_toggle);
         sendTextToInputField("welcome from Avocado test automation",message_input);
         clickOnElement(By.xpath("(//*[normalize-space()='Save'])[2]"));
     }
+
+    public void validateAwayMessageComponent(){
+
+        scrollToElement(away_message_arrow);
+        clickOnElement(away_message_arrow);
+        waitForVisibilityOfElement(away_message_title_after_arrow);
+        Assert.assertTrue(assertElementDisplayed(away_message_title_after_arrow));
+    }
+
+    public void sendAwayMessage(){
+        clickOnElement(away_message_toggle);
+        clickOnElement(away_message_input);
+        sendTextToInputField("Will reply back once we are online", away_message_input);
+        clickOnElement(By.xpath("(//*[normalize-space() = 'Save'])[3]"));
+    }
+
+
     public void setWorkingHours(String starting_hour_AM,String ending_hour_PM){
         clickOnElement(working_hours_arrow);
         waitForVisibilityOfElement(By.xpath("//*[@data-testid='switch-button']"));

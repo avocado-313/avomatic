@@ -86,6 +86,8 @@ public class Regression extends BaseTest {
         apps.setWorkingHours("07","04");
         apps.validateGreetingMessageComponent();
         apps.sendGreetingMessage();
+        apps.validateAwayMessageComponent();
+        apps.sendAwayMessage();
         login.logout();
     }
     @Test

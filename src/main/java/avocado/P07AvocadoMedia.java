@@ -191,11 +191,9 @@ public class P07AvocadoMedia extends PageBase {
         }catch (Exception e){
             validateTabsSwitching(media);
         }
-        //validateMedia(By.xpath("//*[@role='img']"));
-        validateMedia(By.xpath("//body/div[@id='root']/div[@class='MuiStack-root css-j7qwjs']" +
-                "/div[@class='MuiStack-root css-yxzoo1']/div[@class='MuiStack-root css-1tweyfy']/div[@class='MuiStack-root css-1owsoc2']" +
-                "/div[@class='MuiStack-root hideScrollbar css-1h9dgjq']/div[@class='MuiStack-root css-1axv494']/div[@class='MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3 css-12e2y7h']" +
-                "/div[1]/div[1]/div[1]/div[1]"));
+//        validateMedia(By.xpath("//*[@role='img']"));
+        validateMedia(By.xpath("(//*[@role='img'])[14]"));
+
 
         try {
             validateTabsSwitching(media);

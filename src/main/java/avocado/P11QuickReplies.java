@@ -2,6 +2,7 @@ package avocado;
 
 import PageBase.PageBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -28,6 +29,8 @@ public class P11QuickReplies extends PageBase {
 //    private final By keywords_input_field = By.xpath("//*[@class='MuiInputBase-input MuiOutlinedInput-input MuiAutocomplete-input MuiAutocomplete-inputFocused css-1x5jdmq']");
     private final By body_text_input_field = By.xpath("(//*[normalize-space()='Body Text'])[1]");
     private final By available_to_list = By.xpath("//*[@aria-haspopup='listbox']");
+    private final By edit_quick_reply = By.xpath("//button[normalize-space() = 'Edit']");
+    private final By update_quick_reply = By.xpath("//span[normalize-space()='Update']");
 
 
     public void validateQuickRepliesFromApps(){
@@ -58,7 +61,7 @@ public class P11QuickReplies extends PageBase {
     }
 
     private void deleteQuickReply(){
-        clickOnElement(By.xpath("(//*[@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[5]"));
+//        clickOnElement(By.xpath("(//*[@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[5]"));
         clickOnElement(By.xpath("(//*[@data-testid='actions-button'])[1]"));
         clickOnElement(By.xpath("//button[normalize-space()='Delete']"));
         clickOnElement(By.xpath("//button[normalize-space()='Delete']"));
@@ -75,9 +78,22 @@ public class P11QuickReplies extends PageBase {
             sendTextToInputField("body", By.xpath("(//textarea[@class='MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-u36398'])[1]"));
             clickOnElement(By.xpath("//*[normalize-space()='Save']"));
             waitForTime(5000);
+            editQuickReply();
+            waitForTime(2000);
             deleteQuickReply();
         }catch (Exception e){
             clickOnElement(By.xpath("//*[normalize-space()='Cancel']"));
         }
+    }
+
+    private void editQuickReply(){
+        clickOnElement(By.xpath("(//*[@data-testid='actions-button'])[1]"));
+        clickOnElement(edit_quick_reply);
+        waitForTime(2000);
+        sendTextToInputField(" Edit body", By.xpath("(//textarea[@class='MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-u36398'])[1]"));
+        waitForTime(2000);
+        waitForVisibilityOfElement(update_quick_reply);
+        clickOnElement(update_quick_reply);
+
     }
 }

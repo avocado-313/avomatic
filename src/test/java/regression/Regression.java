@@ -184,11 +184,12 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_014ValidateTemplateScreen() {
+    public void TC_014ValidateTemplateScreen() throws InterruptedException {
         login.loginToAvocado(username2, password2,Workspace2);
         home.checkHomeScreen();
         template.validateTemplateScreen();
         template.validateCreateTemplateScreen();
+        template.validateCreateNewTemplate();
         login.logout();
 
     }
@@ -437,6 +438,66 @@ public class Regression extends BaseTest {
         home.checkHomeScreen();
         whatsapp.navigateToWhatsAppWidget();
         whatsapp.checkWhatsAppWidgetScreen();
+        login.logout();
+    }
+    @Test
+    public void TC_42ValidateMediaandVariableTemplateCreation() throws InterruptedException {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.validateCreateTemplateScreen();
+        template.validateMediaAndVariableTemplate();
+        login.logout();
+
+    }
+    @Test
+    public void TC_43ValidateQuickReplyTemplateCreation() throws InterruptedException {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.validateCreateTemplateScreen();
+        template.validateQuickReplyButtonTemplate();
+        login.logout();
+
+
+    }
+    @Test
+    public void TC_44ValidateCTATemplateCreation() throws InterruptedException {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.validateCreateTemplateScreen();
+        template.validateCTATemplate();
+        login.logout();
+
+
+    }
+    @Test
+    public void TC_45ValidateAddLangCreation() throws InterruptedException {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+
+        template.validateAddLangTemplate();
+        login.logout();
+
+
+    }
+    @Test
+    public void TC_46ValidateDuplicateTemplateCreation() throws InterruptedException {
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.duplicateTemplateCreation();
+        login.logout();
+    }
+
+    @Test
+    public void TC_47ValidateTemplateDeletion() throws InterruptedException {
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.validateDeleteTemplate();
         login.logout();
     }
 

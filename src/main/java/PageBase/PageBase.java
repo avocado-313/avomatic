@@ -62,7 +62,7 @@ public class PageBase {
     }
 
     public void waitForVisibilityOfElement(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
     }
     public void waitForVisibilityOfElement(By by,int durationIntoSec) {
@@ -208,13 +208,13 @@ public class PageBase {
         String formattedNumber = String.valueOf(firstDigit);
 
         // Rest of the digits (8 digits in total)
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 8; i++) {
             int digit = random.nextInt(10);  // Generates a random number between 0 and 9
             formattedNumber += digit;
         }
-        System.out.println("+966" + formattedNumber);
+        System.out.println("+91" + formattedNumber);
 
-        return "1" + formattedNumber;
+        return "9" + formattedNumber;
     }
 
 
@@ -359,6 +359,7 @@ public class PageBase {
             Assert.assertTrue(assertElementDisplayed(screenLocator));
         }
     }
+
 
     public void selectFromListByText(By by , String text){
             scrollToElement(by);

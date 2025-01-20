@@ -38,6 +38,7 @@ public class M08BroadcastTest extends BaseTest {
         broadcast.checkCreateBroadcastScreen();
         broadcast.selectTemplate();
         broadcast.completeRecipientScreen(CONTACT);
+        broadcast.checkNavigateBackIntoBroadcastScreen();
 
     }
     @Test

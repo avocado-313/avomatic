@@ -26,20 +26,21 @@ public class M08BroadcastTest extends BaseTest {
         broadcast.validateBroadCastFromApps();
         broadcast.navigateToBroadcastFromApps();
         broadcast.checkBroadCastScreen();
-        login.logout();
+
     }
     @Test
     public void TC_02validateCreateBroadCastScreen(){
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        broadcast.validateBroadCastFromApps();
-        broadcast.navigateToBroadcastFromApps();
-        broadcast.checkBroadCastScreen();
+
         broadcast.checkCreateBroadcastScreen();
         broadcast.selectTemplate();
         broadcast.completeRecipientScreen(CONTACT);
+//
+
+
 
     }
+
+
     @Test
     public void TC_03validateNavigateBAckFunctionalityIntoBroadcast(){
         broadcast.checkNavigateBackIntoBroadcastScreen();

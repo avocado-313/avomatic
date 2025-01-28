@@ -216,26 +216,11 @@ public class P09BroadCast extends PageBase {
         scrollToElement(By.xpath("//*[normalize-space()='Send Now']"));
         clickOnElement(By.xpath("//*[normalize-space()='Send Now']"));
         waitForTime(5000);
-
         waitForVisibilityOfElement(By.xpath("//*[normalize-space() = 'Estimation']"));
         waitForVisibilityOfElement(By.xpath("(//*[normalize-space()='Send Now'])[2]"));
         clickOnElement(By.xpath("(//*[normalize-space()='Send Now'])[2]"));
         waitForVisibilityOfElement(By.xpath("//*[normalize-space()='Continue']"));
-
         clickOnElement(By.xpath("//*[normalize-space()='Continue']"));
         waitForVisibilityOfElement(new_broadcast_CTA);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

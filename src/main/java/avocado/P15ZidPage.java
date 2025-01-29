@@ -22,7 +22,7 @@ public class P15ZidPage extends PageBase {
     private final By zidIntegrationDescriptionSecondLine = By.xpath("//*[normalize-space()=concat('Click on the ', \"'\", 'Install', \"'\", ' Button Below:')]");
     private final By zidIntegrationDescriptionThirdLine = By.xpath("//*[normalize-space()='Log In: Use your store login credentials to access your account.']");
     private final By zidIntegrationDescriptionForthLine = By.xpath("//*[normalize-space()='Install the App:']");
-    private final By zidIntegrationDescriptionFifthLine = By.xpath("//*[normalize-space()='Return to Avocado:']");
+    private final By zidIntegrationDescriptionFifthLine = By.xpath("//*[normalize-space()='Return to Mottasl:']");
     private final By installZidCTA = By.xpath("//button[normalize-space()='Install Zid']");
     private final By closeIntegrationIcon = By.xpath("(//*[@data-testid='CloseIcon'])[3]");
     private final By acceptCookiesCTA = By.xpath("//*[@id='hs-eu-confirmation-button']");

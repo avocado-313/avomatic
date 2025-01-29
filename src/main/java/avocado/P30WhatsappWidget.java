@@ -48,7 +48,7 @@ public class P30WhatsappWidget extends PageBase {
     private final By mobileDropDownInputText = By.xpath("//*[@id=\":rah:\"]");
     private final By mobileMarginBottom = By.xpath("//*[@id=\":raj:\"]");
     private final By mobileMarginRight = By.xpath("//*[@id=\":rak:\"]");
-    private final By saveCtaButton = By.xpath("//*[normalize-space() = 'Save & View Embed code']");
+    private final By saveCtaButton = By.xpath("//*[normalize-space() = 'Save']");
     private final By previewText1 = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1erbx20\"])[1]");
     private final By previewText2 = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1erbx20\"])[2]");
     private final By previewText3 = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1erbx20\"])[3]");
@@ -86,6 +86,6 @@ public class P30WhatsappWidget extends PageBase {
         scrollToElement(positionAndVisibilityHeader);
         Assert.assertTrue(driver.findElement(positionAndVisibilityHeader).getText().contains("Position & Visibility"));
         scrollToElement(saveCtaButton);
-        Assert.assertTrue(driver.findElement(saveCtaButton).getText().contains("Save & View Embed code"));
+        Assert.assertTrue(driver.findElement(saveCtaButton).getText().contains("Save"));
     }
 }

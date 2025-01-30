@@ -300,7 +300,7 @@ public class Regression extends BaseTest {
         }catch (Exception e){
             e.getStackTrace();
         }
-        login.logout();
+
     }
     @Test
     public void TC_028validateEditAttributes() throws InterruptedException {
@@ -309,6 +309,7 @@ public class Regression extends BaseTest {
     @Test
     public void TC_029validateSearchAttribute() throws InterruptedException {
         custom.searchAttribute();
+        login.logout();
     }
     @Test
     public void TC_28validateEcommerceScreen() {

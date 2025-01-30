@@ -33,6 +33,7 @@ public class M08BroadcastTest extends BaseTest {
         broadcast.checkCreateBroadcastScreen();
         broadcast.selectTemplate();
         broadcast.completeRecipientScreen(CONTACT);
+        broadcast.checkNavigateBackIntoBroadcastScreen();
     }
     @Test
     public void TC_03validateNavigateBAckFunctionalityIntoBroadcast(){

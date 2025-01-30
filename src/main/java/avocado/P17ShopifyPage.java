@@ -21,7 +21,7 @@ public class P17ShopifyPage extends PageBase {
     private final By youWillBeRedirectHeader = By.xpath("//*[normalize-space()='You will be redirected to Shopify Store for Installation']");
     private final By integrationCardDescriptionFirst = By.xpath("//*[normalize-space()='Log In:']");
     private final By integrationCardDescriptionSecond = By.xpath("//*[normalize-space()='Install the App:']");
-    private final By integrationCardDescriptionThird = By.xpath("//*[normalize-space()='Return to Avocado:']");
+    private final By integrationCardDescriptionThird = By.xpath("//*[normalize-space()='Return to Mottasl:']");
     private final By installShopifyCTA = By.xpath("//button[normalize-space()='Install Shopify']");
 
 

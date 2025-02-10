@@ -30,6 +30,7 @@ public class Regression extends BaseTest {
     P19FooderEcommerceCard fooder;
     P20Billing bill;
     P30WhatsappWidget whatsapp;
+    P21Analytics analytics;
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -54,6 +55,7 @@ public class Regression extends BaseTest {
         fooder = new P19FooderEcommerceCard(driver);
         bill = new P20Billing(driver);
         whatsapp = new P30WhatsappWidget(driver);
+        analytics = new P21Analytics(driver);
 
     }
 
@@ -498,6 +500,80 @@ public class Regression extends BaseTest {
         home.checkHomeScreen();
         template.validateTemplateScreen();
         template.validateDeleteTemplate();
+        login.logout();
+    }
+
+    @Test
+    public void TC_48validateAnalyticsPageTitle() {
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsPageTitle();
+        login.logout();
+    }
+
+    @Test
+    public void TC_49validateAnalyticsPageTitleDesc(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsPageTitleDesc();
+        login.logout();
+    }
+
+    @Test
+    public void TC_50validateAnalyticsOverviewSection(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsOverviewSection();
+        login.logout();
+    }
+
+    @Test
+    public void TC_51validateAnalyticsAgentsSection(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsAgentSection();
+        login.logout();
+    }
+
+    @Test
+    public void TC_52validateAnalyticsAgentsDownloadReport(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsAgentDownloadReport();
+        login.logout();
+    }
+
+
+    @Test
+    public void TC_53validateAnalyticsTeamsSection(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsTeamsSection();
+        login.logout();
+    }
+
+    @Test
+    public void TC_54validateAnalyticsTeamsDownloadReport(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsTeamDownloadReport();
+        login.logout();
+    }
+
+
+    @Test
+    public void TC_55validateAnalyticsConversationSection(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsConversationSection();
+        login.logout();
+    }
+
+    @Test
+    public void TC_56validateAnalyticsConversationDownloadReport(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsConversationDownloadReport();
         login.logout();
     }
 

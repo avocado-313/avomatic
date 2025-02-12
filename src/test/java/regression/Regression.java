@@ -78,16 +78,16 @@ public class Regression extends BaseTest {
 //        home.checkEachMenuIconNavigation();
 //        login.logout();
 //    }
-//    @Test
-//    public void TC_003ValidateWorkspace(){
-//        login.loginToAvocado(username,password,Workspace);
-//        home.checkHomeScreen();
-//        workSpace.navigateToProfileWorkspace();
-//        workSpace.validateWorkspaceElements();
-//        workSpace.validateChangePassword();
-//        workSpace.checkWorkSpaceProfile();
-//        login.logout();
-//    }
+    @Test
+    public void TC_003ValidateWorkspace(){
+        login.loginToAvocado(username,password,Workspace);
+        home.checkHomeScreen();
+        workSpace.navigateToProfileWorkspace();
+        workSpace.validateWorkspaceElements();
+        workSpace.validateChangePassword();
+        workSpace.checkWorkSpaceProfile();
+        login.logout();
+    }
     @Test
     public void TC_004ValidateGreetingScreenFullScenario(){
         login.loginToAvocado(username,password,Workspace);
@@ -196,7 +196,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_15ValidateQuickRepliesScreen() {
+    public void TC_015ValidateQuickRepliesScreen() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         reply.validateQuickRepliesFromApps();
@@ -206,7 +206,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_16validateRulesFromApp() {
+    public void TC_016validateRulesFromApp() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -214,7 +214,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_17validateNavigationTRules() {
+    public void TC_017validateNavigationTRules() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -223,7 +223,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_18validateCreateRuleScreen() {
+    public void TC_018validateCreateRuleScreen() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -234,7 +234,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_19validateCreateRuleModal() {
+    public void TC_019validateCreateRuleModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -245,7 +245,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_20validateNewRuleCreation() {
+    public void TC_020validateNewRuleCreation() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -257,7 +257,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_21validateNewRuleCreation(){
+    public void TC_021validateNewRuleCreation(){
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -268,7 +268,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_22validateDeletionOfRule(){
+    public void TC_022validateDeletionOfRule(){
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -277,32 +277,32 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_23validateCustomAttributesFromApp() {
+    public void TC_023validateCustomAttributesFromApp() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         custom.checkCustomAttributesFromApps();
     }
     @Test
-    public void TC_24validateCustomAttributesScreenElements() {
+    public void TC_024validateCustomAttributesScreenElements() {
         custom.navigateToCustomAttributes();
         custom.checkCustomAttributesScreen();
     }
     @Test
-    public void TC_25validateCustomAttributesScreenTemplate() {
+    public void TC_025validateCustomAttributesScreenTemplate() {
         custom.validateCreateCustomAttributeTemplate();
     }
     @Test
-    public void TC_26validateCustomAttributesCreation() throws InterruptedException {
+    public void TC_026validateCustomAttributesCreation() throws InterruptedException {
         custom.fillCreateCustomAttributesTemplate();
     }
     @Test
-    public void TC_27validateDeleteCustomAttributes() {
+    public void TC_027validateDeleteCustomAttributes() {
         try {
             custom.deleteCustomAttributes();
         }catch (Exception e){
             e.getStackTrace();
         }
-        login.logout();
+
     }
     @Test
     public void TC_028validateEditAttributes() throws InterruptedException {
@@ -311,6 +311,7 @@ public class Regression extends BaseTest {
     @Test
     public void TC_029validateSearchAttribute() throws InterruptedException {
         custom.searchAttribute();
+        login.logout();
     }
     @Test
     public void TC_28validateEcommerceScreen() {

@@ -28,9 +28,6 @@ public class P01AvocadoLogin extends PageBase {
         ElementsValidator(mottasl_logo,sign_into_your_account_label,input_email,input_password,remember_me_label,login_CTA,forget_password_link,dont_have_an_account_register,language);
         validateScreenTexts();
         validateForgetPasswordScreen();
-
-
-
         scrollToElement(input_email);
         sendTextToInputField(email,input_email);
         scrollToElement(input_password);

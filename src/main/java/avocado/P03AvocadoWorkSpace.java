@@ -15,7 +15,7 @@ public class P03AvocadoWorkSpace extends PageBase {
         super(driver);
     }
 
-    private final By profile_from_side_menu = By.xpath("(//img[@class='MuiAvatar-img css-1hy9t21'])[1]");
+    private final By profile_from_side_menu = By.xpath("//*[@aria-label= 'Profile']");
     private final By profile_from_profile_menu = By.xpath("(//p[normalize-space()='Profile'])[1]");
     private final By profile_icon_from_profile_menu = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-colorSecondary MuiSvgIcon-fontSizeMedium css-v5fipd'])[3]");
 //    private final By settings_title_into_profile_screen = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1hxh1sq'])[1]");//karim

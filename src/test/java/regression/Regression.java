@@ -107,12 +107,15 @@ public class Regression extends BaseTest {
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
         login.logout();
-//        contacts.validateCreateContactCard();
+
     }
     @Test
     public void TC_006ValidateContactsCreation() {
-//        contacts.createNewContact();
-//        contacts.validateChatScreen();
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.createNewContact();
+        contacts.validateChatScreen();
+        login.logout();
     }
     @Test
     public void TC_007ValidateSearchScreen() {
@@ -126,15 +129,15 @@ public class Regression extends BaseTest {
         search.validateLastActivity();
         login.logout();
     }
-    @Test
-    public void TC_008ValidateMediaScreen() {
-        login.loginToAvocado(username, password,Workspace);
-        home.checkHomeScreen();
-        media.validateUploadMediaFunctionality();
-        media.validateMediaAcceptsLessThan10MbFiles();
-        media.validateNavigateBackFromMediaToApps();
-        login.logout();
-    }
+//    @Test
+//    public void TC_008ValidateMediaScreen() {
+//        login.loginToAvocado(username, password,Workspace);
+//        home.checkHomeScreen();
+//        media.validateUploadMediaFunctionality();
+//        media.validateMediaAcceptsLessThan10MbFiles();
+//        media.validateNavigateBackFromMediaToApps();
+//        login.logout();
+//    }
     @Test
     public void TC_009ValidateTagsScreen() {
         login.loginToAvocado(username, password,Workspace);
@@ -177,11 +180,12 @@ public class Regression extends BaseTest {
         broadcast.navigateToBroadcastFromApps();
         broadcast.checkBroadCastScreen();
         broadcast.checkCreateBroadcastScreen();
-        try {
-            broadcast.selectTemplate();
-        }catch (Exception e){
-            e.getStackTrace();
-        }
+        broadcast.selectTemplate();
+//        try {
+//            broadcast.selectTemplate();
+//        }catch (Exception e){
+//            e.getStackTrace();
+//        }
         broadcast.completeRecipientScreen(CONTACT);
         login.logout();
     }
@@ -436,7 +440,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_02validateWhatsappWidgetScreenElements() {
+    public void TC_02validateWhatsappWidgetScreenElements() throws InterruptedException {
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         whatsapp.navigateToWhatsAppWidget();

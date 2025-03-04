@@ -29,7 +29,7 @@ public class M30WhatsappWidgetTest extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_02validateWhatsappWidgetScreenElements() {
+    public void TC_02validateWhatsappWidgetScreenElements() throws InterruptedException {
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         whatsapp.navigateToWhatsAppWidget();

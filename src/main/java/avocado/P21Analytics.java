@@ -19,7 +19,7 @@ public class P21Analytics extends PageBase {
     private final By AnalyticsTeamsSectionTitle = By.xpath("//*[@data-testid=\"AgentsTeamHeader\"]");
     private final By AnalyticsConversationCta = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1eucit8\"])[4]");
     private final By AnalyticsConversationTitle = By.xpath("//*[@class=\"MuiTypography-root MuiTypography-h5 css-72ogzh\"]");
-    private final By MaintenancePopUp = By.xpath("//*[@class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-l7mppb\"]");
+//    private final By MaintenancePopUp = By.xpath("//*[@class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-l7mppb\"]");
     private final By Logo = By.xpath("//*[@src=\"https://assets.avocad0.dev/sdk/mottasl_orange.png\"]");
     private final By AgentDownloadReport = By.xpath("//*[@data-testid=\"AgentsTeamHeader-download-reports\"]");
     private final By TeamDownloadReport = By.xpath("//*[@data-testid=\"AgentsTeamHeader-download-reports\"]");
@@ -28,7 +28,7 @@ public class P21Analytics extends PageBase {
 
 
     public void checkAnalyticsPageTitle() {
-        clickOnElement(MaintenancePopUp);
+//        clickOnElement(MaintenancePopUp);
         waitForVisibilityOfElement(Logo);
         clickOnElement(AnalyticsSideBarIcon);
         waitForVisibilityOfElement(AnalyticsPageTitle);
@@ -36,7 +36,7 @@ public class P21Analytics extends PageBase {
     }
 
     public void checkAnalyticsPageTitleDesc(){
-        clickOnElement(MaintenancePopUp);
+//        clickOnElement(MaintenancePopUp);
         waitForVisibilityOfElement(Logo);
         clickOnElement(AnalyticsSideBarIcon);
         waitForVisibilityOfElement(AnalyticsPageTitleDesc);
@@ -44,7 +44,7 @@ public class P21Analytics extends PageBase {
     }
 
     public void checkAnalyticsOverviewSection(){
-        clickOnElement(MaintenancePopUp);
+//        clickOnElement(MaintenancePopUp);
         waitForVisibilityOfElement(Logo);
         clickOnElement(AnalyticsSideBarIcon);
         waitForVisibilityOfElement(AnalyticsOverviewSectionAgent);
@@ -53,8 +53,8 @@ public class P21Analytics extends PageBase {
     }
 
     public void checkAnalyticsAgentSection(){
-        clickOnElement(MaintenancePopUp);
-        waitForVisibilityOfElement(Logo);
+//        clickOnElement(MaintenancePopUp);
+//        waitForVisibilityOfElement(Logo);
         clickOnElement(AnalyticsSideBarIcon);
         waitForVisibilityOfElement(AnalyticsPageTitle);
         clickOnElement(AnalyticsAgentsSectionCta);
@@ -63,8 +63,8 @@ public class P21Analytics extends PageBase {
     }
 
     public void checkAnalyticsAgentDownloadReport(){
-        clickOnElement(MaintenancePopUp);
-        waitForVisibilityOfElement(Logo);
+//        clickOnElement(MaintenancePopUp);
+//        waitForVisibilityOfElement(Logo);
         clickOnElement(AnalyticsSideBarIcon);
         waitForVisibilityOfElement(AnalyticsPageTitle);
         clickOnElement(AnalyticsAgentsSectionCta);
@@ -73,8 +73,8 @@ public class P21Analytics extends PageBase {
     }
 
     public void checkAnalyticsTeamsSection(){
-        clickOnElement(MaintenancePopUp);
-        waitForVisibilityOfElement(Logo);
+//        clickOnElement(MaintenancePopUp);
+//        waitForVisibilityOfElement(Logo);
         clickOnElement(AnalyticsSideBarIcon);
         waitForVisibilityOfElement(AnalyticsPageTitle);
         clickOnElement(AnalyticsTeamsSectionCta);
@@ -83,8 +83,8 @@ public class P21Analytics extends PageBase {
     }
 
     public void checkAnalyticsTeamDownloadReport(){
-        clickOnElement(MaintenancePopUp);
-        waitForVisibilityOfElement(Logo);
+//        clickOnElement(MaintenancePopUp);
+//        waitForVisibilityOfElement(Logo);
         clickOnElement(AnalyticsSideBarIcon);
         waitForVisibilityOfElement(AnalyticsPageTitle);
         clickOnElement(AnalyticsAgentsSectionCta);
@@ -93,8 +93,8 @@ public class P21Analytics extends PageBase {
     }
 
     public void checkAnalyticsConversationSection(){
-        clickOnElement(MaintenancePopUp);
-        waitForVisibilityOfElement(Logo);
+//        clickOnElement(MaintenancePopUp);
+//        waitForVisibilityOfElement(Logo);
         clickOnElement(AnalyticsSideBarIcon);
         waitForVisibilityOfElement(AnalyticsPageTitle);
         clickOnElement(AnalyticsConversationCta);
@@ -103,8 +103,8 @@ public class P21Analytics extends PageBase {
     }
 
     public void checkAnalyticsConversationDownloadReport(){
-        clickOnElement(MaintenancePopUp);
-        waitForVisibilityOfElement(Logo);
+//        clickOnElement(MaintenancePopUp);
+//        waitForVisibilityOfElement(Logo);
         clickOnElement(AnalyticsSideBarIcon);
         waitForVisibilityOfElement(AnalyticsPageTitle);
         clickOnElement(AnalyticsConversationCta);

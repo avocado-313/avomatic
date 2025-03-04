@@ -61,14 +61,15 @@ public class P30WhatsappWidget extends PageBase {
         Assert.assertTrue(driver.findElement(whatsappWidgetSubTitleFromApps).getText().contains("Give customers a way to reach you on WhatsApp from your website."));
     }
 
-    public void navigateToWhatsAppWidget() {
+    public void navigateToWhatsAppWidget() throws InterruptedException {
         clickOnElement(apps_from_menu);
         clickOnElement(whatsappWidgetTitleFromApps);
         waitForVisibilityOfElement(whatsappWidgetHeader);
+        Thread.sleep(5000);
     }
 
     public void checkWhatsAppWidgetScreen() {
-        waitForVisibilityOfElement(whatsappWidgetHeader);
+        waitForVisibilityOfElement(whatsappWidgetHeader,50);
         scrollToElement(whatsappWidgetHeader);
         Assert.assertTrue(driver.findElement(whatsappWidgetHeader).getText().contains("Click-to-Chat Button"));
         scrollToElement(whatsappWidgetDesc);

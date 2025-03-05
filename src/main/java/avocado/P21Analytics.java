@@ -24,6 +24,29 @@ public class P21Analytics extends PageBase {
     private final By AgentDownloadReport = By.xpath("//*[@data-testid=\"AgentsTeamHeader-download-reports\"]");
     private final By TeamDownloadReport = By.xpath("//*[@data-testid=\"AgentsTeamHeader-download-reports\"]");
     private final By ConversationDownloadReport = By.xpath("//*[@data-testid=\"CONVERSATIONS.DOWNLOAD_REPORTS\"]");
+    private final By AgentOverViewOutGoingMsg = By.xpath("(//*[@data-testid=\"ConversationCard-title\"])[2]");
+    private final By AgentOverViewOutGoingGraph = By.xpath("//*[@class=\"recharts-surface\"]");
+    private final By AgentOverViewIncomingMsg = By.xpath("(//*[@data-testid=\"ConversationCard-title\"])[3]");
+    private final By AgentOverViewAverageResponseTime = By.xpath("(//*[@data-testid=\"ConversationCard-title\"])[4]");
+    private final By AgentOverViewResolutionCount = By.xpath("(//*[@data-testid=\"ConversationCard-title\"])[5]");
+    private final By AgentOverViewAverageResolutionTime = By.xpath("(//*[@data-testid=\"ConversationCard-title\"])[6]");
+    private final By AgentOverViewAgentsDropDown = By.xpath("(//*[@data-testid=\"ArrowDropDownIcon\"])[1]");
+    private final By AgentOverViewDurationDropDown = By.xpath("(//*[@data-testid=\"ArrowDropDownIcon\"])[2]");
+
+    private final By TeamOverViewOutGoingMsg = By.xpath("(//*[@data-testid=\"ConversationCard-title\"])[2]");
+    private final By TeamOverViewOutGoingGraph = By.xpath("//*[@class=\"recharts-surface\"]");
+    private final By TeamOverViewIncomingMsg = By.xpath("(//*[@data-testid=\"ConversationCard-title\"])[3]");
+    private final By TeamOverViewAverageResponseTime = By.xpath("(//*[@data-testid=\"ConversationCard-title\"])[4]");
+    private final By TeamOverViewResolutionCount = By.xpath("(//*[@data-testid=\"ConversationCard-title\"])[5]");
+    private final By TeamOverViewAverageResolutionTime = By.xpath("(//*[@data-testid=\"ConversationCard-title\"])[6]");
+
+    private final By ConversationOutGoingMsg = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1v3wi9g\"])[1]");
+    private final By ConversationOutGoingGraph = By.xpath("//*[@class=\"recharts-surface\"]");
+    private final By ConversationIncomingMsg = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1v3wi9g\"])[2]");
+    private final By ConversationAverageResponseTime = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1v3wi9g\"])[3]");
+    private final By ConversationTotalResolutionCount = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1v3wi9g\"])[6]");
+    private final By ConversationAverageResolutionTime = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1v3wi9g\"])[5]");
+    private final By ConversationAverageFirstResponseTime = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1v3wi9g\"])[4]");
 
 
 
@@ -112,6 +135,127 @@ public class P21Analytics extends PageBase {
         clickOnElement(ConversationDownloadReport);
     }
 
+    public void checkAnalyticsAllTabs(){
+        clickOnElement(AnalyticsSideBarIcon);
+        waitForVisibilityOfElement(AnalyticsPageTitle);
+        clickOnElement(AnalyticsAgentsSectionCta);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+        waitForVisibilityOfElement(AnalyticsAgentsSectionTitle);
+        clickOnElement(AgentOverViewOutGoingMsg);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+        scrollToElement(AgentOverViewOutGoingGraph);
+        clickOnElement(AgentOverViewIncomingMsg);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+        scrollToElement(AgentOverViewOutGoingGraph);
+        clickOnElement(AgentOverViewAverageResponseTime);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+        scrollToElement(AgentOverViewOutGoingGraph);
+        clickOnElement(AgentOverViewResolutionCount);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+        scrollToElement(AgentOverViewOutGoingGraph);
+        clickOnElement(AgentOverViewAverageResolutionTime);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+    }
 
+    public void checkAnalyticsTeamAllTabs(){
+        clickOnElement(AnalyticsSideBarIcon);
+        waitForVisibilityOfElement(AnalyticsPageTitle);
+        clickOnElement(AnalyticsTeamsSectionCta);
+        waitForVisibilityOfElement(AnalyticsTeamsSectionTitle);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+        waitForVisibilityOfElement(AnalyticsTeamsSectionTitle);
+        clickOnElement(TeamOverViewOutGoingMsg);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+        scrollToElement(TeamOverViewOutGoingGraph);
+        clickOnElement(TeamOverViewIncomingMsg);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+        scrollToElement(TeamOverViewOutGoingGraph);
+        clickOnElement(TeamOverViewAverageResponseTime);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+        scrollToElement(TeamOverViewOutGoingGraph);
+        clickOnElement(TeamOverViewResolutionCount);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+        scrollToElement(TeamOverViewOutGoingGraph);
+        clickOnElement(TeamOverViewAverageResolutionTime);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewDurationDropDown);
+        waitForTime(1000);
+    }
 
+    public void checkAnalyticsConversationAllTabs(){
+        clickOnElement(AnalyticsSideBarIcon);
+        waitForVisibilityOfElement(AnalyticsPageTitle);
+        clickOnElement(AnalyticsConversationCta);
+        waitForVisibilityOfElement(AnalyticsConversationTitle);
+        scrollToEndOfScreen();
+        waitForTime(1000);
+        scrollToElement(ConversationOutGoingGraph);
+        waitForVisibilityOfElement(AnalyticsConversationTitle);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(ConversationOutGoingMsg);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(ConversationIncomingMsg);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(ConversationAverageResponseTime);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(ConversationAverageFirstResponseTime);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(ConversationAverageResolutionTime);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        clickOnElement(ConversationTotalResolutionCount);
+        waitForTime(1000);
+        clickOnElement(AgentOverViewAgentsDropDown);
+        waitForTime(1000);
+    }
 }

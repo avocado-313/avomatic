@@ -95,6 +95,25 @@ public class M21Analytics extends BaseTest {
         analytics.checkAnalyticsConversationDownloadReport();
         login.logout();
     }
-
-
+    @Test
+    public void TC_10validateAgentAllTabs(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsAllTabs();
+        login.logout();
+    }
+    @Test
+    public void TC_11validateTeamAllTabs(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsTeamAllTabs();
+        login.logout();
+    }
+    @Test
+    public void TC_12validateConversationAllTab(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsConversationAllTabs();
+        login.logout();
+    }
 }

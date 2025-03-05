@@ -106,17 +106,18 @@ public class Regression extends BaseTest {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
+        contacts.validateCreateContactCard();
         login.logout();
-
     }
     @Test
     public void TC_006ValidateContactsCreation() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
-        contacts.createNewContact();
-        contacts.validateChatScreen();
+        contacts.validateAndCreateNewContact();
         login.logout();
     }
+
+
     @Test
     public void TC_007ValidateSearchScreen() {
         login.loginToAvocado(username, password,Workspace);
@@ -579,6 +580,34 @@ public class Regression extends BaseTest {
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsConversationDownloadReport();
+        login.logout();
+    }
+
+    @Test
+    public void TC_57ValidateEmptyFields() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.validateEmptyFields();
+        login.logout();
+    }
+    @Test
+    public void TC_58ValidateChatScreen() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.validateAndCreateNewContact();
+        contacts.validateChatScreen();
+        login.logout();
+    }
+
+
+    @Test
+    public void TC_59ValidateFilters(){
+        login.loginToAvocado(username,password,Workspace);
+        home.checkHomeScreen();
+        contacts.navigateAndValidateContactsScreen();
+        contacts.checkDateAddedFilter();
+        contacts.checkTagsFilter();
+        contacts.checkChannelFilter();
         login.logout();
     }
 

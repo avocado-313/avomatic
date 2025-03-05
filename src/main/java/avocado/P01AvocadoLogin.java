@@ -19,7 +19,7 @@ public class P01AvocadoLogin extends PageBase {
     private final By dont_have_an_account_register = By.xpath("//a[normalize-space()='Register']");
     private final By language = By.xpath("(//img)[2]");
     private final By workspace_dropdown = By.xpath("//input[contains(@class, 'MuiAutocomplete-input')]");
-    private final By reset_link = By.xpath("//div[@class='MuiStack-root css-un5fie']");
+    private final By reset_link = By.xpath("//button[normalize-space() = 'Send Reset Link']");
     private final By forget_password_label = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-6f19s'])[1]");
     private final By login_From_forget_password = By.xpath("//a[normalize-space()='Login']");
     private final By avocado_logo_from_home = By.xpath("//img[@alt='avocado icon']");
@@ -27,7 +27,7 @@ public class P01AvocadoLogin extends PageBase {
         waitForVisibilityOfElement(input_password);
         ElementsValidator(mottasl_logo,sign_into_your_account_label,input_email,input_password,remember_me_label,login_CTA,forget_password_link,dont_have_an_account_register,language);
         validateScreenTexts();
-//        validateForgetPasswordScreen();
+        validateForgetPasswordScreen();
         scrollToElement(input_email);
         sendTextToInputField(email,input_email);
         scrollToElement(input_password);

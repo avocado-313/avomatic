@@ -3,7 +3,6 @@ package avocadoTests;
 import Base.BaseTest;
 import avocado.P01AvocadoLogin;
 import avocado.P02AvocadoHomeScreen;
-import avocado.P22AppsCallReport;
 import avocado.P23AppsRoboCalling;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

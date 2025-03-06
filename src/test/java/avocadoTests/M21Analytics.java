@@ -4,7 +4,6 @@ import Base.BaseTest;
 import avocado.P01AvocadoLogin;
 import avocado.P02AvocadoHomeScreen;
 import avocado.P21Analytics;
-import avocado.P30WhatsappWidget;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

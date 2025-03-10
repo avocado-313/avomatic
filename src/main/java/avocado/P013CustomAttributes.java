@@ -26,7 +26,7 @@ public class P013CustomAttributes extends PageBase {
     private final By addCustom = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-16pzsl3'])[1]");
     private final By nameInput = By.xpath("//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq']");
     private final By descInput = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-u36398'])[1]");
-    private final By threeDots = By.xpath("//*[@data-testid='MoreVertIcon']");
+    private final By threeDots = By.xpath("(//*[@data-testid='actions-button'])[1]");
     private final By deleteCTA = By.xpath("//*[@data-testid='undefined-1']");
     private final By confirmDelete = By.xpath("//*[@data-testid='deleted-modal-deleted-btn']");
     private final By editCTA = By.xpath("//*[@data-testid='undefined-0']");
@@ -70,7 +70,7 @@ public class P013CustomAttributes extends PageBase {
     }
 
     public void editAttribute() throws InterruptedException {
-        waitForVisibilityOfElement(threeDots);
+        waitForVisibilityOfElement(threeDots, 30);
         clickOnElement(threeDots);
         clickOnElement(editCTA);
         waitForVisibilityOfElement(editHeader,60);
@@ -90,7 +90,7 @@ public class P013CustomAttributes extends PageBase {
 
     }
     public void deleteCustomAttributes() throws InterruptedException {
-        waitForVisibilityOfElement(threeDots);
+        waitForVisibilityOfElement(threeDots, 30);
         clickOnElement(threeDots);
         clickOnElement(deleteCTA);
         clickOnElement(confirmDelete);

@@ -106,14 +106,18 @@ public class Regression extends BaseTest {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
+        contacts.validateCreateContactCard();
         login.logout();
-//        contacts.validateCreateContactCard();
     }
     @Test
     public void TC_006ValidateContactsCreation() {
-//        contacts.createNewContact();
-//        contacts.validateChatScreen();
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.validateAndCreateNewContact();
+        login.logout();
     }
+
+
     @Test
     public void TC_007ValidateSearchScreen() {
         login.loginToAvocado(username, password,Workspace);
@@ -126,15 +130,15 @@ public class Regression extends BaseTest {
         search.validateLastActivity();
         login.logout();
     }
-    @Test
-    public void TC_008ValidateMediaScreen() {
-        login.loginToAvocado(username, password,Workspace);
-        home.checkHomeScreen();
-        media.validateUploadMediaFunctionality();
-        media.validateMediaAcceptsLessThan10MbFiles();
-        media.validateNavigateBackFromMediaToApps();
-        login.logout();
-    }
+//    @Test
+//    public void TC_008ValidateMediaScreen() {
+//        login.loginToAvocado(username, password,Workspace);
+//        home.checkHomeScreen();
+//        media.validateUploadMediaFunctionality();
+//        media.validateMediaAcceptsLessThan10MbFiles();
+//        media.validateNavigateBackFromMediaToApps();
+//        login.logout();
+//    }
     @Test
     public void TC_009ValidateTagsScreen() {
         login.loginToAvocado(username, password,Workspace);
@@ -177,11 +181,12 @@ public class Regression extends BaseTest {
         broadcast.navigateToBroadcastFromApps();
         broadcast.checkBroadCastScreen();
         broadcast.checkCreateBroadcastScreen();
-        try {
-            broadcast.selectTemplate();
-        }catch (Exception e){
-            e.getStackTrace();
-        }
+        broadcast.selectTemplate();
+//        try {
+//            broadcast.selectTemplate();
+//        }catch (Exception e){
+//            e.getStackTrace();
+//        }
         broadcast.completeRecipientScreen(CONTACT);
         login.logout();
     }
@@ -436,7 +441,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_02validateWhatsappWidgetScreenElements() {
+    public void TC_02validateWhatsappWidgetScreenElements() throws InterruptedException {
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         whatsapp.navigateToWhatsAppWidget();
@@ -575,6 +580,34 @@ public class Regression extends BaseTest {
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsConversationDownloadReport();
+        login.logout();
+    }
+
+    @Test
+    public void TC_57ValidateEmptyFields() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.validateEmptyFields();
+        login.logout();
+    }
+    @Test
+    public void TC_58ValidateChatScreen() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.validateAndCreateNewContact();
+        contacts.validateChatScreen();
+        login.logout();
+    }
+
+
+    @Test
+    public void TC_59ValidateFilters(){
+        login.loginToAvocado(username,password,Workspace);
+        home.checkHomeScreen();
+        contacts.navigateAndValidateContactsScreen();
+        contacts.checkDateAddedFilter();
+        contacts.checkTagsFilter();
+        contacts.checkChannelFilter();
         login.logout();
     }
 

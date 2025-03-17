@@ -31,6 +31,10 @@ public class Regression extends BaseTest {
     P20Billing bill;
     P30WhatsappWidget whatsapp;
     P21Analytics analytics;
+    P22AppsCallReport appsCallReport;
+    P23AppsRoboCalling appsRoboCalling;
+    P24WebPhone webPhone;
+
     @BeforeClass
     public void initiateObjects(){
         login = new P01AvocadoLogin(driver);
@@ -56,6 +60,10 @@ public class Regression extends BaseTest {
         bill = new P20Billing(driver);
         whatsapp = new P30WhatsappWidget(driver);
         analytics = new P21Analytics(driver);
+        appsCallReport = new P22AppsCallReport(driver);
+        appsRoboCalling = new P23AppsRoboCalling(driver);
+        webPhone = new P24WebPhone(driver);
+
 
     }
 
@@ -449,7 +457,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_42ValidateMediaandVariableTemplateCreation() throws InterruptedException {
+    public void TC_42ValidateMediaAndVariableTemplateCreation() throws InterruptedException {
         login.loginToAvocado(username2, password2,Workspace2);
         home.checkHomeScreen();
         template.validateTemplateScreen();
@@ -583,6 +591,49 @@ public class Regression extends BaseTest {
         login.logout();
     }
 
+    @Test
+    public  void TC_63validateCallsReportText(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        appsCallReport.checkCallsReportText();
+        login.logout();
+    }
+
+    @Test
+    public void TC_64validateRoboCallingAppText() {
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        appsRoboCalling.checkRoboCallingAppText();
+        login.logout();
+    }
+    @Test
+    public void TC_65validateWebPhoneIcon() {
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        webPhone.checkWebPhoneIcon();
+        login.logout();
+    }
+    @Test
+    public void TC_60validateAgentAllTabs(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsAllTabs();
+        login.logout();
+    }
+    @Test
+    public void TC_61validateTeamAllTabs(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsTeamAllTabs();
+        login.logout();
+    }
+    @Test
+    public void TC_62validateConversationAllTab(){
+        login.loginToAvocado(username2, password2, Workspace2);
+        home.checkHomeScreen();
+        analytics.checkAnalyticsConversationAllTabs();
+        login.logout();
+    }
     @Test
     public void TC_57ValidateEmptyFields() {
         login.loginToAvocado(username, password,Workspace);

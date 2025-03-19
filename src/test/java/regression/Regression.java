@@ -433,13 +433,7 @@ public class Regression extends BaseTest {
         zid.checkZidUnInstallation(zidEmail,zidPassword);
         login.logout();
     }
-    @Test
-    public void TC_01ValidateBillingScreen(){
-        login.loginToAvocado(username, password, Workspace);
-        home.checkHomeScreen();
-        bill.navigateAndValidateBillingScreen();
-        login.logout();
-    }
+
     @Test
     public void TC_02validateWhatsappWidgetScreenElements() throws InterruptedException {
         login.loginToAvocado(username2, password2, Workspace2);
@@ -608,6 +602,102 @@ public class Regression extends BaseTest {
         contacts.checkDateAddedFilter();
         contacts.checkTagsFilter();
         contacts.checkChannelFilter();
+        login.logout();
+    }
+
+    @Test
+    public void TC_60ValidateBillingScreen(){
+        login.loginToAvocado(username, password, Workspace);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
+        login.logout();
+    }
+
+    @Test
+    public void TC_61ValidateBillingDashboard(){
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
+        bill.testBillingDashboardVisibleAndClickable();
+        login.logout();
+
+    }
+
+    @Test
+    public void TC_62ValidateInvoiceSearch(){
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
+        bill.validateInvoiceSearch();
+        bill.validateInvoiceSort();
+        login.logout();
+    }
+
+    @Test
+    public void TC_63ValidateOnlinePayemnt(){
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
+        bill.onlinePaymentFlow();
+        login.logout();
+    }
+
+    @Test
+    public void TC_64ValidateOnlinePayNow(){
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
+        bill.checkdeleteicon();
+        bill.onlinePaymentPayNowflow();
+        login.logout();
+    }
+
+    @Test
+    public void TC_65ValidatePayLater() {
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
+        bill.checkdeleteicon();
+        bill.onlinePaymentPayLaterFlow();
+        login.logout();
+    }
+
+    @Test(dependsOnMethods = "TC_65ValidatePayLater")
+    public void TC_66ValidateDeletePayment() {
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
+        bill.deletePaymenticon();
+        login.logout();
+
+    }
+
+    @Test
+    public void TC_67ValidateUsageReport() {
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
+        bill.checkUsageReport();
+        bill.checkTopUPCard();
+        bill.checkUsageCreditCard();
+        login.logout();
+    }
+
+    @Test
+    public void TC_68ValidateNotificationSetting(){
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
+        bill.checkNotification("jogeswar.mahanta@twerlo.com");
+        login.logout();
+    }
+
+    @Test
+    public void TC_69ValidateNotificationSettingEmpty(){
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        bill.navigateAndValidateBillingScreen();
+        bill.checkNotificationEmpty();
         login.logout();
     }
 

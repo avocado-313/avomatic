@@ -89,6 +89,11 @@ public class PageBase {
          return elements.isEmpty(); // Assert that no elements are found
     }
 
+    public Boolean assertElementEnabled(By by) {
+        waitForVisibilityOfElement(by);
+        return driver.findElement(by).isEnabled();
+    }
+
     public void scrollToElement(WebElement element) {
         JavascriptExecutor jsExec = (JavascriptExecutor) driver;
         jsExec.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block: 'center'});", element);
@@ -328,7 +333,7 @@ public class PageBase {
         String newWindowHandle = windowHandles.iterator().next();
         driver.switchTo().window(newWindowHandle);
     }
-    public void switchToThirdTab(){
+    public void switchToThirdTab() {
         String originalWindowHandle = driver.getWindowHandle();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.numberOfWindowsToBe(3));  // Assuming you have 3 tabs open
@@ -345,6 +350,20 @@ public class PageBase {
         }
 
     }
+
+    public void switchToOrginalTab() {
+        String originalWindow = driver.getWindowHandle();
+        Set<String> allWindows = driver.getWindowHandles();
+        for (String window : allWindows) {
+            if (!window.equals(originalWindow)) {
+                driver.switchTo().window(window);
+                break;
+            }
+        }
+        // Switch back to the original tab
+        driver.switchTo().window(originalWindow);
+    }
+
 
     public void waitForTime(int timeIntoMilSec) {
         try {

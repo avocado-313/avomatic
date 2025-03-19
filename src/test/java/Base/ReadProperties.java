@@ -16,6 +16,9 @@ public class ReadProperties {
     public static final String username2 = getPropertyFromEnv("username2");
     public static final String password2 = getPropertyFromEnv("password2");
     public static final String Workspace2 = getPropertyFromEnv("workspace2");
+    public static final String username3 = getPropertyFromEnv("username3");
+    public static final String password3 = getPropertyFromEnv("password3");
+    public static final String Workspace3 = getPropertyFromEnv("workspace3");
     public static final String CONTACT = getPropertyFromEnv("contact");
     public static final String zidEmail = getPropertyFromEnv("zidEmail");
     public static final String zidPassword = getPropertyFromEnv("zidPassword");

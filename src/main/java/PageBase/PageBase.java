@@ -1,5 +1,7 @@
 package PageBase;
 
+
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -24,11 +26,13 @@ import java.util.regex.Pattern;
 public class PageBase {
     public WebDriver driver;
 
+
+
     public PageBase(WebDriver driver) {
         this.driver = driver;
     }
     private final By logout_icon_from_settings = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv'])[8]");
-    private final By input_email = By.xpath("(//input[@id=':r0:'])[1]");
+    private final By input_email = By.xpath("(//input[@id='email'])[2]");
     private final By profile_icon_from_menu = By.xpath("//button[@aria-label='Profile']");
     private final By logout_dropdown_from_settings = By.xpath("//p[normalize-space()='Logout']");
     public final By apps_from_menu = By.xpath("//a[@aria-label='Apps']//*[name()='svg']");

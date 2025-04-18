@@ -18,13 +18,19 @@ public class M33AvocadoSignupTest extends BaseTest {
         signUp = new P31AvocadoSignUp(driver);
     }
     @Test
-    public void TC_001ValidateRegisterScreenElements(){
+    public void TC_001ValidateRegisterScreenElements() throws InterruptedException {
         signUp.validateRegisterScreen();
     }
 
     @Test
-    public void TC_002ValidateRegisterNewAccount(){
-        signUp.registerAccount("tech@123", "8874023329");
+    public void TC_002ValidateRegisterNewAccount() throws InterruptedException {
+        signUp.registerAccount_withoutVerification("tech@123", "8874023329");
+        login.logout();
+    }
+
+    @Test
+    public void TC_003ValidateRegisterVerificationMail(){
+        signUp.registerAccount_withVerifyNow("12345678", "8874023329");
     }
 
 }

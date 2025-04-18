@@ -74,9 +74,20 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_0001ValidateRegisterSetup()  {
+    public void TC_0001ValidateRegisterSetup() throws InterruptedException {
         signup.validateRegisterScreen();
-        signup.registerAccount("tech@123", "8874023329");
+    }
+
+    @Test
+    public void TC_0002ValidateRegisterWithoutVerify() throws InterruptedException {
+        signup.registerAccount_withoutVerification("tech@123", "8874023329");
+        login.logout();
+
+    }
+
+    @Test
+    public void TC_0003ValidateRegisterWithVerification(){
+        signup.registerAccount_withVerifyNow("12345678", "8874023329");
         login.logout();
     }
 //    @Test

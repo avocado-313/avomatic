@@ -31,7 +31,7 @@ public class P013CustomAttributes extends PageBase {
     private final By confirmDelete = By.xpath("//*[@data-testid='deleted-modal-deleted-btn']");
     private final By editCTA = By.xpath("//*[@data-testid='undefined-0']");
     private final By editHeader = By.xpath("//*[@data-testid='custom-attribute-header-title']");
-    private final By updateCTA = By.xpath("//button[.//span[contains(text(),'Update')] and .//span[text() = 'Updating...'] and .//span[text() = 'Updated']]");
+    private final By updateCTA = By.xpath("//button[.//div[contains(text(), 'Update') or contains(text(), 'Updated') or contains(text(), 'Updating') or contains(text(), 'Error')]]");
     private final By searchInput = By.xpath("//*[@placeholder='Search Attributes']");
 
     public void checkCustomAttributesFromApps(){

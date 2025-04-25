@@ -143,7 +143,7 @@ public class P04AvocadoContacts extends PageBase {
         clickOnElement(contacts_tags_filter);
         waitForTime(1000);
         clickOnElement(contacts_tags_search);
-        sendTextToInputField("Tags 99949",contacts_tags_search);
+        sendTextToInputField("Actor",contacts_tags_search);
         clickOnElement(tags_checkbox);
         clickOnElement(filter_search);
         assertElementDisplayed(filter_screen_validation);

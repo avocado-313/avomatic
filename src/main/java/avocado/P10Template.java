@@ -46,12 +46,12 @@ public class P10Template extends PageBase {
     private final By insertVariable = By.xpath("(//*[normalize-space() = 'INSERT VARIABLE {{#}}'])[2]");
     private final By emoji = By.xpath("//*[@data-testid='select-emoji-picker']");
     private final By smileyEmojis = By.xpath("(//*[normalize-space() = 'Smileys & People'])[2]");
-    private final By addCta = By.xpath("//button[.//span[contains(text(),'Next')] and .//span[contains(text(),'Saving...')] and .//span[text() = 'Saved'] and .//span[text() = 'Error']]");
+    private final By addCta = By.xpath("//div[contains(@class,'css-1qyawja')]     //button[.//div[text()='Next']]");
     private final By upload_image_CTA = By.xpath("//button[normalize-space() = 'Upload image']");
 //    private final By image = By.xpath("//input[@name='image']");
 
     private final By enter_Variable = By.xpath("//*[normalize-space() = 'Enter the variable 1']");
-    private final By submit_ReviewCTA = By.xpath("//button[.//span[contains(text(),'Submit for review')] and .//span[contains(text(),'Saving...')] and .//span[text() = 'Saved'] and .//span[text() = 'Error']]");
+    private final By submit_ReviewCTA = By.xpath("//button[contains(@class,'MuiButton-containedPrimary') and .//div[text()='Submit for review']]");
 
 
 

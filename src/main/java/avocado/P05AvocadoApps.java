@@ -54,7 +54,7 @@ public class P05AvocadoApps extends PageBase {
     public void sendGreetingMessage(){
         clickOnElement(greeting_message_toggle);
         sendTextToInputField("welcome from Avocado test automation",message_input);
-        clickOnElement(By.xpath("(//*[normalize-space()='Save'])[2]"));
+        clickOnElement(By.xpath("(//*[normalize-space()='Save'])[3]"));
     }
 
     public void validateAwayMessageComponent(){
@@ -69,7 +69,7 @@ public class P05AvocadoApps extends PageBase {
         clickOnElement(away_message_toggle);
         clickOnElement(away_message_input);
         sendTextToInputField("Will reply back once we are online", away_message_input);
-        clickOnElement(By.xpath("(//*[normalize-space() = 'Save'])[3]"));
+        clickOnElement(By.xpath("(//*[normalize-space() = 'Save'])[5]"));
     }
 
 

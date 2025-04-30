@@ -30,6 +30,7 @@ public class M08BroadcastTest extends BaseTest {
     }
     @Test
     public void TC_02validateCreateBroadCastScreen(){
+
         broadcast.checkCreateBroadcastScreen();
         broadcast.selectTemplate();
         broadcast.completeRecipientScreen(CONTACT);

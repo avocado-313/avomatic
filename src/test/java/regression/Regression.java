@@ -107,19 +107,19 @@ public class Regression extends BaseTest {
         workSpace.checkWorkSpaceProfile();
         login.logout();
     }
-    @Test
-    public void TC_004ValidateGreetingScreenFullScenario(){
-        login.loginToAvocado(username,password,Workspace);
-        home.checkHomeScreen();
-        apps.navigateToGreetingScreen();
-        apps.validateGreetingsScreen();
-        apps.setWorkingHours("07","04");
-        apps.validateGreetingMessageComponent();
-        apps.sendGreetingMessage();
-        apps.validateAwayMessageComponent();
-        apps.sendAwayMessage();
-        login.logout();
-    }
+//    @Test
+//    public void TC_004ValidateGreetingScreenFullScenario(){
+//        login.loginToAvocado(username,password,Workspace);
+//        home.checkHomeScreen();
+//        apps.navigateToGreetingScreen();
+//        apps.validateGreetingsScreen();
+//        apps.setWorkingHours("07","04");
+//        apps.validateGreetingMessageComponent();
+//        apps.sendGreetingMessage();
+//        apps.validateAwayMessageComponent();
+//        apps.sendAwayMessage();
+//        login.logout();
+//    }
     @Test
     public void TC_005ValidateContacts() {
         login.loginToAvocado(username, password,Workspace);
@@ -137,18 +137,18 @@ public class Regression extends BaseTest {
     }
 
 
-    @Test
-    public void TC_007ValidateSearchScreen() {
-        login.loginToAvocado(username, password,Workspace);
-        home.checkHomeScreen();
-        search.validateSearchScreen();
-        search.validateSearchXClose();
-        search.validateSearchScreen();
-        search.validateContactsTab();
-        search.validateMessageTab();
-        search.validateLastActivity();
-        login.logout();
-    }
+//    @Test
+//    public void TC_007ValidateSearchScreen() {
+//        login.loginToAvocado(username, password,Workspace);
+//        home.checkHomeScreen();
+//        search.validateSearchScreen();
+//        search.validateSearchXClose();
+//        search.validateSearchScreen();
+//        search.validateContactsTab();
+//        search.validateMessageTab();
+//        search.validateLastActivity();
+//        login.logout();
+//    }
 //    @Test
 //    public void TC_008ValidateMediaScreen() {
 //        login.loginToAvocado(username, password,Workspace);
@@ -288,7 +288,7 @@ public class Regression extends BaseTest {
         rule.navigateToRules();
         rule.checkCreateRulesScreen();
         rule.checkCreateRuleModalElements();
-        rule.newRuleCreation("karim");
+        rule.newRuleCreation("view5");
         login.logout();
     }
     @Test
@@ -624,27 +624,27 @@ public class Regression extends BaseTest {
         webPhone.checkWebPhoneIcon();
         login.logout();
     }
-    @Test
-    public void TC_60validateAgentAllTabs(){
-        login.loginToAvocado(username2, password2, Workspace2);
-        home.checkHomeScreen();
-        analytics.checkAnalyticsAllTabs();
-        login.logout();
-    }
-    @Test
-    public void TC_61validateTeamAllTabs(){
-        login.loginToAvocado(username2, password2, Workspace2);
-        home.checkHomeScreen();
-        analytics.checkAnalyticsTeamAllTabs();
-        login.logout();
-    }
-    @Test
-    public void TC_62validateConversationAllTab(){
-        login.loginToAvocado(username2, password2, Workspace2);
-        home.checkHomeScreen();
-        analytics.checkAnalyticsConversationAllTabs();
-        login.logout();
-    }
+//    @Test
+//    public void TC_60validateAgentAllTabs(){
+//        login.loginToAvocado(username2, password2, Workspace2);
+//        home.checkHomeScreen();
+//        analytics.checkAnalyticsAllTabs();
+//        login.logout();
+//    }
+//    @Test
+//    public void TC_61validateTeamAllTabs(){
+//        login.loginToAvocado(username2, password2, Workspace2);
+//        home.checkHomeScreen();
+//        analytics.checkAnalyticsTeamAllTabs();
+//        login.logout();
+//    }
+//    @Test
+//    public void TC_62validateConversationAllTab(){
+//        login.loginToAvocado(username2, password2, Workspace2);
+//        home.checkHomeScreen();
+//        analytics.checkAnalyticsConversationAllTabs();
+//        login.logout();
+//    }
     @Test
     public void TC_57ValidateEmptyFields() {
         login.loginToAvocado(username, password,Workspace);

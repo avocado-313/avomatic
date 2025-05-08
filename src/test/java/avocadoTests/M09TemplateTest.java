@@ -35,7 +35,7 @@ public class M09TemplateTest extends BaseTest {
     }
     @Test
     public void TC_02ValidateMediaandVariableTemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         template.validateTemplateScreen();
         template.validateCreateTemplateScreen();
@@ -45,7 +45,7 @@ public class M09TemplateTest extends BaseTest {
     }
     @Test
     public void TC_03ValidateQuickReplyTemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         template.validateTemplateScreen();
         template.validateCreateTemplateScreen();
@@ -56,7 +56,7 @@ public class M09TemplateTest extends BaseTest {
     }
     @Test
     public void TC_04ValidateCTATemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         template.validateTemplateScreen();
         template.validateCreateTemplateScreen();
@@ -67,7 +67,7 @@ public class M09TemplateTest extends BaseTest {
     }
     @Test
     public void TC_05ValidateAddLangCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
+        login.loginToAvocado(username, password,Workspace2);
         home.checkHomeScreen();
         template.validateTemplateScreen();
 
@@ -78,7 +78,7 @@ public class M09TemplateTest extends BaseTest {
     }
     @Test
     public void TC_06ValidateDuplicateTemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2, Workspace2);
+        login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         template.validateTemplateScreen();
         template.duplicateTemplateCreation();
@@ -87,7 +87,7 @@ public class M09TemplateTest extends BaseTest {
 
     @Test
     public void TC_07ValidateTemplateDeletion() throws InterruptedException {
-        login.loginToAvocado(username2, password2, Workspace2);
+        login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         template.validateTemplateScreen();
         template.validateDeleteTemplate();

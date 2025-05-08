@@ -21,7 +21,7 @@ public class M08BroadcastTest extends BaseTest {
     }
     @Test
     public void TC_01ValidateBroadcastScreen() {
-        login.loginToAvocado(username2, password2,Workspace2);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         broadcast.validateBroadCastFromApps();
         broadcast.navigateToBroadcastFromApps();

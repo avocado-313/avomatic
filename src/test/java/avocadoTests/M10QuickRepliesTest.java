@@ -23,7 +23,7 @@ public class M10QuickRepliesTest extends BaseTest {
     }
     @Test
     public void TC_01ValidateQuickReplyScreen() {
-        login.loginToAvocado(username2, password2,Workspace2);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         reply.validateQuickRepliesFromApps();
         reply.validateQuickRepliesScreen();

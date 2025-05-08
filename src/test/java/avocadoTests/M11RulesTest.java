@@ -22,7 +22,7 @@ public class M11RulesTest extends BaseTest {
     }
     @Test
     public void TC_01validateRulesFromApp() {
-        login.loginToAvocado(username2, password2,Workspace2);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
         login.logout();
@@ -30,7 +30,7 @@ public class M11RulesTest extends BaseTest {
     }
     @Test
     public void TC_02validateNavigationTRules() {
-        login.loginToAvocado(username2, password2,Workspace2);
+        login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
         rule.navigateToRules();

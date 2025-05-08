@@ -28,7 +28,7 @@ public class M14ZidTest extends BaseTest {
 
     @Test
     public void TC_01validateZidCard() {
-        login.loginToAvocado(username, password, Workspace);
+        login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
         zid.checkZidIntegrationCard();
@@ -36,7 +36,7 @@ public class M14ZidTest extends BaseTest {
     }
     @Test
     public void TC_02validateZidInstallAndCancelProcess() {
-        login.loginToAvocado(username, password, Workspace);
+        login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
         zid.checkZidInstallationFunctionality(zidEmail,zidPassword,false);
@@ -44,7 +44,7 @@ public class M14ZidTest extends BaseTest {
     }
     @Test
     public void TC_03validateZidInstallAndCompleteProcess() {
-        login.loginToAvocado(username, password, Workspace);
+        login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
         zid.checkZidInstallationFunctionality(zidEmail,zidPassword,true);
@@ -52,7 +52,7 @@ public class M14ZidTest extends BaseTest {
     }
     @Test
     public void TC_04validateZidUnInstallation() {
-        login.loginToAvocado(username, password, Workspace);
+        login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
         zid.checkZidUnInstallation(zidEmail,zidPassword);

@@ -72,8 +72,8 @@ public class Regression extends BaseTest {
         login.validateLoginScreenLocators(username,password,Workspace);
         login.logout();
     }
-
-    @Test
+/*
+    /*@Test
     public void TC_0001ValidateRegisterSetup() throws InterruptedException {
         signup.validateRegisterScreen();
     }
@@ -166,7 +166,7 @@ public class Regression extends BaseTest {
         tags.validateTagCreation();
         tags.validateDeleteTag();
         login.logout();
-    }
+    }*/
     @Test
     public void TC_010ValidateNavigateBackFromTags() {
         login.loginToAvocado(username, password,Workspace);

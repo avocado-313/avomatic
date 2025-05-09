@@ -31,7 +31,7 @@ public class P31AvocadoSignUp extends PageBase {
     private final By mottaslLabel = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-1kq6k1d']");
     private final By signIntoLabel = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-1kuh0n3']");
     private final By dont_have_an_account_register = By.xpath("//a[normalize-space()='Signup']");
-    private final By mottaslLogo= By.xpath("//*[@src='https://assets.mottasl.ai/sdk/mottasl_orange_horizontal_logo_en.svg']");
+    private final By mottaslLogo= By.xpath("//img[@alt='Mottasl']");
     private final By registerLanguage = By.xpath("(//img)[2]");
     private final By errormessage = By.xpath("//p[@class='MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-19iu1dn']");
     private final By registerHeader = By.xpath("//*[normalize-space() = 'Create your free account']");

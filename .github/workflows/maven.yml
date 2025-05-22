@@ -42,7 +42,7 @@ jobs:
 
       - name: Run Maven test and create extentReports directory
         run: |
-          mvn clean verify -Dremote=true -Dbrowser=chrome 
+          mvn clean verify -Dremote=false -Dbrowser=chrome 
           mkdir -p reports/extentReports
 
       - name: Upload report as artifact

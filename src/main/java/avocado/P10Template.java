@@ -29,8 +29,6 @@ public class P10Template extends PageBase {
     private final By utility_category = By.xpath("//*[normalize-space()='Utility']");
     private final By language_selection = By.xpath("//*[normalize-space()='Language']");
     private final By select_language_input = By.xpath("//*[@placeholder='Select a Language']");
-    private final By allow_category_change = By.xpath("//*[@data-testid='MainForm-allow_category_change-label']");
-    private final By allow_category_change_toggle = By.xpath("//*[@type='checkbox']");
     private final By media_title = By.xpath("//*[@data-testid='MainForm-media_type-label']");
     private final By none_media = By.xpath("(//*[normalize-space()='None'])[1]");
     private final By image_media = By.xpath("(//*[normalize-space()='Image'])[1]");
@@ -61,8 +59,8 @@ public class P10Template extends PageBase {
 
     private void validateCreateTemplateElements(){
         ElementsValidator(template_title,template_sub_title,template_id_input_field,template_description_input_field,
-                category_title,marketing_category,utility_category,language_selection,select_language_input,
-                allow_category_change,media_title,none_media,image_media,video_media,docs_media,body_text,
+                category_title,marketing_category,utility_category,language_selection,select_language_input
+                ,media_title,none_media,image_media,video_media,docs_media,body_text,
                 add_footer_text,buttons,none_buttons,CTA_Buttons, quick_replies_button,whats_app_message_preview);
     }
     public void validateTemplateFromApps(){

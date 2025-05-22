@@ -116,7 +116,7 @@ public class P31AvocadoSignUp extends PageBase {
         clickOnElement(eyeButton);
         sendTextToInputField(mobile,phoneNumber);
         action.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
-        Thread.sleep(5000);
+        Thread.sleep(20000);
 
 
 

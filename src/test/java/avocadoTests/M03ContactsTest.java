@@ -20,7 +20,7 @@ public class M03ContactsTest extends BaseTest {
         contacts = new P04AvocadoContacts(driver);
     }
     @Test
-    public void TC_01ValidateContacts() {
+    public void TC_01ValidateContacts() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
@@ -28,7 +28,7 @@ public class M03ContactsTest extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_02ValidateContactsCreation() {
+    public void TC_02ValidateContactsCreation() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateAndCreateNewContact();
@@ -36,14 +36,14 @@ public class M03ContactsTest extends BaseTest {
     }
 
     @Test
-    public void TC_03ValidateEmptyFields() {
+    public void TC_03ValidateEmptyFields() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateEmptyFields();
         login.logout();
     }
     @Test
-    public void TC_04ValidateChatScreen() {
+    public void TC_04ValidateChatScreen() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateAndCreateNewContact();

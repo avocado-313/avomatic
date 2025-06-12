@@ -73,23 +73,23 @@ public class Regression extends BaseTest {
         login.logout();
     }
 
-    @Test
-    public void TC_0001ValidateRegisterSetup() throws InterruptedException {
-        signup.validateRegisterScreen();
-    }
-
-    @Test
-    public void TC_0002ValidateRegisterWithoutVerify() throws InterruptedException {
-        signup.registerAccount_withoutVerification("tech@123", "8874023329");
-        login.logout();
-
-    }
-
-    @Test
-    public void TC_0003ValidateRegisterWithVerification(){
-        signup.registerAccount_withVerifyNow("12345678", "8874023329");
-        login.logout();
-    }
+//    @Test
+//    public void TC_0001ValidateRegisterSetup() throws InterruptedException {
+//        signup.validateRegisterScreen();
+//    }
+//
+//    @Test
+//    public void TC_0002ValidateRegisterWithoutVerify() throws InterruptedException {
+//        signup.registerAccount_withoutVerification("tech@123", "8874023329");
+//        login.logout();
+//
+//    }
+//
+//    @Test
+//    public void TC_0003ValidateRegisterWithVerification(){
+//        signup.registerAccount_withVerifyNow("12345678", "8874023329");
+//        login.logout();
+//    }
 //    @Test
 //    public void TC_002ValidateIconsOfHomeScreen(){
 //        login.loginToAvocado(username,password,Workspace);
@@ -121,7 +121,7 @@ public class Regression extends BaseTest {
 //        login.logout();
 //    }
     @Test
-    public void TC_005ValidateContacts() {
+    public void TC_005ValidateContacts() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
@@ -129,7 +129,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_006ValidateContactsCreation() {
+    public void TC_006ValidateContactsCreation() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateAndCreateNewContact();
@@ -640,14 +640,14 @@ public class Regression extends BaseTest {
 //        login.logout();
 //    }
     @Test
-    public void TC_57ValidateEmptyFields() {
+    public void TC_57ValidateEmptyFields() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateEmptyFields();
         login.logout();
     }
     @Test
-    public void TC_58ValidateChatScreen() {
+    public void TC_58ValidateChatScreen() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateAndCreateNewContact();

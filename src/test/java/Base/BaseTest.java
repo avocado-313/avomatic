@@ -76,7 +76,7 @@ public class BaseTest {
 
     private void configureDriver() {
 
-        driver.manage().window().maximize();
+        if(!Objects.equals(remote, "true"))driver.manage().window().maximize();
         driver.get(ReadProperties.URL);
     }
 

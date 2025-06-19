@@ -45,7 +45,7 @@ public class BaseTest {
                     Map<String, Object> deviceMetrics = new HashMap<>();
                     deviceMetrics.put("width", 1920);
                     deviceMetrics.put("height", 1080);
-                    deviceMetrics.put("pixelRatio", 0,6);  // Scale factor
+                    deviceMetrics.put("pixelRatio", 0.6);  // Scale factor
                     Map<String, Object> mobileEmulation = new HashMap<>();
                     mobileEmulation.put("deviceMetrics", deviceMetrics);
                     mobileEmulation.put("userAgent", "Mozilla/5.0 ...");

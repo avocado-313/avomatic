@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.internal.annotations.IBaseBeforeAfter;
 
 import static com.google.gson.internal.bind.TypeAdapters.URL;
 
@@ -14,19 +15,23 @@ public class P03AvocadoWorkSpace extends PageBase {
         super(driver);
     }
 
-    private final By profile_from_side_menu = By.xpath("(//img[@class='MuiAvatar-img css-1hy9t21'])[2]");
+    private final By profile_from_side_menu = By.xpath("//*[@aria-label= 'Profile']");
     private final By profile_from_profile_menu = By.xpath("(//p[normalize-space()='Profile'])[1]");
     private final By profile_icon_from_profile_menu = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-colorSecondary MuiSvgIcon-fontSizeMedium css-v5fipd'])[3]");
-    private final By settings_title_into_profile_screen = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1hxh1sq'])[1]");
-    private final By settings_subTitle_from_profile_screen = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-190tmhz'])[1]");
+//    private final By settings_title_into_profile_screen = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1hxh1sq'])[1]");//karim
+    private final By settings_title_into_profile_screen = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-1pnptap']");
+//    private final By settings_subTitle_from_profile_screen = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-190tmhz'])[1]"); // Karim
+    private final By settings_subTitle_from_profile_screen= By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-v9escn']");
+    private final By profile_section = By.xpath("//p[normalize-space()='Profile']");
 //    private final By agent_profile_title_from_profile_screen = By.xpath("(//h6[normalize-space()='Agent Profile'])[1]");
     private final By workspace_profile_from_side_menu = By.xpath("(//p[normalize-space()='Workspace Profile'])[1]");
     private final By upload_photo_CTA = By.xpath("(//button[normalize-space()='Upload image'])[1]");
     private final By agents_frm_side_menu = By.xpath("(//p[normalize-space()='Agents'])[1]");
     private final By teams_from_side_menu = By.xpath("(//p[normalize-space()='Teams'])[1]");
     private final By contact_name_input = By.xpath("//input[@aria-label='name']");
-    private final By select_flag_arrow = By.xpath("(//div[@class='arrow'])[1]");
-    private final By mobile_number_input = By.xpath("(//input[@placeholder='(555) 555-5555'])[1]");
+    private final By select_flag_arrow = By.xpath("(//div[@class='arrow'])[1]");  // Karim
+//    private final By mobile_number_input = By.xpath("(//input[@placeholder='(555) 555-5555'])[1]");  // Karim
+    private final By mobile_number_input = By.xpath("//*[@name='phoneNumber']");
     private final By select_language_arrow = By.xpath("//svg[contains(@class, 'MuiSelect-icon')]");
     private final By select_country_arrow = By.xpath("//div[contains(@class, 'flag-dropdown') and @style='border-radius: 8px 0px 0px 8px; height: 45px; border: none; top: 1px; left: 1px;']");
     private final By address_text_input = By.xpath("(//div[@class='MuiFormControl-root css-1s22ywu'])[3]");
@@ -43,14 +48,22 @@ public class P03AvocadoWorkSpace extends PageBase {
     private final By organization_name_input = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq'])[2]");
     private final By legal_name_input = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq'])[2]");
     private final By i_icon = By.xpath("(//*[name()='svg'][@aria-label='Timezone selected here will be used by the rules, greetings away messages and other modules'])[1]");
-    private final By business_time_zone_title = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-wje1bd'])[1]");
+//    private final By business_time_zone_title = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-wje1bd'])[1]");  //karim
+    private final By business_time_zone_title = By.xpath("//p[normalize-space()='Business Timezone']");  // syed
     private final By select_time_zone = By.xpath("(//fieldset[contains(@class, 'MuiOutlinedInput-notchedOutline')])[4]");
+
+
     private final By update_workspace_CTA = By.xpath("//span[normalize-space()='Update']");
     private final By update_CTA = By.xpath("(//span[normalize-space()='Update'])[1]");
 
     public void navigateToProfileWorkspace() {
         scrollToElement(profile_from_side_menu);
-        driver.navigate().to(URL + "/settings/workspace/account-profile");
+//        driver.navigate().to(URL + "/settings/workspace/account-profile");
+        driver.navigate().to("https://test.app.avocad0.dev" + "/settings/workspace/account-profile");
+        clickOnElement(profile_section);
+
+
+
         waitForTime(5000);
 //        Assert.assertTrue(assertElementDisplayed(profile_from_profile_menu));
 //        Assert.assertTrue(assertElementDisplayed(profile_icon_from_profile_menu));

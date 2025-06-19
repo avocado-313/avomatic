@@ -38,7 +38,7 @@ public class BaseTest {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
                 if(Objects.equals(remote, "true")) {
-                    options.addArguments("--headless=new");
+                    
 
                     chromeDeviceScale(options);
 

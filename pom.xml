@@ -91,7 +91,7 @@
         <configuration>
           <suiteXmlFiles>
             <!-- Specify the TestNG XML suite file -->
-            <suiteXmlFile>avc_suite</suiteXmlFile>
+            <suiteXmlFile>avc_suite.xml</suiteXmlFile>
           </suiteXmlFiles>
           <testFailureIgnore>true</testFailureIgnore>
         </configuration>

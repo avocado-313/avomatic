@@ -2,19 +2,17 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>dev.avocado</groupId>
-  <artifactId>avocado</artifactId>
+  <groupId>org.example</groupId>
+  <artifactId>Traial</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>avocado</name>
+  <name>Traial</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
-
 
   <dependencies>
 
@@ -47,13 +45,7 @@
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <version>4.31.0</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-devtools-v135</artifactId>
-      <version>4.31.0</version>
+      <version>4.33.0</version>
     </dependency>
 
 
@@ -97,7 +89,7 @@
         <configuration>
           <suiteXmlFiles>
             <!-- Specify the TestNG XML suite file -->
-            <suiteXmlFile>avc_suite.xml</suiteXmlFile>
+            <suiteXmlFile>Trail.xml</suiteXmlFile>
           </suiteXmlFiles>
           <testFailureIgnore>true</testFailureIgnore>
         </configuration>
@@ -128,5 +120,4 @@
         </executions>
       </plugin>
     </plugins>
-  </build>
-</project>
+  </build></project>

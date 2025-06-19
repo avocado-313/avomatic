@@ -2,12 +2,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.example</groupId>
-  <artifactId>Traial</artifactId>
+  <groupId>dev.avocado</groupId>
+  <artifactId>avocado</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Traial</name>
+  <name>avocado</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -89,7 +89,7 @@
         <configuration>
           <suiteXmlFiles>
             <!-- Specify the TestNG XML suite file -->
-            <suiteXmlFile>Trail.xml</suiteXmlFile>
+            <suiteXmlFile>avc_suite</suiteXmlFile>
           </suiteXmlFiles>
           <testFailureIgnore>true</testFailureIgnore>
         </configuration>
@@ -120,4 +120,5 @@
         </executions>
       </plugin>
     </plugins>
-  </build></project>
+  </build>
+</project>

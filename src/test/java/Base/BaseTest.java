@@ -3,7 +3,6 @@ import Utilities.ExtentReportManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -40,6 +39,7 @@ public class BaseTest {
                 ChromeOptions options = new ChromeOptions();
                 if(Objects.equals(remote, "true")) {
                     options.addArguments("--headless=new");
+                    chromeDeviceScale(options);
                     driver = new ChromeDriver(options);
                     Map<String, Object> coordinates = new HashMap<>();
                     coordinates.put("latitude", 31.2156);
@@ -47,7 +47,8 @@ public class BaseTest {
                     coordinates.put("accuracy", 100);
                     ((ChromeDriver) driver).executeCdpCommand("Emulation.setGeolocationOverride", coordinates);
                 }else {
-                    driver = new ChromeDriver();
+                    chromeDeviceScale(options);
+                    driver = new ChromeDriver(options);
                 }
                 break;
             case "edge":
@@ -67,9 +68,18 @@ public class BaseTest {
     }
 
     private void configureDriver() {
-
-        driver.manage().window().maximize();
         driver.get(ReadProperties.URL);
+    }
+    private void chromeDeviceScale(ChromeOptions options){
+        Map<String, Object> deviceMetrics = new HashMap<>();
+        deviceMetrics.put("width", 1920);
+        deviceMetrics.put("height", 1080);
+        deviceMetrics.put("pixelRatio", 1.0);  // Scale factor
+        Map<String, Object> mobileEmulation = new HashMap<>();
+        mobileEmulation.put("deviceMetrics", deviceMetrics);
+        mobileEmulation.put("userAgent", "Mozilla/5.0 ...");
+        options.setExperimentalOption("mobileEmulation", mobileEmulation);
+        driver = new ChromeDriver(options);
     }
 
 

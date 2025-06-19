@@ -73,23 +73,23 @@ public class Regression extends BaseTest {
         login.logout();
     }
 
-//    @Test
-//    public void TC_0001ValidateRegisterSetup() throws InterruptedException {
-//        signup.validateRegisterScreen();
-//    }
-//
-//    @Test
-//    public void TC_0002ValidateRegisterWithoutVerify() throws InterruptedException {
-//        signup.registerAccount_withoutVerification("tech@123", "8874023329");
-//        login.logout();
-//
-//    }
-//
-//    @Test
-//    public void TC_0003ValidateRegisterWithVerification(){
-//        signup.registerAccount_withVerifyNow("12345678", "8874023329");
-//        login.logout();
-//    }
+    @Test
+    public void TC_0001ValidateRegisterSetup() throws InterruptedException {
+        signup.validateRegisterScreen();
+    }
+
+    @Test
+    public void TC_0002ValidateRegisterWithoutVerify() throws InterruptedException {
+        signup.registerAccount_withoutVerification("tech@123", "8874023329");
+        login.logout();
+
+    }
+
+    @Test
+    public void TC_0003ValidateRegisterWithVerification(){
+        signup.registerAccount_withVerifyNow("12345678", "8874023329");
+        login.logout();
+    }
 //    @Test
 //    public void TC_002ValidateIconsOfHomeScreen(){
 //        login.loginToAvocado(username,password,Workspace);

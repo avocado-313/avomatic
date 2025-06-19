@@ -27,12 +27,11 @@ public class P01AvocadoLogin extends PageBase {
     private final By forget_password_label = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-6f19s'])[1]");
     private final By login_From_forget_password = By.xpath("//a[normalize-space()='Login']");
     private final By avocado_logo_from_home = By.xpath("//img[@alt='avocado icon']");
-    public void validateLoginScreenLocators(String email,String password,String workspace) {
+        public void validateLoginScreenLocators(String email,String password,String workspace) {
         waitForVisibilityOfElement(input_password);
-        ElementsValidator(mottasl_logo,mottasl_3_label,a_trello_product_label,sign_into_your_account_label,input_email,input_password,remember_me_label,login_CTA,forget_password_link,dont_have_an_account_register,language);
+        ElementsValidator(mottasl_logo,login_to_your_account_label,input_email,input_password,login_CTA,forget_password_link,dont_have_an_account_register,language, remember_me_label);
         validateScreenTexts();
         validateForgetPasswordScreen();
-        validateRegisterScreen();
         scrollToElement(input_email);
         sendTextToInputField(email,input_email);
         scrollToElement(input_password);

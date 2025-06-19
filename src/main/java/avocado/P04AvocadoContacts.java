@@ -40,7 +40,8 @@ public class P04AvocadoContacts extends PageBase {
         Assert.assertTrue(driver.findElement(contacts_subTitle_from_contacts_screen).getText().contains("Manage your contacts"));
         Assert.assertTrue(assertElementDisplayed(bulk_action_CTA));
     }
-    public void validateCreateContactCard(){
+    public void validateCreateContactCard() throws InterruptedException {
+        Thread.sleep(5000);
         clickOnElement(create_contact_CTA);
         waitForVisibilityOfElement(create_new_contact_title);
         ElementsValidator(x_close_create_contact,upload_image_CTA,contact_name_input,contact_phone_input,contact_email_input,contact_whatsappChannel_input,tags,cancel_CTA);
@@ -63,7 +64,7 @@ public class P04AvocadoContacts extends PageBase {
         clickOnElement(archive);
 
     }
-    public void validateAndCreateNewContact(){
+    public void validateAndCreateNewContact() throws InterruptedException {
         navigateAndValidateContactsScreen();
         validateCreateContactCard();
         validateErrorScreens(contact_phone_input,contact_email_input,phone_error_message);
@@ -83,7 +84,7 @@ public class P04AvocadoContacts extends PageBase {
         clickOnElement(archive);
     }
     private final By archive = By.xpath("//button[normalize-space()='Archive Contact']");
-    public void validateEmptyFields(){
+    public void validateEmptyFields() throws InterruptedException {
         navigateAndValidateContactsScreen();
         validateCreateContactCard();
         validateErrorScreens(contact_phone_input,contact_email_input,phone_error_message);

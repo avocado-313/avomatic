@@ -121,13 +121,22 @@ public class Regression extends BaseTest {
 //        login.logout();
 //    }
     @Test
-    public void TC_005ValidateContacts() {
+    public void TC_005ValidateContacts() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
         contacts.validateCreateContactCard();
         login.logout();
     }
+
+    @Test
+    public void TC_006ValidateContactsCreation() throws InterruptedException {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.validateAndCreateNewContact();
+        login.logout();
+    }
+
 //    @Test
 //    public void TC_006ValidateContactsCreation() {
 //        login.loginToAvocado(username, password,Workspace);
@@ -521,7 +530,38 @@ public class Regression extends BaseTest {
 //        template.validateDeleteTemplate();
 //        login.logout();
 //    }
+
+    @Test
+    public void TC_57ValidateEmptyFields() throws InterruptedException {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.validateEmptyFields();
+        login.logout();
+    }
+    @Test
+    public void TC_58ValidateChatScreen() throws InterruptedException {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.validateAndCreateNewContact();
+        contacts.validateChatScreen();
+        login.logout();
+    }
+
+
+    @Test
+    public void TC_59ValidateFilters(){
+        login.loginToAvocado(username,password,Workspace);
+        home.checkHomeScreen();
+        contacts.navigateAndValidateContactsScreen();
+        contacts.checkDateAddedFilter();
+        contacts.checkTagsFilter();
+        contacts.checkChannelFilter();
+        login.logout();
+    }
+
+
 //
+
 //    @Test
 //    public void TC_48validateAnalyticsPageTitle() {
 //        login.loginToAvocado(username2, password2, Workspace2);

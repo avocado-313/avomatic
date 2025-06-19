@@ -66,7 +66,7 @@ public class PageBase {
     }
 
     public void waitForVisibilityOfElement(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
     }
     public void waitForVisibilityOfElement(By by,int durationIntoSec) {

@@ -39,7 +39,18 @@ public class BaseTest {
                 ChromeOptions options = new ChromeOptions();
                 if(Objects.equals(remote, "true")) {
                     options.addArguments("--headless=new");
+
                     chromeDeviceScale(options);
+
+                    Map<String, Object> deviceMetrics = new HashMap<>();
+                    deviceMetrics.put("width", 1920);
+                    deviceMetrics.put("height", 1080);
+                    deviceMetrics.put("pixelRatio", 1.0);  // Scale factor
+                    Map<String, Object> mobileEmulation = new HashMap<>();
+                    mobileEmulation.put("deviceMetrics", deviceMetrics);
+                    mobileEmulation.put("userAgent", "Mozilla/5.0 ...");
+                    options.setExperimentalOption("mobileEmulation", mobileEmulation);
+
                     driver = new ChromeDriver(options);
                     Map<String, Object> coordinates = new HashMap<>();
                     coordinates.put("latitude", 31.2156);
@@ -68,6 +79,11 @@ public class BaseTest {
     }
 
     private void configureDriver() {
+
+
+
+        if(!Objects.equals(remote, "true"))driver.manage().window().maximize();
+
         driver.get(ReadProperties.URL);
     }
     private void chromeDeviceScale(ChromeOptions options){

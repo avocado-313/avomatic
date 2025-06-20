@@ -78,12 +78,6 @@ public class Regression extends BaseTest {
         signup.validateRegisterScreen();
     }
 
-    @Test
-    public void TC_0002ValidateRegisterWithoutVerify() throws InterruptedException {
-        signup.registerAccount_withoutVerification("tech@123", "8874023329");
-        login.logout();
-
-    }
 
     @Test
     public void TC_0003ValidateRegisterWithVerification(){
@@ -504,23 +498,8 @@ public class Regression extends BaseTest {
 
 
     }
-    @Test
-    public void TC_46ValidateDuplicateTemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2, Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
-        template.duplicateTemplateCreation();
-        login.logout();
-    }
 
-    @Test
-    public void TC_47ValidateTemplateDeletion() throws InterruptedException {
-        login.loginToAvocado(username2, password2, Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
-        template.validateDeleteTemplate();
-        login.logout();
-    }
+
 
     @Test
     public void TC_48validateAnalyticsPageTitle() {

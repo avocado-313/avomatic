@@ -40,7 +40,7 @@ jobs:
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: 136.0.6848.0
+          chrome-version: "125.0.6422.78"  # Previous stable (not latest)
 
       - name: Run Maven tests and prepare reports
         run: |

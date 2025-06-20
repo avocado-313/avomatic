@@ -31,7 +31,7 @@ jobs:
   test:
     runs-on: macos-latest
     needs: build
-    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule' # Run on manual trigger or schedule
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -45,10 +45,12 @@ jobs:
 
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@latest
+        with:
+          chrome-version: 136.0.6848.0
 
       - name: Run Maven test and create extentReports directory
         run: |
-          mvn clean verify -Dremote=true -Dbrowser=chrome 
+          mvn clean verify -Dremote=true -Dbrowser=chrome
           mkdir -p reports/extentReports
 
       - name: Upload report as artifact
@@ -63,13 +65,3 @@ jobs:
         with:
           name: failure-screenshots
           path: reports/screenshotsFailure
-
-      - name: CINotify Email
-        uses: cinotify/github-action@v1.4.0
-        with:
-          to: karim.salem@twerlo.com,avc@twerlo.com
-          subject: "E2E Test Automation Report - Run ${{ github.run_number }}"
-          body: |
-            Avodad0 E2E test automation run has completed. Check the attached report for details .
-
-          attachment: src/main/SurefireReports/emailable-report.html

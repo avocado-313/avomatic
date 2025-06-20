@@ -3,7 +3,7 @@ name: Avocado-E2E health checks
 on:
   workflow_dispatch:
   schedule:
-    - cron: '55 21 * * *'
+    - cron: '55 21 * * *'  # Runs at 9:55 PM UTC daily
 
 jobs:
   build:
@@ -37,8 +37,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Set up Chrome
-        uses: browser-actions/setup-chrome@latest
+      - name: Set up Chrome (June 2025 stable)
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: "138.0.7204.35"  # Latest stable version from June 2025
 
       - name: Run Maven tests and prepare reports
         run: |

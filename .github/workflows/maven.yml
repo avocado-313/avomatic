@@ -42,6 +42,10 @@ jobs:
         with:
           chrome-version: 136.0.6848.0
 
+      - name: Set up ChromeDriver 136
+        uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: '136.0.6848.0'
 
       - name: Run Maven tests and prepare reports
         run: |
@@ -59,5 +63,3 @@ jobs:
         with:
           name: failure-screenshots
           path: reports/screenshotsFailure
-
-

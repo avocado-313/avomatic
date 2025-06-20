@@ -37,15 +37,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Set up Chrome 136
-        uses: browser-actions/setup-chrome@v1
+      - name: Set up Chrome
+        uses: browser-actions/setup-chrome@latest
         with:
           chrome-version: 136.0.6848.0
-
-      - name: Set up ChromeDriver 136
-        uses: nanasess/setup-chromedriver@v2
-        with:
-          chromedriver-version: '136.0.6848.0'
 
       - name: Run Maven tests and prepare reports
         run: |
@@ -59,6 +54,7 @@ jobs:
           path: target/surefire-reports/emailable-report.html
 
       - name: Upload Failure Screenshots
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: failure-screenshots

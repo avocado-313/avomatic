@@ -38,9 +38,7 @@ jobs:
           cache: maven
 
       - name: Set up Chrome
-        uses: browser-actions/setup-chrome@v1
-        with:
-          chrome-version: "125.0.6422.78"  # Previous stable (not latest)
+        uses: browser-actions/setup-chrome@latest
 
       - name: Run Maven tests and prepare reports
         run: |
@@ -54,9 +52,8 @@ jobs:
           path: target/surefire-reports/emailable-report.html
 
       - name: Upload Failure Screenshots
+        if: failure()
         uses: actions/upload-artifact@v4
         with:
           name: failure-screenshots
           path: reports/screenshotsFailure
-
-

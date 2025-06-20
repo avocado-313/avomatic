@@ -57,12 +57,3 @@ jobs:
         with:
           name: failure-screenshots
           path: reports/screenshotsFailure
-
-      - name: CINotify Email
-        uses: cinotify/github-action@v1.4.0
-        with:
-          to: arpit.b@twerlo.com,ahmed.zaky@twerlo.com
-          subject: "E2E Test Automation Report - Run ${{ github.run_number }}"
-          body: |
-            Avocado E2E test automation run has completed. Check the attached report for details.
-          attachment: target/surefire-reports/emailable-report.html

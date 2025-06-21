@@ -60,7 +60,7 @@ public class Regression extends BaseTest {
     }
     
     @Test
-    public void TC_011ValidateBroadcastScreen() {
+    public void TC_011ValidateBroadcastScreen()throws InterruptedException  {
         login.loginToAvocado(username2,password2,Workspace2);
         broadcast.validateBroadCastFromApps();
         broadcast.navigateToBroadcastFromApps();
@@ -69,7 +69,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_012validateNavigateBAckFunctionalityIntoBroadcast(){
+    public void TC_012validateNavigateBAckFunctionalityIntoBroadcast()throws InterruptedException {
         login.loginToAvocado(username2,password2,Workspace2);
         broadcast.validateBroadCastFromApps();
         broadcast.navigateToBroadcastFromApps();
@@ -77,7 +77,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_013validateCreateBroadCastScreen(){
+    public void TC_013validateCreateBroadCastScreen()throws InterruptedException {
         login.loginToAvocado(username2, password2,Workspace2);
         home.checkHomeScreen();
         broadcast.validateBroadCastFromApps();
@@ -104,7 +104,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_015ValidateQuickRepliesScreen() {
+    public void TC_015ValidateQuickRepliesScreen()throws InterruptedException  {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         reply.validateQuickRepliesFromApps();

@@ -1,9 +1,9 @@
-name: Avocado-E2E health checks
+me: Avocado-E2E health checks
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '55 21 * * *'  # Runs at 9:55 PM UTC daily
+    - cron: '55 21 * * *'
 
 jobs:
   build:
@@ -40,11 +40,10 @@ jobs:
       - name: Set up Chrome
         uses: browser-actions/setup-chrome@latest
 
-      - name: Run Maven tests with UI (non-headless)
+      - name: Run Maven tests and prepare reports
         run: |
           mvn clean verify -Dremote=true -Dbrowser=chrome
-          mkdir target\surefire-reports
-          mkdir reports\screenshotsFailure
+          mkdir -p target/surefire-reports reports/screenshotsFailure
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v4

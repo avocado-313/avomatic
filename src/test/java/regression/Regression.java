@@ -36,6 +36,23 @@ public class Regression extends BaseTest {
         contacts.validateCreateContactCard();
         login.logout();
     }
+        @Test
+    public void TC_009ValidateTagsScreen() throws InterruptedException  {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        tags.validateTagsScreen();
+        tags.validateTagCreation();
+        tags.validateDeleteTag();
+        login.logout();
+    }
+    @Test
+    public void TC_010ValidateNavigateBackFromTags() throws InterruptedException  {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        tags.validateTagsFromApps();
+        tags.checkNavigateBackFromTags();
+        login.logout();
+    }
 
 
 }

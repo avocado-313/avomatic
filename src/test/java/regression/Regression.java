@@ -14,7 +14,9 @@ public class Regression extends BaseTest {
     P03AvocadoWorkSpace workSpace;
     P04AvocadoContacts contacts;
     P08AvocadoTags tags;
-
+    P09BroadCast broadcast;
+    P10Template template;
+    P11QuickReplies reply;
 
     @BeforeClass
     public void initiateObjects(){
@@ -24,6 +26,9 @@ public class Regression extends BaseTest {
         workSpace = new P03AvocadoWorkSpace(driver);
         contacts = new P04AvocadoContacts(driver);
         tags = new P08AvocadoTags(driver);
+        broadcast = new P09BroadCast(driver);
+        template = new P10Template(driver);
+        reply = new P11QuickReplies(driver);
 
     }
 
@@ -52,6 +57,61 @@ public class Regression extends BaseTest {
         tags.validateTagsFromApps();
         tags.checkNavigateBackFromTags();
         login.logout();
+    }
+    
+    @Test
+    public void TC_011ValidateBroadcastScreen() {
+        login.loginToAvocado(username2,password2,Workspace2);
+        broadcast.validateBroadCastFromApps();
+        broadcast.navigateToBroadcastFromApps();
+        broadcast.checkBroadCastScreen();
+        login.logout();
+
+    }
+    @Test
+    public void TC_012validateNavigateBAckFunctionalityIntoBroadcast(){
+        login.loginToAvocado(username2,password2,Workspace2);
+        broadcast.validateBroadCastFromApps();
+        broadcast.navigateToBroadcastFromApps();
+        broadcast.checkNavigateBackIntoBroadcastScreen();
+        login.logout();
+    }
+    @Test
+    public void TC_013validateCreateBroadCastScreen(){
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        broadcast.validateBroadCastFromApps();
+        broadcast.navigateToBroadcastFromApps();
+        broadcast.checkBroadCastScreen();
+        broadcast.checkCreateBroadcastScreen();
+        broadcast.selectTemplate();
+//        try {
+//            broadcast.selectTemplate();
+//        }catch (Exception e){
+//            e.getStackTrace();
+//        }
+        broadcast.completeRecipientScreen(CONTACT);
+        login.logout();
+    }
+    @Test
+    public void TC_014ValidateTemplateScreen() throws InterruptedException {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.validateCreateTemplateScreen();
+        template.validateCreateNewTemplate();
+        login.logout();
+
+    }
+    @Test
+    public void TC_015ValidateQuickRepliesScreen() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        reply.validateQuickRepliesFromApps();
+        reply.validateQuickRepliesScreen();
+        reply.validateCreateNewQuickReplyTemplate();
+        login.logout();
+
     }
 
 

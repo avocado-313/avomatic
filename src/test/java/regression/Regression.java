@@ -13,6 +13,7 @@ public class Regression extends BaseTest {
     P02AvocadoHomeScreen home;
     P03AvocadoWorkSpace workSpace;
     P04AvocadoContacts contacts;
+    P08AvocadoTags tags;
 
 
     @BeforeClass
@@ -22,8 +23,7 @@ public class Regression extends BaseTest {
         home = new P02AvocadoHomeScreen(driver);
         workSpace = new P03AvocadoWorkSpace(driver);
         contacts = new P04AvocadoContacts(driver);
-       
-
+        tags = new P08AvocadoTags(driver);
 
     }
 
@@ -36,7 +36,7 @@ public class Regression extends BaseTest {
         contacts.validateCreateContactCard();
         login.logout();
     }
-        @Test
+    @Test
     public void TC_009ValidateTagsScreen() throws InterruptedException  {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();

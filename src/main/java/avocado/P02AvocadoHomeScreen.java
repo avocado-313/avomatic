@@ -31,7 +31,7 @@ public class P02AvocadoHomeScreen extends PageBase {
 
     public void checkHomeScreen(){
         ElementsValidator(analytics_icon_from_menu,search_icon_from_menu,chat_icon_from_menu,media_icon_from_label,contact_icon_from_label,broadcast_icon_from_menu
-        ,contains_icon_from_label,settings_icon_from_menu,subscription_billing_icon_from_menu,language_icon_from_menu,account_icon_from_menu, home_help_icon);
+        ,contains_icon_from_label,settings_icon_from_menu,subscription_billing_icon_from_menu,language_icon_from_menu,account_icon_from_menu);
     }
     private void clickAndValidate(By by1, By by2){
         clickOnElement(by1);

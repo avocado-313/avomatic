@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -23,7 +23,7 @@ jobs:
         run: mvn clean install -DskipTests
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     steps:
@@ -37,15 +37,16 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Set up Chrome (June 2025 stable)
+      - name: Set up Chrome (v137.0.7151.104)
         uses: browser-actions/setup-chrome@v1
         with:
-          chrome-version: "138.0.7204.35"  # Latest stable version from June 2025
+          chrome-version: "137.0.7151.104"
 
-      - name: Run Maven tests and prepare reports
+      - name: Run Maven tests with UI (non-headless)
         run: |
-          mvn clean verify -Dremote=true -Dbrowser=chrome
-          mkdir -p target/surefire-reports reports/screenshotsFailure
+          mvn clean verify -Dremote=true -Dbrowser=chrome -Dheadless=false
+          mkdir target\surefire-reports
+          mkdir reports\screenshotsFailure
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v4

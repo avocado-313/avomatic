@@ -57,6 +57,7 @@ public class BaseTest {
                     coordinates.put("longitude", 29.9553);
                     coordinates.put("accuracy", 100);
                     ((ChromeDriver) driver).executeCdpCommand("Emulation.setGeolocationOverride", coordinates);
+                    driver = new ChromeDriver(options);
                 }else {
                     chromeDeviceScale(options);
                     driver = new ChromeDriver(options);
@@ -95,7 +96,6 @@ public class BaseTest {
         mobileEmulation.put("deviceMetrics", deviceMetrics);
         mobileEmulation.put("userAgent", "Mozilla/5.0 ...");
         options.setExperimentalOption("mobileEmulation", mobileEmulation);
-        driver = new ChromeDriver(options);
     }
 
 

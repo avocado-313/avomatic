@@ -42,7 +42,7 @@ jobs:
 
       - name: Run Maven tests with UI (non-headless)
         run: |
-          mvn clean verify -Dremote=false -Dbrowser=chrome
+          mvn clean verify -Dremote=true -Dbrowser=chrome
           mkdir target\surefire-reports
           mkdir reports\screenshotsFailure
 

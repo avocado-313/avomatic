@@ -62,7 +62,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_005ValidateContacts() {
+    public void TC_005ValidateContacts() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();

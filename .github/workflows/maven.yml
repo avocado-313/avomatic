@@ -1,4 +1,4 @@
-me: Avocado-E2E health checks
+name: Avocado-E2E health checks
 
 on:
   workflow_dispatch:

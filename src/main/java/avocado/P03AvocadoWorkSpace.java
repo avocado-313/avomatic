@@ -18,9 +18,7 @@ public class P03AvocadoWorkSpace extends PageBase {
     private final By profile_from_side_menu = By.xpath("//*[@aria-label= 'Profile']");
     private final By profile_from_profile_menu = By.xpath("(//p[normalize-space()='Profile'])[1]");
     private final By profile_icon_from_profile_menu = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-colorSecondary MuiSvgIcon-fontSizeMedium css-v5fipd'])[3]");
-//    private final By settings_title_into_profile_screen = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1hxh1sq'])[1]");//karim
-    private final By settings_title_into_profile_screen = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-1pnptap']");
-//    private final By settings_subTitle_from_profile_screen = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-190tmhz'])[1]"); // Karim
+    private final By settings_title_into_profile_screen = By.xpath("//p[normalize-space()='Settings']");
     private final By settings_subTitle_from_profile_screen= By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-v9escn']");
     private final By profile_section = By.xpath("//p[normalize-space()='Profile']");
 //    private final By agent_profile_title_from_profile_screen = By.xpath("(//h6[normalize-space()='Agent Profile'])[1]");

@@ -68,31 +68,39 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_001ValidateLoginToAvocado(){
+    public void TC_001ValidateRegisterSetup() throws InterruptedException {
+        signup.validateRegisterScreen();
+    }
+
+//    @Test
+//    public void TC_002ValidateRegisterNewAccount() throws InterruptedException {
+//        signup.registerAccount_withoutVerification("tech@123", "8874023329");
+//        login.logout();
+//    }
+//
+//
+//    @Test
+//    public void TC_003ValidateRegisterWithVerification(){
+//        signup.registerAccount_withVerifyNow("12345678", "8874023329");
+//        login.logout();
+//    }
+
+    @Test
+    public void TC_004ValidateLoginToAvocado(){
         login.validateLoginScreenLocators(username,password,Workspace);
         login.logout();
     }
 
-    @Test
-    public void TC_0001ValidateRegisterSetup() throws InterruptedException {
-        signup.validateRegisterScreen();
-    }
 
-
-    @Test
-    public void TC_0003ValidateRegisterWithVerification(){
-        signup.registerAccount_withVerifyNow("12345678", "8874023329");
-        login.logout();
-    }
 //    @Test
-//    public void TC_002ValidateIconsOfHomeScreen(){
+//    public void TC_005ValidateIconsOfHomeScreen(){
 //        login.loginToAvocado(username,password,Workspace);
 //        home.checkHomeScreen();
 //        home.checkEachMenuIconNavigation();
 //        login.logout();
 //    }
     @Test
-    public void TC_003ValidateWorkspace(){
+    public void TC_006ValidateWorkspace(){
         login.loginToAvocado(username,password,Workspace);
         home.checkHomeScreen();
         workSpace.navigateToProfileWorkspace();
@@ -101,21 +109,21 @@ public class Regression extends BaseTest {
         workSpace.checkWorkSpaceProfile();
         login.logout();
     }
-//    @Test
-//    public void TC_004ValidateGreetingScreenFullScenario(){
-//        login.loginToAvocado(username,password,Workspace);
-//        home.checkHomeScreen();
-//        apps.navigateToGreetingScreen();
-//        apps.validateGreetingsScreen();
-//        apps.setWorkingHours("07","04");
-//        apps.validateGreetingMessageComponent();
-//        apps.sendGreetingMessage();
-//        apps.validateAwayMessageComponent();
-//        apps.sendAwayMessage();
-//        login.logout();
-//    }
     @Test
-    public void TC_005ValidateContacts() {
+    public void TC_007ValidateGreetingScreenFullScenario(){
+        login.loginToAvocado(username,password,Workspace);
+        home.checkHomeScreen();
+        apps.navigateToGreetingScreen();
+        apps.validateGreetingsScreen();
+        apps.setWorkingHours("07","04");
+        apps.validateGreetingMessageComponent();
+        apps.sendGreetingMessage();
+        apps.validateAwayMessageComponent();
+        apps.sendAwayMessage();
+        login.logout();
+    }
+    @Test
+    public void TC_008ValidateContacts() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.navigateAndValidateContactsScreen();
@@ -123,28 +131,56 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_006ValidateContactsCreation() {
+    public void TC_009ValidateContactsCreation() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         contacts.validateAndCreateNewContact();
         login.logout();
     }
 
+    @Test
+    public void TC_010ValidateEmptyFields() throws InterruptedException {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.validateEmptyFields();
+        login.logout();
+    }
+    @Test
+    public void TC_011ValidateChatScreen() throws InterruptedException {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        contacts.validateAndCreateNewContact();
+        contacts.validateChatScreen();
+        login.logout();
+    }
 
-//    @Test
-//    public void TC_007ValidateSearchScreen() {
-//        login.loginToAvocado(username, password,Workspace);
-//        home.checkHomeScreen();
-//        search.validateSearchScreen();
+
+    @Test
+    public void TC_012ValidateFilters(){
+        login.loginToAvocado(username2,password2,Workspace2);
+        home.checkHomeScreen();
+        contacts.navigateAndValidateContactsScreen();
+        contacts.checkDateAddedFilter();
+        contacts.checkTagsFilter();
+        contacts.checkChannelFilter();
+        login.logout();
+    }
+
+
+    @Test
+    public void TC_013ValidateSearchScreen() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        search.validateSearchScreen();
 //        search.validateSearchXClose();
 //        search.validateSearchScreen();
-//        search.validateContactsTab();
-//        search.validateMessageTab();
-//        search.validateLastActivity();
-//        login.logout();
-//    }
+        search.validateContactsTab();
+        search.validateMessageTab();
+        search.validateLastActivity();
+        login.logout();
+    }
 //    @Test
-//    public void TC_008ValidateMediaScreen() {
+//    public void TC_014ValidateMediaScreen() {
 //        login.loginToAvocado(username, password,Workspace);
 //        home.checkHomeScreen();
 //        media.validateUploadMediaFunctionality();
@@ -153,7 +189,7 @@ public class Regression extends BaseTest {
 //        login.logout();
 //    }
     @Test
-    public void TC_009ValidateTagsScreen() {
+    public void TC_015ValidateTagsScreen() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         tags.validateTagsScreen();
@@ -162,49 +198,49 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_010ValidateNavigateBackFromTags() {
+    public void TC_016ValidateNavigateBackFromTags() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         tags.validateTagsFromApps();
         tags.checkNavigateBackFromTags();
         login.logout();
     }
+//    @Test
+//    public void TC_017ValidateBroadcastScreen() {
+//        login.loginToAvocado(username2,password2,Workspace2);
+//        broadcast.validateBroadCastFromApps();
+//        broadcast.navigateToBroadcastFromApps();
+//        broadcast.checkBroadCastScreen();
+//        login.logout();
+//
+//    }
     @Test
-    public void TC_011ValidateBroadcastScreen() {
-        login.loginToAvocado(username2,password2,Workspace2);
-        broadcast.validateBroadCastFromApps();
-        broadcast.navigateToBroadcastFromApps();
-        broadcast.checkBroadCastScreen();
-        login.logout();
-
-    }
-    @Test
-    public void TC_012validateNavigateBAckFunctionalityIntoBroadcast(){
+    public void TC_018validateNavigateBAckFunctionalityIntoBroadcast(){
         login.loginToAvocado(username2,password2,Workspace2);
         broadcast.validateBroadCastFromApps();
         broadcast.navigateToBroadcastFromApps();
         broadcast.checkNavigateBackIntoBroadcastScreen();
         login.logout();
     }
+//    @Test
+//    public void TC_019validateCreateBroadCastScreen(){
+//        login.loginToAvocado(username2, password2,Workspace2);
+//        home.checkHomeScreen();
+//        broadcast.validateBroadCastFromApps();
+//        broadcast.navigateToBroadcastFromApps();
+//        broadcast.checkBroadCastScreen();
+//        broadcast.checkCreateBroadcastScreen();
+//        broadcast.selectTemplate();
+////        try {
+////            broadcast.selectTemplate();
+////        }catch (Exception e){
+////            e.getStackTrace();
+////        }
+//        broadcast.completeRecipientScreen(CONTACT);
+//        login.logout();
+//    }
     @Test
-    public void TC_013validateCreateBroadCastScreen(){
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        broadcast.validateBroadCastFromApps();
-        broadcast.navigateToBroadcastFromApps();
-        broadcast.checkBroadCastScreen();
-        broadcast.checkCreateBroadcastScreen();
-        broadcast.selectTemplate();
-//        try {
-//            broadcast.selectTemplate();
-//        }catch (Exception e){
-//            e.getStackTrace();
-//        }
-        broadcast.completeRecipientScreen(CONTACT);
-        login.logout();
-    }
-    @Test
-    public void TC_014ValidateTemplateScreen() throws InterruptedException {
+    public void TC_020ValidateTemplateScreen() throws InterruptedException {
         login.loginToAvocado(username2, password2,Workspace2);
         home.checkHomeScreen();
         template.validateTemplateScreen();
@@ -213,8 +249,53 @@ public class Regression extends BaseTest {
         login.logout();
 
     }
+
     @Test
-    public void TC_015ValidateQuickRepliesScreen() {
+    public void TC_021ValidateMediaAndVariableTemplateCreation() throws InterruptedException {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.validateCreateTemplateScreen();
+        template.validateMediaAndVariableTemplate();
+        login.logout();
+
+    }
+    @Test
+    public void TC_022ValidateQuickReplyTemplateCreation() throws InterruptedException {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.validateCreateTemplateScreen();
+        template.validateQuickReplyButtonTemplate();
+        login.logout();
+
+
+    }
+    @Test
+    public void TC_023ValidateCTATemplateCreation() throws InterruptedException {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+        template.validateCreateTemplateScreen();
+        template.validateCTATemplate();
+        login.logout();
+
+
+    }
+    @Test
+    public void TC_024ValidateAddLangCreation() throws InterruptedException {
+        login.loginToAvocado(username2, password2,Workspace2);
+        home.checkHomeScreen();
+        template.validateTemplateScreen();
+
+        template.validateAddLangTemplate();
+        login.logout();
+
+
+    }
+
+    @Test
+    public void TC_025ValidateQuickRepliesScreen() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         reply.validateQuickRepliesFromApps();
@@ -224,7 +305,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_016validateRulesFromApp() {
+    public void TC_026validateRulesFromApp() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -232,7 +313,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_017validateNavigationTRules() {
+    public void TC_027validateNavigationTRules() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -241,7 +322,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_018validateCreateRuleScreen() {
+    public void TC_028validateCreateRuleScreen() {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -252,7 +333,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_019validateCreateRuleModal() {
+    public void TC_029validateCreateRuleModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -263,7 +344,7 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_020validateNewRuleCreation() {
+    public void TC_030validateNewRuleCreation() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -275,7 +356,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_021validateNewRuleCreation(){
+    public void TC_031validateNewRuleCreation(){
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -286,7 +367,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_022validateDeletionOfRule(){
+    public void TC_032validateDeletionOfRule(){
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         rule.checkRulesFromApp();
@@ -295,26 +376,26 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_023validateCustomAttributesFromApp() {
+    public void TC_033validateCustomAttributesFromApp() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         custom.checkCustomAttributesFromApps();
     }
     @Test
-    public void TC_024validateCustomAttributesScreenElements() {
+    public void TC_034validateCustomAttributesScreenElements() {
         custom.navigateToCustomAttributes();
         custom.checkCustomAttributesScreen();
     }
     @Test
-    public void TC_025validateCustomAttributesScreenTemplate() {
+    public void TC_035validateCustomAttributesScreenTemplate() {
         custom.validateCreateCustomAttributeTemplate();
     }
     @Test
-    public void TC_026validateCustomAttributesCreation() throws InterruptedException {
+    public void TC_036validateCustomAttributesCreation() throws InterruptedException {
         custom.fillCreateCustomAttributesTemplate();
     }
     @Test
-    public void TC_027validateDeleteCustomAttributes() {
+    public void TC_037validateDeleteCustomAttributes() {
         try {
             custom.deleteCustomAttributes();
         }catch (Exception e){
@@ -323,23 +404,23 @@ public class Regression extends BaseTest {
 
     }
     @Test
-    public void TC_028validateEditAttributes() throws InterruptedException {
+    public void TC_038validateEditAttributes() throws InterruptedException {
         custom.editAttribute();
     }
     @Test
-    public void TC_029validateSearchAttribute() throws InterruptedException {
+    public void TC_039validateSearchAttribute() throws InterruptedException {
         custom.searchAttribute();
         login.logout();
     }
     @Test
-    public void TC_28validateEcommerceScreen() {
+    public void TC_040validateEcommerceScreen() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
         login.logout();
     }
     @Test
-    public void TC_29validateZidCard() {
+    public void TC_041validateZidCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -347,7 +428,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_30validateSallaCard() {
+    public void TC_042validateSallaCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -355,7 +436,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_31validateSallaIntegrationModal() {
+    public void TC_043validateSallaIntegrationModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -364,7 +445,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_32validateShopifyCard() {
+    public void TC_044validateShopifyCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -372,7 +453,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_33validateShopifyIntegrationModal() {
+    public void TC_045validateShopifyIntegrationModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -381,7 +462,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_34validateWooCommerceCard() {
+    public void TC_046validateWooCommerceCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -389,7 +470,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_35validateWooCommerceIntegrationModal() {
+    public void TC_047validateWooCommerceIntegrationModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -398,7 +479,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_36validateFooderCard() {
+    public void TC_048validateFooderCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -406,7 +487,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_37validateFooderIntegrationModal() {
+    public void TC_049validateFooderIntegrationModal() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -415,7 +496,7 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_38validateZidCard() {
+    public void TC_050validateZidCard() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
@@ -423,86 +504,43 @@ public class Regression extends BaseTest {
         login.logout();
     }
     @Test
-    public void TC_39validateZidInstallAndCancelProcess() {
+    public void TC_051validateZidInstallAndCancelProcess() {
         login.loginToAvocado(username, password, Workspace);
         home.checkHomeScreen();
         commerce.checkECommerceScreen();
         zid.checkZidInstallationFunctionality(zidEmail,zidPassword,false);
         login.logout();
     }
-    @Test
-    public void TC_40validateZidInstallAndCompleteProcess() {
-        login.loginToAvocado(username, password, Workspace);
-        home.checkHomeScreen();
-        commerce.checkECommerceScreen();
-        zid.checkZidInstallationFunctionality(zidEmail,zidPassword,true);
-        login.logout();
-    }
-    @Test
-    public void TC_41validateZidUnInstallation() {
-        login.loginToAvocado(username, password, Workspace);
-        home.checkHomeScreen();
-        commerce.checkECommerceScreen();
-        zid.checkZidUnInstallation(zidEmail,zidPassword);
-        login.logout();
-    }
+//    @Test
+//    public void TC_052validateZidInstallAndCompleteProcess() {
+//        login.loginToAvocado(username, password, Workspace);
+//        home.checkHomeScreen();
+//        commerce.checkECommerceScreen();
+//        zid.checkZidInstallationFunctionality(zidEmail,zidPassword,true);
+//        login.logout();
+//    }
+//    @Test
+//    public void TC_053validateZidUnInstallation() {
+//        login.loginToAvocado(username, password, Workspace);
+//        home.checkHomeScreen();
+//        commerce.checkECommerceScreen();
+//        zid.checkZidUnInstallation(zidEmail,zidPassword);
+//        login.logout();
+//    }
 
     @Test
-    public void TC_02validateWhatsappWidgetScreenElements() throws InterruptedException {
+    public void TC_054validateWhatsappWidgetScreenElements() throws InterruptedException {
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         whatsapp.navigateToWhatsAppWidget();
         whatsapp.checkWhatsAppWidgetScreen();
         login.logout();
     }
-    @Test
-    public void TC_42ValidateMediaAndVariableTemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
-        template.validateCreateTemplateScreen();
-        template.validateMediaAndVariableTemplate();
-        login.logout();
-
-    }
-    @Test
-    public void TC_43ValidateQuickReplyTemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
-        template.validateCreateTemplateScreen();
-        template.validateQuickReplyButtonTemplate();
-        login.logout();
-
-
-    }
-    @Test
-    public void TC_44ValidateCTATemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
-        template.validateCreateTemplateScreen();
-        template.validateCTATemplate();
-        login.logout();
-
-
-    }
-    @Test
-    public void TC_45ValidateAddLangCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
-
-        template.validateAddLangTemplate();
-        login.logout();
-
-
-    }
 
 
 
     @Test
-    public void TC_48validateAnalyticsPageTitle() {
+    public void TC_055validateAnalyticsPageTitle() {
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsPageTitle();
@@ -510,7 +548,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_49validateAnalyticsPageTitleDesc(){
+    public void TC_056validateAnalyticsPageTitleDesc(){
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsPageTitleDesc();
@@ -518,7 +556,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_50validateAnalyticsOverviewSection(){
+    public void TC_057validateAnalyticsOverviewSection(){
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsOverviewSection();
@@ -526,7 +564,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_51validateAnalyticsAgentsSection(){
+    public void TC_058validateAnalyticsAgentsSection(){
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsAgentSection();
@@ -534,7 +572,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_52validateAnalyticsAgentsDownloadReport(){
+    public void TC_059validateAnalyticsAgentsDownloadReport(){
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsAgentDownloadReport();
@@ -543,7 +581,7 @@ public class Regression extends BaseTest {
 
 
     @Test
-    public void TC_53validateAnalyticsTeamsSection(){
+    public void TC_060validateAnalyticsTeamsSection(){
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsTeamsSection();
@@ -551,7 +589,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_54validateAnalyticsTeamsDownloadReport(){
+    public void TC_61validateAnalyticsTeamsDownloadReport(){
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsTeamDownloadReport();
@@ -560,7 +598,7 @@ public class Regression extends BaseTest {
 
 
     @Test
-    public void TC_55validateAnalyticsConversationSection(){
+    public void TC_062validateAnalyticsConversationSection(){
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsConversationSection();
@@ -568,7 +606,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_56validateAnalyticsConversationDownloadReport(){
+    public void TC_063validateAnalyticsConversationDownloadReport(){
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         analytics.checkAnalyticsConversationDownloadReport();
@@ -576,7 +614,7 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public  void TC_63validateCallsReportText(){
+    public  void TC_064validateCallsReportText(){
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         appsCallReport.checkCallsReportText();
@@ -584,70 +622,44 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_64validateRoboCallingAppText() {
+    public void TC_065validateRoboCallingAppText() {
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         appsRoboCalling.checkRoboCallingAppText();
         login.logout();
     }
     @Test
-    public void TC_65validateWebPhoneIcon() {
+    public void TC_066validateWebPhoneIcon() {
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
         webPhone.checkWebPhoneIcon();
         login.logout();
     }
 //    @Test
-//    public void TC_60validateAgentAllTabs(){
+//    public void TC_067validateAgentAllTabs(){
 //        login.loginToAvocado(username2, password2, Workspace2);
 //        home.checkHomeScreen();
 //        analytics.checkAnalyticsAllTabs();
 //        login.logout();
 //    }
 //    @Test
-//    public void TC_61validateTeamAllTabs(){
+//    public void TC_068validateTeamAllTabs(){
 //        login.loginToAvocado(username2, password2, Workspace2);
 //        home.checkHomeScreen();
 //        analytics.checkAnalyticsTeamAllTabs();
 //        login.logout();
 //    }
 //    @Test
-//    public void TC_62validateConversationAllTab(){
+//    public void TC_069validateConversationAllTab(){
 //        login.loginToAvocado(username2, password2, Workspace2);
 //        home.checkHomeScreen();
 //        analytics.checkAnalyticsConversationAllTabs();
 //        login.logout();
 //    }
-    @Test
-    public void TC_57ValidateEmptyFields() {
-        login.loginToAvocado(username, password,Workspace);
-        home.checkHomeScreen();
-        contacts.validateEmptyFields();
-        login.logout();
-    }
-    @Test
-    public void TC_58ValidateChatScreen() {
-        login.loginToAvocado(username, password,Workspace);
-        home.checkHomeScreen();
-        contacts.validateAndCreateNewContact();
-        contacts.validateChatScreen();
-        login.logout();
-    }
 
-
-    @Test
-    public void TC_59ValidateFilters(){
-        login.loginToAvocado(username,password,Workspace);
-        home.checkHomeScreen();
-        contacts.navigateAndValidateContactsScreen();
-        contacts.checkDateAddedFilter();
-        contacts.checkTagsFilter();
-        contacts.checkChannelFilter();
-        login.logout();
-    }
 
 //    @Test
-//    public void TC_60ValidateBillingScreen(){
+//    public void TC_070ValidateBillingScreen(){
 //        login.loginToAvocado(username, password, Workspace);
 //        home.checkHomeScreen();
 //        bill.navigateAndValidateBillingScreen();
@@ -655,7 +667,7 @@ public class Regression extends BaseTest {
 //    }
 //
 //    @Test
-//    public void TC_61ValidateBillingDashboard(){
+//    public void TC_071ValidateBillingDashboard(){
 //        login.loginToAvocado(username3, password3, Workspace3);
 //        home.checkHomeScreen();
 //        bill.navigateAndValidateBillingScreen();
@@ -665,7 +677,7 @@ public class Regression extends BaseTest {
 //    }
 //
 //    @Test
-//    public void TC_62ValidateInvoiceSearch(){
+//    public void TC_072ValidateInvoiceSearch(){
 //        login.loginToAvocado(username3, password3, Workspace3);
 //        home.checkHomeScreen();
 //        bill.navigateAndValidateBillingScreen();
@@ -675,7 +687,7 @@ public class Regression extends BaseTest {
 //    }
 //
 //    @Test
-//    public void TC_63ValidateOnlinePayemnt(){
+//    public void TC_073ValidateOnlinePayemnt(){
 //        login.loginToAvocado(username3, password3, Workspace3);
 //        home.checkHomeScreen();
 //        bill.navigateAndValidateBillingScreen();
@@ -684,7 +696,7 @@ public class Regression extends BaseTest {
 //    }
 //
 //    @Test
-//    public void TC_64ValidateOnlinePayNow(){
+//    public void TC_074ValidateOnlinePayNow(){
 //        login.loginToAvocado(username3, password3, Workspace3);
 //        home.checkHomeScreen();
 //        bill.navigateAndValidateBillingScreen();
@@ -694,7 +706,7 @@ public class Regression extends BaseTest {
 //    }
 //
 //    @Test
-//    public void TC_65ValidatePayLater() {
+//    public void TC_075ValidatePayLater() {
 //        login.loginToAvocado(username3, password3, Workspace3);
 //        home.checkHomeScreen();
 //        bill.navigateAndValidateBillingScreen();
@@ -704,7 +716,7 @@ public class Regression extends BaseTest {
 //    }
 //
 //    @Test(dependsOnMethods = "TC_65ValidatePayLater")
-//    public void TC_66ValidateDeletePayment() {
+//    public void TC_076ValidateDeletePayment() {
 //        login.loginToAvocado(username3, password3, Workspace3);
 //        home.checkHomeScreen();
 //        bill.navigateAndValidateBillingScreen();
@@ -714,7 +726,7 @@ public class Regression extends BaseTest {
 //    }
 //
 //    @Test
-//    public void TC_67ValidateUsageReport() {
+//    public void TC_077ValidateUsageReport() {
 //        login.loginToAvocado(username3, password3, Workspace3);
 //        home.checkHomeScreen();
 //        bill.navigateAndValidateBillingScreen();
@@ -725,7 +737,7 @@ public class Regression extends BaseTest {
 //    }
 //
 //    @Test
-//    public void TC_68ValidateNotificationSetting(){
+//    public void TC_078ValidateNotificationSetting(){
 //        login.loginToAvocado(username3, password3, Workspace3);
 //        home.checkHomeScreen();
 //        bill.navigateAndValidateBillingScreen();
@@ -734,7 +746,7 @@ public class Regression extends BaseTest {
 //    }
 //
 //    @Test
-//    public void TC_69ValidateNotificationSettingEmpty(){
+//    public void TC_079ValidateNotificationSettingEmpty(){
 //        login.loginToAvocado(username3, password3, Workspace3);
 //        home.checkHomeScreen();
 //        bill.navigateAndValidateBillingScreen();

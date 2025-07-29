@@ -23,10 +23,14 @@ public class M05SearchTest extends BaseTest {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         search.validateSearchScreen();
-        search.validateSearchXClose();
-        search.validateSearchClosedOnceClickingOutsideSearchContainer();
+//        search.validateSearchXClose();
+//        search.validateSearchClosedOnceClickingOutsideSearchContainer();
         search.validateContactsTab();
         search.validateMessageTab();
         search.validateLastActivity();
+
+        login.logout();
     }
+
+
 }

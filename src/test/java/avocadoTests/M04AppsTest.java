@@ -30,6 +30,7 @@ public class M04AppsTest extends BaseTest {
         apps.validateGreetingsScreen();
         apps.validateGreetingMessageComponent();
         apps.sendGreetingMessage();
+        login.logout();
     }
     @Test
     public void TC_02ValidateWorkingHoursComponent(){
@@ -38,6 +39,7 @@ public class M04AppsTest extends BaseTest {
         apps.navigateToGreetingScreen();
         apps.validateGreetingsScreen();
         apps.setWorkingHours("07","04");
+        login.logout();
     }
     @Test
     public void TC_03ValidateGreetingScreenFullScenario(){
@@ -48,6 +50,7 @@ public class M04AppsTest extends BaseTest {
         apps.setWorkingHours("07","04");
         apps.validateGreetingMessageComponent();
         apps.sendGreetingMessage();
+        login.logout();
     }
 
 }

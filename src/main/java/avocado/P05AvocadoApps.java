@@ -16,7 +16,7 @@ public class P05AvocadoApps extends PageBase {
     private final By greeting_and_away = By.xpath("//p[normalize-space()='Greetings & Away']");
     private final By greeting_title = By.xpath("//*[@data-testid='title']");
     private final By greetings_description = By.xpath("//*[@data-testid='description']");
-    private final By greeting_message_arrow = By.xpath("(//*[@data-testid='ExpandMoreIcon'])[2]");
+    private final By greeting_message_arrow = By.xpath("//*[@data-testid='greeting-message-summary']");
     private final By working_hours_arrow = By.xpath("(//*[@data-testid='ExpandMoreIcon'])[1]");
     private final By greeting_message_title_after_arrow = By.xpath("(//*[@data-testid='label'])[1]");
     private final By greeting_message_toggle = By.xpath("//*[@data-testid='greeting-switch-button']");

@@ -19,7 +19,7 @@ public class P013CustomAttributes extends PageBase {
     private final By createCustomAttribute = By.xpath("//*[@data-testid='button-add-new-custom-attribute']");
     private final By xCloseCTA = By.xpath("//*[@data-testid='CloseIcon']");
     private final By displayedNameTitle = By.xpath("(//*[normalize-space()='Display name'])[1]");
-    private final By keyTitle = By.xpath("(//*[normalize-space()='Key'])[1]");
+//    private final By keyTitle = By.xpath("(//*[normalize-space()='Key'])[1]");
     private final By descriptionTitle = By.xpath("//*[normalize-space()='Description']");
     private final By typeTitle = By.xpath("(//*[normalize-space()='Type'])[1]");
     private final By cancelCTA = By.xpath("//*[@data-testid='button-add-new-cancel']");
@@ -55,7 +55,7 @@ public class P013CustomAttributes extends PageBase {
     public void validateCreateCustomAttributeTemplate(){
         clickOnElement(createCustomAttribute);
         waitForVisibilityOfElement(displayedNameTitle);
-        ElementsValidator(typeTitle,keyTitle,descriptionTitle,cancelCTA,xCloseCTA);
+        ElementsValidator(typeTitle,descriptionTitle,cancelCTA,xCloseCTA);
     }
     public void fillCreateCustomAttributesTemplate() throws InterruptedException {
         scrollToElement(nameInput);

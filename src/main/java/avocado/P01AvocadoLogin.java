@@ -11,16 +11,16 @@ public class P01AvocadoLogin extends PageBase {
 
     private final By input_email = By.xpath("(//input[@id='email'])[2]");
     private final By input_password = By.xpath("(//input[@id = 'password'])[1]");
-    private final By login_to_your_account_label = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1kuh0n3'])[1]");
+    private final By login_to_your_account_label = By.xpath("//*[normalize-space() = 'Login to your account']");
     private final By mottasl_logo = By.xpath("//img[@alt=\"Mottasl\"]");
     private final By remember_me_label = By.xpath("(//*[@class='MuiStack-root css-1r5to7m'][normalize-space()='Remember me'])");
     private final By login_CTA = By.xpath("(//button[@type='button'][normalize-space()='Login'])");
-    private final By forget_password_link = By.xpath("(//a[@class='MuiTypography-root MuiTypography-body1 css-15klo63'][normalize-space()='Forgot Password?'])");
+    private final By forget_password_link = By.xpath("//a[normalize-space()='Forgot Password?']");
     private final By dont_have_an_account_register = By.xpath("//a[normalize-space()='Signup']");
     private final By language = By.xpath("(//img)[2]");
     private final By workspace_dropdown = By.xpath("//input[contains(@class, 'MuiAutocomplete-input')]");
     private final By reset_link = By.xpath("//button[normalize-space() = 'Send Reset Link']");
-    private final By forget_password_label = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-xdxmtm'])[2]");
+    private final By forget_password_label = By.xpath("//*[normalize-space()='Reset Password']");
     private final By login_From_forget_password = By.xpath("(//a[normalize-space()='Login'])[2]");
     private final By avocado_logo_from_home = By.xpath("//img[@alt='avocado icon']");
     public void validateLoginScreenLocators(String email,String password,String workspace) {

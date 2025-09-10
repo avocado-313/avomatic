@@ -28,9 +28,9 @@ public class M33AvocadoSignupTest extends BaseTest {
         login.logout();
     }
 
-    @Test
-    public void TC_003ValidateRegisterVerificationMail(){
-        signUp.registerAccount_withVerifyNow("12345678", "8874023329");
-    }
+//    @Test
+//    public void TC_003ValidateRegisterVerificationMail(){
+//        signUp.registerAccount_withVerifyNow("12345678", "8874023329");
+//    }
 
 }

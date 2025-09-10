@@ -11,7 +11,7 @@ public class P11QuickReplies extends PageBase {
         super(driver);
     }
     private final By quick_replies_title_from_apps = By.xpath("(//*[normalize-space()='Quick replies'])[3]");
-    private final By quick_replies_description_from_apps = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-1ezpj7n'])[3]");
+    private final By quick_replies_description_from_apps = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-cc9b9l'])[3]");
     private final By apps_from_menu = By.xpath("//a[@aria-label='Apps']//*[name()='svg']");
     private final By quick_replies_title_fromQuick_replies_screen = By.xpath("//*[@data-testid='title']");
     private final By quick_Replies_description_from_quickReplies_screen = By.xpath("//*[@data-testid='description']");

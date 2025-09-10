@@ -34,7 +34,7 @@ public class P10Template extends PageBase {
     private final By image_media = By.xpath("(//*[normalize-space()='Image'])[1]");
     private final By video_media = By.xpath("(//*[normalize-space()='Video'])[1]");
     private final By docs_media = By.xpath("(//*[normalize-space()='Docs'])[1]");
-    private final By body_text = By.xpath("//*[@class ='MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline css-1sbjj2w']");
+    private final By body_text = By.xpath("//*[@data-testid='body-text-inputs']");
     private final By add_footer_text = By.xpath("//*[@placeholder='Add Footer Text']");
     private final By buttons = By.xpath("//*[normalize-space()='Buttons']");
     private final By none_buttons = By.xpath("//button[@value='none']");

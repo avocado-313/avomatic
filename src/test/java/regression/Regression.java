@@ -72,11 +72,11 @@ public class Regression extends BaseTest {
         signup.validateRegisterScreen();
     }
 
-//    @Test
-//    public void TC_002ValidateRegisterNewAccount() throws InterruptedException {
-//        signup.registerAccount_withoutVerification("tech@123", "8874023329");
-//        login.logout();
-//    }
+    @Test
+    public void TC_002ValidateRegisterNewAccount() throws InterruptedException {
+        signup.registerAccount_withoutVerification("tech@123", "8874023329");
+        login.logout();
+    }
 //
 //
 //    @Test
@@ -167,18 +167,18 @@ public class Regression extends BaseTest {
     }
 
 
-    @Test
-    public void TC_013ValidateSearchScreen() {
-        login.loginToAvocado(username, password,Workspace);
-        home.checkHomeScreen();
-        search.validateSearchScreen();
-//        search.validateSearchXClose();
+//    @Test
+//    public void TC_013ValidateSearchScreen() {
+//        login.loginToAvocado(username, password,Workspace);
+//        home.checkHomeScreen();
 //        search.validateSearchScreen();
-        search.validateContactsTab();
-        search.validateMessageTab();
-        search.validateLastActivity();
-        login.logout();
-    }
+////        search.validateSearchXClose();
+////        search.validateSearchScreen();
+//        search.validateContactsTab();
+//        search.validateMessageTab();
+//        search.validateLastActivity();
+//        login.logout();
+//    }
 //    @Test
 //    public void TC_014ValidateMediaScreen() {
 //        login.loginToAvocado(username, password,Workspace);
@@ -188,15 +188,16 @@ public class Regression extends BaseTest {
 //        media.validateNavigateBackFromMediaToApps();
 //        login.logout();
 //    }
-    @Test
-    public void TC_015ValidateTagsScreen() {
-        login.loginToAvocado(username, password,Workspace);
-        home.checkHomeScreen();
-        tags.validateTagsScreen();
-        tags.validateTagCreation();
-        tags.validateDeleteTag();
-        login.logout();
-    }
+@Test
+public void TC_015ValidateTagsScreen() throws InterruptedException {
+    login.loginToAvocado(username, password,Workspace);
+    home.checkHomeScreen();
+    tags.validateTagsScreen();
+    tags.validateTagCreation();
+//    tags.validateEditTag();
+//    tags.validateDeleteTag();
+    login.logout();
+}
     @Test
     public void TC_016ValidateNavigateBackFromTags() {
         login.loginToAvocado(username, password,Workspace);

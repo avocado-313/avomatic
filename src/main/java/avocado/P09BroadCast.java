@@ -27,11 +27,11 @@ public class P09BroadCast extends PageBase {
     private final By apps_from_menu = By.xpath("//a[@aria-label='Apps']//*[name()='svg']");
     private final By greeting_and_away = By.xpath("//p[normalize-space()='Greetings & Away']");
     private final By broadcast_icon = By.xpath("//*[@data-testid='PodcastsIcon']");
-    private final By broadCast_description_from_apps = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-1ezpj7n'])[1]");
+    private final By broadCast_description_from_apps = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-cc9b9l'])[1]");
     private final By create_broadcast_title = By.xpath("//*[@data-testid='title']");
     private final By create_broadcast_description = By.xpath("//*[@data-testid='description']");
     private final By create_broadcast_broadcast_details= By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-4788qd'])[1]");
-    private final By create_broadcast_broadcast_details_description = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-1e17j98'])[1]");
+    private final By create_broadcast_broadcast_details_description = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-1axmjs7']");
     private final By create_broadcast_recipient_selection = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-4788qd'])[2]");
     private final By create_broadcast_recipient_selection_description = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-1e17j98'])[2]");
     private final By create_broadcast_schedule_or_send_broadcast = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-4788qd'])[3]");

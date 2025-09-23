@@ -19,7 +19,7 @@ public class P03AvocadoWorkSpace extends PageBase {
     private final By profile_from_profile_menu = By.xpath("(//p[normalize-space()='Profile'])[1]");
     private final By profile_icon_from_profile_menu = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-colorSecondary MuiSvgIcon-fontSizeMedium css-v5fipd'])[3]");
     private final By settings_title_into_profile_screen = By.xpath("//p[normalize-space()='Settings']");
-    private final By settings_subTitle_from_profile_screen= By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-v9escn']");
+    private final By settings_subTitle_from_profile_screen= By.xpath("//p[normalize-space() = 'Manage your Profile and Workspace settings here']");
     private final By profile_section = By.xpath("//p[normalize-space()='Profile']");
 //    private final By agent_profile_title_from_profile_screen = By.xpath("(//h6[normalize-space()='Agent Profile'])[1]");
     private final By workspace_profile_from_side_menu = By.xpath("(//p[normalize-space()='Workspace Profile'])[1]");
@@ -32,19 +32,19 @@ public class P03AvocadoWorkSpace extends PageBase {
     private final By mobile_number_input = By.xpath("//input[@placeholder='91']");
     private final By select_language_arrow = By.xpath("//svg[contains(@class, 'MuiSelect-icon')]");
     private final By select_country_arrow = By.xpath("//div[contains(@class, 'flag-dropdown') and @style='border-radius: 8px 0px 0px 8px; height: 45px; border: none; top: 1px; left: 1px;']");
-    private final By address_text_input = By.xpath("(//div[@class='MuiFormControl-root css-1s22ywu'])[3]");
+    private final By address_text_input = By.xpath("//*[@data-testid='address-input']");
     private final By change_password = By.xpath("(//button[normalize-space()='Change'])[1]");
     private final By current_password_input = By.xpath("(//input[@type='password'])[2]");
     private final By new_password_input = By.xpath("(//input[@type='password'])[3]");
     private final By cancel_CTA = By.xpath("//button[normalize-space()='Cancel']");
     private final By change_password_CTA = By.xpath("(//button[normalize-space()='Change'])[2]");
-    private final By work_space_profile_title_from_workspace = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1eut295'])[1]");
-    private final By work_space_profile_subTitle_from_workspace = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-roeert'])[1]");
-    private final By profile_upload_image_title = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-9l3uo3'])[1]");
+    private final By work_space_profile_title_from_workspace = By.xpath("(//p[normalize-space()= 'Workspace Profile'])[2]");
+    private final By work_space_profile_subTitle_from_workspace = By.xpath("//p[normalize-space()= 'Manage your Workspace settings']");
+    private final By profile_upload_image_title = By.xpath("//p[normalize-space()='Profile Photo']");
     private final By upload_workspace_image_CTA = By.xpath("//button[normalize-space()='Upload Image']");
     private final By email_input = By.xpath("(//input[@type='text'])[2]");
-    private final By organization_name_input = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq'])[2]");
-    private final By legal_name_input = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq'])[2]");
+    private final By organization_name_input = By.xpath("//div[@data-testid='organization-name-inputs']//input");
+    private final By legal_name_input = By.xpath("//*[@data-testid='organization-legal-name-inputs']//input");
     private final By i_icon = By.xpath("(//*[name()='svg'][@aria-label='Timezone selected here will be used by the rules, greetings away messages and other modules'])[1]");
 //    private final By business_time_zone_title = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-wje1bd'])[1]");  //karim
     private final By business_time_zone_title = By.xpath("//p[normalize-space()='Business Timezone']");  // syed
@@ -129,12 +129,12 @@ public class P03AvocadoWorkSpace extends PageBase {
         driver.findElement(By.id("upload-button")).sendKeys(file_path);
        try {
            waitForTime(2000);
-           clickOnElement(By.xpath("//button[contains(@class, 'MuiButtonBase-root') and contains(@class, 'css-1sgkwlu')]"));
+           clickOnElement(By.xpath("(//button[contains(@class, 'MuiButtonBase-root') and contains(@class, 'css-1mfnmd1')])[1]"));
            clickOnElement(By.xpath("//button[@data-testid='select-attach-file-save-button']"));
            waitForTime(4000);
        }catch (Exception e){
            waitForTime(2000);
-           clickOnElement(By.xpath("//button[contains(@class, 'MuiButtonBase-root') and contains(@class, 'css-1sgkwlu')]"));
+           clickOnElement(By.xpath("(//button[contains(@class, 'MuiButtonBase-root') and contains(@class, 'css-1mfnmd1')])[1]"));
            clickOnElement(By.xpath("//button[@data-testid='select-attach-file-save-button']"));
            waitForTime(4000);
        }

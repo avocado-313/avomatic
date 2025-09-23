@@ -21,8 +21,8 @@ public class P05AvocadoApps extends PageBase {
     private final By greeting_message_title_after_arrow = By.xpath("(//*[@data-testid='label'])[1]");
     private final By greeting_message_toggle = By.xpath("//*[@data-testid='greeting-switch-button']");
     private final By message_input = By.xpath("(//*[@placeholder='Type your message...'])[1]");
-    private final By away_message_arrow = By.xpath("//div[@data-testid='away-message-accordion']//div[@class='MuiAccordionSummary-expandIconWrapper css-1fx8m19']//*[name()='svg']");
-    private final By away_message_title_after_arrow =By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-1jr28vm'][normalize-space()='Away Message']");
+    private final By away_message_arrow = By.xpath("(//*[@data-testid='ExpandMoreIcon'])[3]");
+    private final By away_message_title_after_arrow =By.xpath("(//p[normalize-space()='Away Message'])[1]");
     private final By away_message_toggle = By.xpath("//span[@data-testid='away-message-switch-button']");
     private final By away_message_input = By.xpath("(//*[@placeholder='Type your message...'])[2]");
 

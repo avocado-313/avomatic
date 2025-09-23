@@ -29,22 +29,22 @@ public class P31AvocadoSignUp extends PageBase {
     }
 
     private final By mottaslLabel = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-1kq6k1d']");
-    private final By signIntoLabel = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-1kuh0n3']");
+    private final By signIntoLabel = By.xpath("//*[normalize-space() = 'Login to your account']");
     private final By dont_have_an_account_register = By.xpath("//a[normalize-space()='Signup']");
     private final By mottaslLogo= By.xpath("//img[@alt='Mottasl']");
     private final By registerLanguage = By.xpath("(//img)[2]");
     private final By errormessage = By.xpath("//p[@class='MuiFormHelperText-root MuiFormHelperText-sizeMedium MuiFormHelperText-contained css-19iu1dn']");
     private final By registerHeader = By.xpath("//*[normalize-space() = 'Create your free account']");
     private final By registerDesc = By.xpath("//*[normalize-space() = 'No card required. Try mottasl today.']");
-    private final By nameInput = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq'])[1]");
-    private final By businessInput = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq'])[2]");
-    private final By emailInput = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq'])[3]");
-    private final By passwordInput = By.xpath("//*[@class='MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-1uvydh2']");
+    private final By nameInput = By.xpath("//input[@id='full_name']");
+    private final By businessInput = By.xpath("//input[@id='display_name']");
+    private final By emailInput = By.xpath("(//input[@id='email'])[1]");
+    private final By passwordInput = By.xpath("//input[@id='platform_credentials']");
     private final By eyeButton = By.xpath("(//*[@data-testid='VisibilityIcon'])[1]");
     private final By phoneNumber = By.xpath("//*[@id='tel-phone']");
     private final By signUpCta= By.xpath("//*[normalize-space() = 'Sign up']");
     private final By haveAnAccount = By.xpath("(//*[normalize-space() = 'Login'])[1]");
-    private final  By emailBanner = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-ape02d']");
+    private final  By emailBanner = By.xpath("(//*[normalize-space() = 'Please confirm your email address to complete the signup process'])[1]");
     private final By avocado_logo_from_home = By.xpath("//img[@alt='avocado icon']");
 
 
@@ -88,8 +88,8 @@ public class P31AvocadoSignUp extends PageBase {
     }
 
     private final By mailIcon = By.xpath("//*[@src='https://assets.avocad0.dev/sdk/envelope-open-fill.svg']");
-    private final By verifyLabel = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-xdxmtm'])[1]");
-    private final By verifyDescription = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-a159n1']");
+    private final By verifyLabel = By.xpath("//*[normalize-space()='Please verify your email']");
+    private final By verifyDescription = By.xpath("//p[@class='MuiTypography-root MuiTypography-body1 css-9thtmn']");
     private final By first_and_login_cta = By.xpath("//*[normalize-space()='Verify first and Login']");
     private final By now_and_later_cta = By.xpath("//*[normalize-space()='Login now and verify later']");
 

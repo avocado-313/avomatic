@@ -13,10 +13,10 @@ public class P04AvocadoContacts extends PageBase {
     private final By create_contact_CTA = By.xpath("//button[normalize-space()='Create Contact']");
     private final By contact_icon_from_label = By.xpath("//a[@aria-label='Contacts']//*[name()='svg']");
     private final By contacts_title_from_contacts_screen = By.xpath("//h5[normalize-space()='Contacts']");
-    private final By contacts_subTitle_from_contacts_screen = By .xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-1a4w3bo'])[1]");
+    private final By contacts_subTitle_from_contacts_screen = By .xpath("//p[normalize-space()='Create and Manage your contacts']");
     private final By bulk_action_CTA = By.xpath("//button[normalize-space()='Bulk Actions']");
-    private final By create_new_contact_title = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-wtork8'])[1]");
-    private final By x_close_create_contact = By.xpath("(//*[name()='svg'][@class='MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-o261au'])[1]");
+    private final By create_new_contact_title = By.xpath("//p[normalize-space()='Create new contact']");
+    private final By x_close_create_contact = By.xpath("//*[@data-testid='create-contact-close-button']");
     private final By contact_name_input = By.xpath("//*[@name='name']");
     private final By contact_phone_input = By.xpath("//*[@name='phoneNumber']");
     private final By contact_email_input = By.xpath("//*[@name='email']");
@@ -29,7 +29,7 @@ public class P04AvocadoContacts extends PageBase {
     private final By edit_icon = By.xpath("(//*[@data-testid='EditIcon'])[1]");
     private final By phone_error_message = By.xpath("//*[@data-testid='phone-error']");
     private final By contact_error_message = By.xpath("//*[@ data-testid='phone-error']");
-    private final By karim_salem_chat = By.xpath("(//tr[contains(., 'karim salem')]//*[@data-testid='archive-send-contacts-button'])[1]");
+    private final By karim_salem_chat = By.xpath("(//*[@data-testid='archive-send-contacts-button'])[1]");
 
     String currentDir = System.getProperty("user.dir");
     String file_path = currentDir + "//images//avocad0.jpg";
@@ -118,12 +118,12 @@ public class P04AvocadoContacts extends PageBase {
 
     private final By contacts_date_filter = By.xpath("(//*[@placeholder='Date Added'])[1]");
     private final By filter_search = By.xpath("(//button[normalize-space() = 'Search'])[1]");
-    private final By filter_screen_validation = By.xpath("//div[@aria-hidden='false']//th[@class='MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1bigob2'][normalize-space()='Users']");
+    private final By filter_screen_validation = By.xpath("//div[@aria-hidden='false']//th[@class='MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1mq4yx4'][normalize-space()='Users']");
     private final By contacts_tags_filter = By.xpath("//div[@aria-hidden='false']//button[@id='search-dropdown-button']");
     private final By contacts_tags_search = By.xpath("//input[@placeholder='Search Tags']");
-    private final By tags_checkbox = By.xpath("//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-9l3uo3']");
+    private final By tags_checkbox = By.xpath("//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-fyswvn']");
     private final By contact_channel_filter = By.xpath("(//input[@placeholder= 'Channel'])[1]");
-    private final By contact_clear_filter_btn = By.xpath("//button[normalize-space()='Clear Filter']");
+    private final By contact_clear_filter_btn = By.xpath("(//button[normalize-space()='Clear Filter'])[1]");
 
 
     public void checkDateAddedFilter(){
@@ -139,6 +139,8 @@ public class P04AvocadoContacts extends PageBase {
         assertElementDisplayed(filter_screen_validation);
         Assert.assertTrue(driver.findElement(filter_screen_validation).getText().contains("Users"));
     }
+
+
 
     public void checkTagsFilter(){
         clickOnElement(contacts_tags_filter);

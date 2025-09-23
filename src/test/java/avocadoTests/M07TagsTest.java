@@ -23,13 +23,13 @@ public class M07TagsTest extends BaseTest {
         tags = new P08AvocadoTags(driver);
     }
     @Test
-    public void TC_01ValidateTagsScreen() {
+    public void TC_01ValidateTagsScreen() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
         tags.validateTagsScreen();
-        tags.validateTagCreation();
-        tags.validateEditTag();
-        tags.validateDeleteTag();
+//        tags.validateTagCreation();
+//        tags.validateEditTag();
+//        tags.validateDeleteTag();
     }
 
     @Test

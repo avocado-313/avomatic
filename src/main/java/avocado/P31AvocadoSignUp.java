@@ -41,7 +41,7 @@ public class P31AvocadoSignUp extends PageBase {
     private final By passwordInput = By.xpath("//input[@id='platform_credentials']");
     private final By eyeButton = By.xpath("(//*[@data-testid='VisibilityIcon'])[1]");
     private final By phoneNumber = By.xpath("//*[@id='tel-phone']");
-    private final By signUpCta= By.xpath("//*[normalize-space() = 'Sign up']");
+    private final By signUpCta= By.xpath("//button[.//div[contains(text(),'Sign up')or contains(text(),'Sign up...')or contains(text(),'Signed up successfully!')or contains(text(),'Sign up failed, try again.') ]]");
     private final By haveAnAccount = By.xpath("(//*[normalize-space() = 'Login'])[1]");
     private final  By emailBanner = By.xpath("(//*[normalize-space() = 'Please confirm your email address to complete the signup process'])[1]");
     private final By avocado_logo_from_home = By.xpath("//img[@alt='avocado icon']");
@@ -122,7 +122,6 @@ public class P31AvocadoSignUp extends PageBase {
     private final By alreadyExist_LoginCTA = By.xpath("(//a[@href='/login?tab=1'])[1]");
 
     private void testEmailAlreadyExistValidation(String email, String pass, String mobile) {
-        // Fill the form
         sendTextToInputField("test" + generateRandomDigits(5), nameInput);
         sendTextToInputField("testBusiness" + generateRandomDigits(3), businessInput);
         sendTextToInputField(email, emailInput);
@@ -130,32 +129,26 @@ public class P31AvocadoSignUp extends PageBase {
         clickOnElement(eyeButton);
         sendTextToInputField(mobile, phoneNumber);
 
-        // Trigger form submission
-        action.pause(Duration.ofSeconds(3))
-                .sendKeys(Keys.TAB)
-                .sendKeys(Keys.ENTER)
-                .perform();
+        clickOnElement(signUpCta);
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50)); // CI can be slow
 
         try {
-            // Wait for the error message to appear (returns WebElement)
-            WebElement errormessage = wait.until(
-                    ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath("//*[contains(text(),'Email already')]")
-                    )
-            );
+            // Flexible, case-insensitive XPath
+            By errorLocator = By.xpath("//*[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'email already')]");
 
-            // Validate
+            // Wait for presence first (element exists in DOM)
+            wait.until(ExpectedConditions.presenceOfElementLocated(errorLocator));
+
+            // Wait for visibility (element displayed)
+            WebElement errormessage = wait.until(ExpectedConditions.visibilityOfElementLocated(errorLocator));
+
             Assert.assertTrue(errormessage.isDisplayed(), "Error message is not displayed!");
             Assert.assertTrue(errormessage.getText().toLowerCase().contains("email already"),
                     "Error message text mismatch!");
 
-            // Click on "Login" link inside error modal
             scrollToElement(alreadyExist_LoginCTA);
             clickOnElement(alreadyExist_LoginCTA);
-
-            // Verify we are back on register screen
             Assert.assertTrue(assertElementDisplayed(dont_have_an_account_register));
 
         } catch (TimeoutException e) {

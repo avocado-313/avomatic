@@ -129,9 +129,12 @@ public class P31AvocadoSignUp extends PageBase {
         clickOnElement(eyeButton);
         sendTextToInputField(mobile, phoneNumber);
 
-        clickOnElement(signUpCta);
+        action.pause(Duration.ofSeconds(3))
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.ENTER)
+                .perform();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50)); // CI can be slow
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(45)); // CI can be slow
 
         try {
             // Flexible, case-insensitive XPath

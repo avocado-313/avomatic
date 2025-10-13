@@ -50,7 +50,7 @@ public class P31AvocadoSignUp extends PageBase {
 
     Actions action = new Actions(driver);
 
-    public void validateRegisterScreen() throws InterruptedException {
+    public void validateRegisterScreen()  {
         waitForVisibilityOfElement(signIntoLabel);
         scrollToElement(dont_have_an_account_register);
         clickOnElement(dont_have_an_account_register);
@@ -62,7 +62,7 @@ public class P31AvocadoSignUp extends PageBase {
 
 
     }
-    public void registerAccount_withoutVerification(String pass, String mobile) throws InterruptedException {
+    public void registerAccount_withoutVerification(String pass, String mobile) {
         waitForVisibilityOfElement(signIntoLabel,30);
         scrollToElement(dont_have_an_account_register);
         clickOnElement(dont_have_an_account_register);
@@ -73,7 +73,7 @@ public class P31AvocadoSignUp extends PageBase {
         clickOnElement(eyeButton);
         sendTextToInputField(mobile,phoneNumber);
         action.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
-        Thread.sleep(5000);
+       waitForTime(3000);
         verificationScreen();
         clickOnElement(now_and_later_cta);
         waitForVisibilityOfElement(emailBanner);
@@ -108,7 +108,7 @@ public class P31AvocadoSignUp extends PageBase {
 
     private final By alreadyExist_LoginCTA = By.xpath("(//a[@href='/login?tab=1'])[1]");
 
-    private void testEmailAlreadyExistValidation(String email, String pass, String mobile) throws InterruptedException {
+    private void testEmailAlreadyExistValidation(String email, String pass, String mobile)  {
         sendTextToInputField("test" + generateRandomDigits(5), nameInput);
         sendTextToInputField("testBusiness" + generateRandomDigits(3),businessInput);
         sendTextToInputField(email, emailInput);
@@ -116,7 +116,7 @@ public class P31AvocadoSignUp extends PageBase {
         clickOnElement(eyeButton);
         sendTextToInputField(mobile,phoneNumber);
         action.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
-        Thread.sleep(20000);
+        waitForTime(10000);
 
 
 

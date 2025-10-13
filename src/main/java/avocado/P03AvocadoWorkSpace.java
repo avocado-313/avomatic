@@ -29,7 +29,7 @@ public class P03AvocadoWorkSpace extends PageBase {
     private final By contact_name_input = By.xpath("//input[@aria-label='name']");
     private final By select_flag_arrow = By.xpath("(//div[@class='arrow'])[1]");  // Karim
 //    private final By mobile_number_input = By.xpath("(//input[@placeholder='(555) 555-5555'])[1]");  // Karim
-    private final By mobile_number_input = By.xpath("//input[@placeholder='91']");
+    private final By mobile_number_input = By.xpath("//input[@name='phoneNumber']");
     private final By select_language_arrow = By.xpath("//svg[contains(@class, 'MuiSelect-icon')]");
     private final By select_country_arrow = By.xpath("//div[contains(@class, 'flag-dropdown') and @style='border-radius: 8px 0px 0px 8px; height: 45px; border: none; top: 1px; left: 1px;']");
     private final By address_text_input = By.xpath("//*[@data-testid='address-input']");

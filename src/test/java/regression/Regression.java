@@ -68,12 +68,12 @@ public class Regression extends BaseTest {
     }
 
     @Test
-    public void TC_001ValidateRegisterSetup() throws InterruptedException {
+    public void TC_001ValidateRegisterSetup()  {
         signup.validateRegisterScreen();
     }
 
     @Test
-    public void TC_002ValidateRegisterNewAccount() throws InterruptedException {
+    public void TC_002ValidateRegisterNewAccount()  {
         signup.registerAccount_withoutVerification("tech@123", "8874023329");
         login.logout();
     }

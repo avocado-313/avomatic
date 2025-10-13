@@ -122,39 +122,50 @@ public class P31AvocadoSignUp extends PageBase {
     private final By alreadyExist_LoginCTA = By.xpath("(//a[@href='/login?tab=1'])[1]");
 
     private void testEmailAlreadyExistValidation(String email, String pass, String mobile) {
+        // Fill the form
         sendTextToInputField("test" + generateRandomDigits(5), nameInput);
         sendTextToInputField("testBusiness" + generateRandomDigits(3), businessInput);
         sendTextToInputField(email, emailInput);
         sendTextToInputField(pass, passwordInput);
         clickOnElement(eyeButton);
         sendTextToInputField(mobile, phoneNumber);
-        action.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
-        waitForTime(10000);
+
+        // Trigger form submission
+        action.pause(Duration.ofSeconds(3))
+                .sendKeys(Keys.TAB)
+                .sendKeys(Keys.ENTER)
+                .perform();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-
-            // More flexible to match variations like "Email already exist" or "Email already exist Login"
+            // Wait for the error message to appear (returns WebElement)
             WebElement errormessage = wait.until(
                     ExpectedConditions.visibilityOfElementLocated(
-                            By.xpath("//*[contains(.,'Email already')]")
+                            By.xpath("//*[contains(text(),'Email already')]")
                     )
             );
 
+            // Validate
             Assert.assertTrue(errormessage.isDisplayed(), "Error message is not displayed!");
             Assert.assertTrue(errormessage.getText().toLowerCase().contains("email already"),
                     "Error message text mismatch!");
 
+            // Click on "Login" link inside error modal
             scrollToElement(alreadyExist_LoginCTA);
             clickOnElement(alreadyExist_LoginCTA);
+
+            // Verify we are back on register screen
             Assert.assertTrue(assertElementDisplayed(dont_have_an_account_register));
 
-        } catch (Exception e) {
-            System.out.println("---- ERROR: Element not found. Printing page source for debug ----");
+        } catch (TimeoutException e) {
+            System.out.println("---- ERROR: Element not found in CI. Printing page source ----");
             System.out.println(driver.getPageSource());
             throw e;
         }
     }
+
+
 
     private final By input_email = By.xpath("(//input[@id='email'])[2]");
     private final By input_password = By.xpath("(//input[@id = 'password'])[1]");

@@ -56,6 +56,8 @@ public class P31AvocadoSignUp extends PageBase {
         ElementsValidator(mottaslLogo, registerLanguage, registerHeader, registerDesc, nameInput,businessInput
         , emailInput, passwordInput,eyeButton, phoneNumber, signUpCta, haveAnAccount);
 //        testEmailAlreadyExistValidation("tech@avocad0.dev", "tech@123", "8874023329");
+        clickOnElement(haveAnAccount);
+
 
 
 

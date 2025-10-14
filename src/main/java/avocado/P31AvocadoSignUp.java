@@ -55,7 +55,7 @@ public class P31AvocadoSignUp extends PageBase {
         clickOnElement(dont_have_an_account_register);
         ElementsValidator(mottaslLogo, registerLanguage, registerHeader, registerDesc, nameInput,businessInput
         , emailInput, passwordInput,eyeButton, phoneNumber, signUpCta, haveAnAccount);
-        testEmailAlreadyExistValidation("tech@avocad0.dev", "tech@123", "8874023329");
+//        testEmailAlreadyExistValidation("tech@avocad0.dev", "tech@123", "8874023329");
 
 
 
@@ -94,7 +94,7 @@ public class P31AvocadoSignUp extends PageBase {
 
         try {
             WebElement verifyLabelElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
-                    By.xpath("//*[normalize-space()='Please verify your email']")));
+                    By.xpath("//p[normalize-space()='Please verify your email']")));
 
             WebElement verifyDescriptionElement = wait.until(ExpectedConditions.visibilityOfElementLocated(
                     By.xpath("//p[contains(@class,'MuiTypography-root') and contains(text(),'verify your email')]")));

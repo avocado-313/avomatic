@@ -33,7 +33,7 @@ public class Regression extends BaseTest {
     P21Analytics analytics;
     P22AppsCallReport appsCallReport;
     P23AppsRoboCalling appsRoboCalling;
-    P24WebPhone webPhone;
+    P24VoipAdminReport webPhone;
 
     @BeforeClass
     public void initiateObjects(){
@@ -62,7 +62,7 @@ public class Regression extends BaseTest {
         analytics = new P21Analytics(driver);
         appsCallReport = new P22AppsCallReport(driver);
         appsRoboCalling = new P23AppsRoboCalling(driver);
-        webPhone = new P24WebPhone(driver);
+        webPhone = new P24VoipAdminReport(driver);
 
 
     }
@@ -630,10 +630,10 @@ public void TC_015ValidateTagsScreen() throws InterruptedException {
         login.logout();
     }
     @Test
-    public void TC_066validateWebPhoneIcon() {
+    public void TC_066validateVoipAdmin() {
         login.loginToAvocado(username2, password2, Workspace2);
         home.checkHomeScreen();
-        webPhone.checkWebPhoneIcon();
+        webPhone.checkVoipAdmin();
         login.logout();
     }
 //    @Test

@@ -11,14 +11,14 @@ public class P21Analytics extends PageBase {
     private final By AnalyticsPageTitle = By.xpath("//*[normalize-space()='Analytics']");
     private final By AnalyticsSideBarIcon = By.xpath("(//*[@xmlns=\"http://www.w3.org/2000/svg\"])[1]");
     private final By AnalyticsPageTitleDesc = By.xpath("//*[normalize-space()='View your platform reports here']");
-    private final By AnalyticsOverviewSectionAgent = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-h6 css-2xgtc5\"])[4]");
-    private final By AnalyticsOverviewSectionTitle = By.xpath("//*[@class=\"MuiTypography-root MuiTypography-h5 css-72ogzh\"]");
+    private final By AnalyticsOverviewSectionAgent = By.xpath("(//button[@data-testid='setting-button'])[1]");
+    private final By AnalyticsOverviewSectionTitle = By.xpath("//h5[normalize-space()='Overview']");
     private final By AnalyticsAgentsSectionCta = By.xpath("(//*[@data-testid=\"setting-button\"])[2]");
     private final By AnalyticsAgentsSectionTitle = By.xpath("//*[@data-testid=\"AgentsTeamHeader\"]");
     private final By AnalyticsTeamsSectionCta = By.xpath("(//*[@data-testid=\"setting-button\"])[3]");
     private final By AnalyticsTeamsSectionTitle = By.xpath("//*[@data-testid=\"AgentsTeamHeader\"]");
-    private final By AnalyticsConversationCta = By.xpath("(//*[@class=\"MuiTypography-root MuiTypography-body1 css-1eucit8\"])[4]");
-    private final By AnalyticsConversationTitle = By.xpath("//*[@class=\"MuiTypography-root MuiTypography-h5 css-72ogzh\"]");
+    private final By AnalyticsConversationCta = By.xpath("(//button[@data-testid='setting-button'])[4]");
+    private final By AnalyticsConversationTitle = By.xpath("//h5[normalize-space()='Conversations']");
 //    private final By MaintenancePopUp = By.xpath("//*[@class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-l7mppb\"]");
     private final By Logo = By.xpath("//*[@src=\"https://assets.avocad0.dev/sdk/mottasl_orange.png\"]");
     private final By AgentDownloadReport = By.xpath("//*[@data-testid=\"AgentsTeamHeader-download-reports\"]");

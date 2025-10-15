@@ -61,6 +61,7 @@ public class P01AvocadoLogin extends PageBase {
     private void validateForgetPasswordScreen(){
         scrollToElement(forget_password_link);
         clickOnElement(forget_password_link);
+        waitForTime(7000);
         Assert.assertTrue(assertElementDisplayed(forget_password_label));
         Assert.assertTrue(assertElementDisplayed(reset_link));
         clickOnElement(login_From_forget_password);

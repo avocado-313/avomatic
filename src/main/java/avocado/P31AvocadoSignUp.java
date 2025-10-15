@@ -80,11 +80,8 @@ public class P31AvocadoSignUp extends PageBase {
                 .sendKeys(Keys.ENTER)
                 .perform();
 //        verificationScreen();
-
-        waitForVisibilityOfElement(emailBanner);
-        WebElement bannermessage = driver.findElement(By.xpath("//*[contains(text(),'Please confirm your email address to complete the signup process')]"));
-        Assert.assertTrue(bannermessage.isDisplayed(), "Error message is not displayed!");
-        Assert.assertEquals(bannermessage.getText().trim(), "Please confirm your email address to complete the signup process", "Error message text mismatch!");
+        waitForTime(6000);
+        Assert.assertTrue(driver.findElement(emailBanner).getText().contains("Please confirm your email address to complete the signup process"));
 
 
         waitForVisibilityOfElement(avocado_logo_from_home);

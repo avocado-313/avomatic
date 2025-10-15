@@ -149,7 +149,7 @@ public class Regression extends BaseTest {
     public void TC_011ValidateChatScreen() throws InterruptedException {
         login.loginToAvocado(username, password,Workspace);
         home.checkHomeScreen();
-        contacts.validateAndCreateNewContact();
+        contacts.navigateAndValidateContactsScreen();
         contacts.validateChatScreen();
         login.logout();
     }

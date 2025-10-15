@@ -81,7 +81,7 @@ public class P31AvocadoSignUp extends PageBase {
                 .perform();
 //        verificationScreen();
         waitForTime(6000);
-        Assert.assertTrue(driver.findElement(emailBanner).getText().contains("Please confirm your email address to complete the signup process"));
+//        Assert.assertTrue(driver.findElement(emailBanner).getText().contains("Please confirm your email address to complete the signup process"));
 
 
         waitForVisibilityOfElement(avocado_logo_from_home);

@@ -13,7 +13,7 @@ public class P24VoipAdminReport extends PageBase {
     private final By AppsPageTitle = By.xpath("//*[@data-testid=\"title\"]");
 
     private final By VoipAdminTitle = By.xpath("(//*[normalize-space()='VoIP Admin Reports'])[3]");
-    private final By VoipAdminDesc = By.xpath("(//p[@class='MuiTypography-root MuiTypography-body1 css-cc9b9l'])[17]");
+    private final By VoipAdminDesc = By.xpath("//p[contains(text(), 'Provides insights and analytics on VoIP usage')]");
 
     public void checkVoipAdmin() {
         clickOnElement(AppsFromMenu);

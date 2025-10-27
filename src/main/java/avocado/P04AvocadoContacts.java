@@ -26,7 +26,7 @@ public class P04AvocadoContacts extends PageBase {
     private final By cancel_CTA = By.xpath("//button[normalize-space()='Cancel']");
     private final By upload_image_CTA = By.xpath("//button[normalize-space()='Upload image']");
     private final By image = By.xpath("//input[@name='image']");
-    private final By edit_icon = By.xpath("(//*[@class='MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-woztex'])[2]");
+    private final By edit_icon = By.xpath("(//button[@data-testid='edit-contacts-button'])[1]");
     private final By phone_error_message = By.xpath("//*[@data-testid='phone-error']");
     private final By contact_error_message = By.xpath("//*[@ data-testid='phone-error']");
     private final By karim_salem_chat = By.xpath("(//*[@data-testid='archive-send-contacts-button'])[1]");

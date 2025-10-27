@@ -41,10 +41,17 @@ public class P31AvocadoSignUp extends PageBase {
     private final By passwordInput = By.xpath("//input[@id='platform_credentials']");
     private final By eyeButton = By.xpath("(//*[@data-testid='VisibilityIcon'])[1]");
     private final By phoneNumber = By.xpath("//*[@id='tel-phone']");
-    private final By signUpCta= By.xpath("//button[.//div[contains(text(),'Sign up')or contains(text(),'Sign up...')or contains(text(),'Signed up successfully!')or contains(text(),'Sign up failed, try again.') ]]");
+    private final By signUpCta= By.xpath("//button[.//div[text()='Sign up']]");
     private final By haveAnAccount = By.xpath("(//*[normalize-space() = 'Login'])[1]");
+    private final By now_and_later_cta = By.xpath("//*[normalize-space()='Login now and verify later']");
     private final  By emailBanner = By.xpath("(//*[normalize-space() = 'Please confirm your email address to complete the signup process'])[1]");
     private final By avocado_logo_from_home = By.xpath("//img[@alt='avocado icon']");
+    private final By input_email = By.xpath("(//input[@id='email'])[2]");
+    private final By input_password = By.xpath("(//input[@id = 'password'])[1]");
+    private final By workspace_dropdown = By.xpath("//input[contains(@class, 'MuiAutocomplete-input')]");
+    private final By login_CTA = By.xpath("(//button[@type='button'][normalize-space()='Login'])");
+    private final By mailIcon = By.xpath("//*[@src='https://assets.avocad0.dev/sdk/envelope-open-fill.svg']");
+    private final By first_and_login_cta = By.xpath("//*[normalize-space()='Verify first and Login']");
 
 
     Actions action = new Actions(driver);
@@ -73,24 +80,21 @@ public class P31AvocadoSignUp extends PageBase {
         sendTextToInputField(pass,passwordInput);
         clickOnElement(eyeButton);
         sendTextToInputField(mobile,phoneNumber);
-        action.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
+        clickOnElement(signUpCta);
        waitForTime(3000);
-        action.pause(Duration.ofSeconds(3))
-                .sendKeys(Keys.TAB).sendKeys(Keys.TAB)
-                .sendKeys(Keys.ENTER)
-                .perform();
+        clickOnElement(now_and_later_cta);
 //        verificationScreen();
         waitForTime(6000);
 //        Assert.assertTrue(driver.findElement(emailBanner).getText().contains("Please confirm your email address to complete the signup process"));
 
 
-//        waitForVisibilityOfElement(avocado_logo_from_home);
+        waitForVisibilityOfElement(avocado_logo_from_home);
 
 
     }
-    private final By now_and_later_cta = By.xpath("//*[normalize-space()='Login now and verify later']");
 
-    private void verificationScreen() {
+
+    private void email_verify_Screen() {
         waitForVisibilityOfElement(mottaslLogo, 30);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -132,10 +136,8 @@ public class P31AvocadoSignUp extends PageBase {
         clickOnElement(eyeButton);
         sendTextToInputField(mobile, phoneNumber);
 
-        action.pause(Duration.ofSeconds(3))
-                .sendKeys(Keys.TAB)
-                .sendKeys(Keys.ENTER)
-                .perform();
+        waitForTime(3000);
+        clickOnElement(signUpCta);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(45)); // CI can be slow
 
@@ -166,10 +168,7 @@ public class P31AvocadoSignUp extends PageBase {
 
 
 
-    private final By input_email = By.xpath("(//input[@id='email'])[2]");
-    private final By input_password = By.xpath("(//input[@id = 'password'])[1]");
-    private final By workspace_dropdown = By.xpath("//input[contains(@class, 'MuiAutocomplete-input')]");
-    private final By login_CTA = By.xpath("(//button[@type='button'][normalize-space()='Login'])");
+
 
 
 
@@ -178,8 +177,7 @@ public class P31AvocadoSignUp extends PageBase {
 
 
 
-    private final By mailIcon = By.xpath("//*[@src='https://assets.avocad0.dev/sdk/envelope-open-fill.svg']");
-    private final By first_and_login_cta = By.xpath("//*[normalize-space()='Verify first and Login']");
+
 
 
     public void registerAccount_withVerifyNow(String pass, String phone) {

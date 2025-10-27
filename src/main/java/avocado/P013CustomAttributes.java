@@ -12,7 +12,7 @@ public class P013CustomAttributes extends PageBase {
         super(driver);
     }
     private final By customAttributeTitleFromApps = By.xpath("//*[normalize-space()='Custom Attributes']");
-    private final By customAttributeDescFromApps = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-cc9b9l'])[6]");
+    private final By customAttributeDescFromApps = By.xpath("//p[contains(normalize-space(.), 'Establish and oversee unique descriptors')]");
     private final By customAttributeHeader = By.xpath("//*[@data-testid='title']");
     private final By customAttributeDesc = By.xpath("//*[@data-testid='description']");
     private final By backArrow = By.xpath("//*[@data-testid='ArrowBackIosNewRoundedIcon']");

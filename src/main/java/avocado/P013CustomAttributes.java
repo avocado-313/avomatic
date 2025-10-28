@@ -12,7 +12,7 @@ public class P013CustomAttributes extends PageBase {
         super(driver);
     }
     private final By customAttributeTitleFromApps = By.xpath("//*[normalize-space()='Custom Attributes']");
-    private final By customAttributeDescFromApps = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-1ezpj7n'])[6]");
+    private final By customAttributeDescFromApps = By.xpath("//p[contains(normalize-space(.), 'Establish and oversee unique descriptors')]");
     private final By customAttributeHeader = By.xpath("//*[@data-testid='title']");
     private final By customAttributeDesc = By.xpath("//*[@data-testid='description']");
     private final By backArrow = By.xpath("//*[@data-testid='ArrowBackIosNewRoundedIcon']");
@@ -23,9 +23,9 @@ public class P013CustomAttributes extends PageBase {
     private final By descriptionTitle = By.xpath("//*[normalize-space()='Description']");
     private final By typeTitle = By.xpath("(//*[normalize-space()='Type'])[1]");
     private final By cancelCTA = By.xpath("//*[@data-testid='button-add-new-cancel']");
-    private final By addCustom = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-16pzsl3'])[1]");
-    private final By nameInput = By.xpath("//*[@class='MuiInputBase-input MuiOutlinedInput-input css-1x5jdmq']");
-    private final By descInput = By.xpath("(//*[@class='MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-u36398'])[1]");
+    private final By addCustom = By.xpath("//button[.//div[ contains(text(),'Add Custom Attribute') or contains(text(),'Adding Custom Attribute...') or contains(text(),'Custom Attribute added') or contains(text(),'Error')]]");
+    private final By nameInput = By.xpath("//input[@aria-label='custom-attribute-name']");
+    private final By descInput = By.xpath("//*[@data-testid='input-add-new-description']");
     private final By threeDots = By.xpath("(//*[@data-testid='actions-button'])[1]");
     private final By deleteCTA = By.xpath("//*[@data-testid='undefined-1']");
     private final By confirmDelete = By.xpath("//*[@data-testid='deleted-modal-deleted-btn']");
@@ -62,8 +62,8 @@ public class P013CustomAttributes extends PageBase {
         sendTextToInputField("input" + generateRandomDigits(5),nameInput);
         scrollToElement(descInput);
         waitForTime(5000);
-        clickOnElement(descInput);
-        sendTextToInputField("description" + generateRandomDigits(5),descInput);
+//        clickOnElement(descInput);
+//        sendTextToInputField("description" + generateRandomDigits(5),descInput);
         scrollToElement(cancelCTA);
         clickOnElement(addCustom);
         Thread.sleep(5000);

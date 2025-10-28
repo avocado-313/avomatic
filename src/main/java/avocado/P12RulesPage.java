@@ -16,7 +16,7 @@ public class P12RulesPage extends PageBase {
     }
     private final By rulesFromMenu = By.xpath("(//*[normalize-space()='Rules'])[2]");
     private final By rulesIconFromMenu = By.xpath("//*[@data-testid='RuleOutlinedIcon']");
-    private final By rulesDescriptionFromMenu = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-1ezpj7n'])[4]");
+    private final By rulesDescriptionFromMenu = By.xpath("(//*[@class='MuiTypography-root MuiTypography-body1 css-cc9b9l'])[4]");
     private final By createNewRules = By.xpath("(//*[@data-testid='create-rule-button'])[1]");
     private final By rulesDescriptionFromRules = By.xpath("//*[@data-testid='description']");
 //    private final By rulesTitleFromTitle = By.xpath("//*[normalize-space()='Rules']");

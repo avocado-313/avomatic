@@ -49,3 +49,4 @@ reports/
 
 # Environment configuration
 # src/config/env.properties
+src/main/SurefireReports/emailable-report.html

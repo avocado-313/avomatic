@@ -74,14 +74,10 @@ public class P04AvocadoContacts extends PageBase {
         sendTextToInputField("test.automation"+generateRandomDigits(5)+"@gmail.com",contact_email_input);
         sendTextToInputField(generateRandomNumber(),contact_phone_input);
         clickOnElement(save_CTA);
-        waitForTime(5000);
-        waitForVisibilityOfElement(edit_icon);
-        try {
-            clickOnElement(edit_icon);
-        }catch (Exception e){
-            waitForTime(6000);
-            clickOnElement(edit_icon);
-        }
+//        waitForTime(5000);
+//        waitForVisibilityOfElement(edit_icon);
+       Thread.sleep(10000);
+       clickOnElement(edit_icon);
         clickOnElement(archive);
     }
     private final By archive = By.xpath("//button[normalize-space()='Archive Contact']");

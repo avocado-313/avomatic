@@ -201,7 +201,7 @@ public class P10Template extends PageBase {
     private  final By staticText = By.xpath("(//*[@placeholder='Text'])[2]");
     private final By dynamicURl = By.xpath("//*[normalize-space() = 'Dynamic Link']");
     private  final By dynamicText = By.xpath("(//*[@placeholder='Text'])[3]");
-    private final By uploadVideoCta = By.xpath("(//*[normalize-space() = 'Upload video'])[3]");
+    private final By uploadVideoCta = By.xpath("//button[@data-testid='image-button']");
 
 
 

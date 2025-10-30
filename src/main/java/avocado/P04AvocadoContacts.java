@@ -76,9 +76,9 @@ public class P04AvocadoContacts extends PageBase {
         clickOnElement(save_CTA);
 //        waitForTime(5000);
 //        waitForVisibilityOfElement(edit_icon);
-       Thread.sleep(10000);
-       clickOnElement(edit_icon);
-        clickOnElement(archive);
+//       Thread.sleep(10000);
+//       clickOnElement(edit_icon);
+//        clickOnElement(archive);
     }
     private final By archive = By.xpath("//button[normalize-space()='Archive Contact']");
     public void validateEmptyFields() throws InterruptedException {

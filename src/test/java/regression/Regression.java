@@ -72,6 +72,7 @@ public class Regression extends BaseTest {
         signup.validateRegisterScreen();
     }
 
+    //Will work later on it. Because one locator always making an issue there.
 //    @Test
 //    public void TC_002ValidateRegisterNewAccount()  {
 //        signup.registerAccount_withoutVerification("tech@123", "8874023329");

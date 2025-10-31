@@ -118,7 +118,7 @@ public class P04AvocadoContacts extends PageBase {
     private final By filter_screen_validation = By.xpath("//div[@aria-hidden='false']//th[@class='MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-sizeMedium css-1mq4yx4'][normalize-space()='Users']");
     private final By contacts_tags_filter = By.xpath("//div[@aria-hidden='false']//button[@id='search-dropdown-button']");
     private final By contacts_tags_search = By.xpath("//input[@placeholder='Search Tags']");
-    private final By tags_checkbox = By.xpath("(//span[@class='MuiTypography-root MuiTypography-body1 MuiFormControlLabel-label css-fyswvn'])[1]");
+    private final By tags_checkbox = By.xpath(" (//ul[@data-testid='all-tags-list']//span)[1]");
     private final By contact_channel_filter = By.xpath("(//input[@placeholder= 'Channel'])[1]");
     private final By contact_clear_filter_btn = By.xpath("(//button[normalize-space()='Clear Filter'])[1]");
 

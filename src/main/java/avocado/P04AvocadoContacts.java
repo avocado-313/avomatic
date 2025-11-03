@@ -74,6 +74,7 @@ public class P04AvocadoContacts extends PageBase {
         sendTextToInputField("test.automation"+generateRandomDigits(5)+"@gmail.com",contact_email_input);
         sendTextToInputField(generateRandomNumber(),contact_phone_input);
         clickOnElement(save_CTA);
+        // Edit test case will add later as a new because new changes appear in FE
 //        waitForTime(5000);
 //        waitForVisibilityOfElement(edit_icon);
 //       Thread.sleep(10000);

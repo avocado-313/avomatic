@@ -60,6 +60,7 @@ public class P31AvocadoSignUp extends PageBase {
         waitForVisibilityOfElement(signIntoLabel);
         scrollToElement(dont_have_an_account_register);
         clickOnElement(dont_have_an_account_register);
+        waitForTime(10000);
         ElementsValidator(mottaslLogo, registerLanguage, registerHeader, registerDesc, nameInput,businessInput
         , emailInput, passwordInput,eyeButton, phoneNumber, signUpCta, haveAnAccount);
 //        testEmailAlreadyExistValidation("tech@avocad0.dev", "tech@123", "8874023329");

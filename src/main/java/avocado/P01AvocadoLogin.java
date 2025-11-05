@@ -9,7 +9,7 @@ public class P01AvocadoLogin extends PageBase {
         super(driver);
     }
 
-    private final By input_email = By.xpath("(//input[@id='email'])[2]");
+    private final By input_email = By.xpath("//input[@id='email']");
     private final By input_password = By.xpath("(//input[@id = 'password'])[1]");
     private final By login_to_your_account_label = By.xpath("//*[normalize-space() = 'Login to your account']");
     private final By mottasl_logo = By.xpath("//img[@alt=\"Mottasl\"]");
@@ -21,7 +21,7 @@ public class P01AvocadoLogin extends PageBase {
     private final By workspace_dropdown = By.xpath("//input[contains(@class, 'MuiAutocomplete-input')]");
     private final By reset_link = By.xpath("//button[normalize-space() = 'Send Reset Link']");
     private final By forget_password_label = By.xpath("//*[normalize-space()='Reset Password']");
-    private final By login_From_forget_password = By.xpath("(//a[normalize-space()='Login'])[2]");
+    private final By login_From_forget_password = By.xpath("//a[normalize-space()='Login']");
     private final By avocado_logo_from_home = By.xpath("//img[@alt='avocado icon']");
     public void validateLoginScreenLocators(String email,String password,String workspace) {
         waitForVisibilityOfElement(input_password);

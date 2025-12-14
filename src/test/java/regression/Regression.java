@@ -208,7 +208,7 @@ public void TC_015ValidateTagsScreen() throws InterruptedException {
         login.logout();
     }
     @Test
-    public void TC_017ValidateBroadcastScreen() {
+    public void TC_017ValidateBroadcastScreenAndSendingBroadcast() {
         login.loginToAvocado(username2,password2,Workspace2);
         broadcast.validateBroadCastFromApps();
         broadcast.navigateToBroadcastFromApps();
@@ -225,23 +225,7 @@ public void TC_015ValidateTagsScreen() throws InterruptedException {
         broadcast.checkNavigateBackIntoBroadcastScreen();
         login.logout();
     }
-//    @Test
-//    public void TC_019validateCreateBroadCastScreen(){
-//        login.loginToAvocado(username2, password2,Workspace2);
-//        home.checkHomeScreen();
-//        broadcast.validateBroadCastFromApps();
-//        broadcast.navigateToBroadcastFromApps();
-//        broadcast.checkBroadCastScreen();
-//        broadcast.checkCreateBroadcastScreen();
-//        broadcast.selectTemplate();
-////        try {
-////            broadcast.selectTemplate();
-////        }catch (Exception e){
-////            e.getStackTrace();
-////        }
-//        broadcast.completeRecipientScreen(CONTACT);
-//        login.logout();
-//    }
+
     @Test
     public void TC_020ValidateTemplateScreen() throws InterruptedException {
         login.loginToAvocado(username2, password2,Workspace2);

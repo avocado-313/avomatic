@@ -110,6 +110,8 @@ public class P03AvocadoWorkSpace extends PageBase {
         selectTimeZone();
         waitForTime(9000);
         clickOnElement(update_workspace_CTA);
+        //used for remove cookie-banner
+        driver.findElement(By.xpath("//a[@id='zc-decline']")).click();
 
 
     }

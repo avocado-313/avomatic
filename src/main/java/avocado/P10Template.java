@@ -44,7 +44,7 @@ public class P10Template extends PageBase {
     private final By insertVariable = By.xpath("(//*[normalize-space() = 'INSERT VARIABLE {{#}}'])[2]");
     private final By emoji = By.xpath("//*[@data-testid='select-emoji-picker']");
     private final By smileyEmojis = By.xpath("(//*[normalize-space() = 'Smileys & People'])[2]");
-    private final By addCta = By.xpath("//div[@class='MuiStack-root css-qj8kn2']//button[contains(., 'Next')]");
+    private final By addCta = By.xpath("//button[.//div[normalize-space()='Next']]");
     private final By upload_image_CTA = By.xpath("//button[normalize-space() = 'Upload image']");
 //    private final By image = By.xpath("//input[@name='image']");
 
@@ -83,10 +83,11 @@ public class P10Template extends PageBase {
         clickOnElement(submit_template_CTA);
         waitForVisibilityOfElement(template_id_input_field);
         validateCreateTemplateElements();
+
     }
 
     public void validateCreateNewTemplate() throws InterruptedException {
-//        clickOnElement(submit_template_CTA);
+
         sendTextToInputField("test" + generateRandomDigits(5), template_id_input_field);
         sendTextToInputField("testing template" + generateRandomDigits(3), template_description_input_field);
         clickOnElement(marketing_category);
@@ -99,12 +100,11 @@ public class P10Template extends PageBase {
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
         clickOnElement(none_media);
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("This teemplate only for testing purpose").perform();
-//        clickOnElement(insertVariable);
+
         clickOnElement(emoji);
         waitForVisibilityOfElement(smileyEmojis);
         clickOnElement(By.xpath("(//img[@alt='smiling face with 3 hearts'])[1]"));
-//        actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-//        actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("Powered_By_Mottasl!");
+
         scrollToElement(addCta);
 
         actions.pause(Duration.ofSeconds(4)).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
@@ -122,7 +122,7 @@ public class P10Template extends PageBase {
 
     }
     public void validateMediaAndVariableTemplate() throws InterruptedException {
-//        clickOnElement(submit_template_CTA);
+
         waitForVisibilityOfElement(template_id_input_field);
         sendTextToInputField("test" + generateRandomDigits(4), template_id_input_field);
         sendTextToInputField("testing template" + generateRandomDigits(3), template_description_input_field);
@@ -137,12 +137,12 @@ public class P10Template extends PageBase {
         clickOnElement(image_media);
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("This teemplate only for testing purpose").perform();
         clickOnElement(insertVariable);
-        clickOnElement(emoji);
-        waitForVisibilityOfElement(smileyEmojis);
-        clickOnElement(By.xpath("(//img[@alt='smiling face with 3 hearts'])[1]"));
-//        actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-//        sendTextToInputField("Powered_By_Mottasl", add_footer_text);
+
         clickOnElement(none_buttons);
+
+
+
+        scrollToElement(addCta);
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
         clickOnElement(upload_image_CTA);
@@ -155,7 +155,7 @@ public class P10Template extends PageBase {
     }
 
     public void validateQuickReplyButtonTemplate() throws InterruptedException {
-//        clickOnElement(submit_template_CTA);
+
         waitForVisibilityOfElement(template_id_input_field);
         sendTextToInputField("test" + generateRandomDigits(4), template_id_input_field);
         sendTextToInputField("testing template" + generateRandomDigits(3), template_description_input_field);
@@ -170,15 +170,10 @@ public class P10Template extends PageBase {
         clickOnElement(image_media);
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("This template only for testing purpose").perform();
         clickOnElement(insertVariable);
-        clickOnElement(emoji);
-        waitForVisibilityOfElement(smileyEmojis);
-        clickOnElement(By.xpath("(//img[@alt='smiling face with 3 hearts'])[1]"));
-//        actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-//        sendTextToInputField("Powered_By_Mottasl", add_footer_text);
-
         clickOnElement(quick_replies_button);
         waitForVisibilityOfElement(buttonDisplayed);
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("Test").perform();
+        scrollToElement(addCta);
 
 
         clickOnElement(addCta);
@@ -199,8 +194,7 @@ public class P10Template extends PageBase {
     private final By staticUrl = By.xpath("//*[normalize-space() = 'Static Link']");
     private final By enterURl = By.xpath("(//*[@placeholder='Enter URL Here'])[1]");
     private  final By staticText = By.xpath("(//*[@placeholder='Text'])[2]");
-    private final By dynamicURl = By.xpath("//*[normalize-space() = 'Dynamic Link']");
-    private  final By dynamicText = By.xpath("(//*[@placeholder='Text'])[3]");
+
     private final By uploadVideoCta = By.xpath("//button[@data-testid='image-button']");
 
 
@@ -208,8 +202,9 @@ public class P10Template extends PageBase {
 
 
 
+
     public void validateCTATemplate() throws InterruptedException {
-//        clickOnElement(submit_template_CTA);
+
         waitForVisibilityOfElement(template_id_input_field);
         sendTextToInputField("test CTA" + generateRandomDigits(4),template_id_input_field);
         sendTextToInputField("Test desc." +generateRandomDigits(3),template_description_input_field);
@@ -223,10 +218,6 @@ public class P10Template extends PageBase {
         clickOnElement(video_media);
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("This template is for testing the automation suites of CTA").perform();
         clickOnElement(insertVariable);
-        clickOnElement(emoji);
-        waitForVisibilityOfElement(smileyEmojis);
-        clickOnElement(By.xpath("(//img[@alt='smiling face with 3 hearts'])[1]"));
-//        actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
         clickOnElement(CTA_Buttons);
         waitForVisibilityOfElement(phoneTitle);
         sendTextToInputField(generateRandomNumber(),phoneInput);
@@ -235,9 +226,8 @@ public class P10Template extends PageBase {
         waitForVisibilityOfElement(staticUrl);
         sendTextToInputField("www.google.com",enterURl);
         sendTextToInputField("google",staticText);
-        clickOnElement(addBtnCTA);
-        waitForVisibilityOfElement(dynamicURl);
-        sendTextToInputField("dynamic",dynamicText);
+
+        scrollToElement(addCta);
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
         clickOnElement(uploadVideoCta);
@@ -245,7 +235,7 @@ public class P10Template extends PageBase {
         actions.pause(Duration.ofSeconds(5)).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         clickOnElement(By.xpath("//button[normalize-space() = 'Select']"));
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("abcd").perform();
-        actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("https://test.app.avoacd0.dev").perform();
+
         clickOnElement(submit_ReviewCTA);
 
 
@@ -270,6 +260,7 @@ public class P10Template extends PageBase {
         driver.findElement(select_language_input).sendKeys(Keys.DELETE);
         sendTextToInputField("English", select_language_input);
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+        scrollToElement(addCta);
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
         clickOnElement(uploadVideoCta);

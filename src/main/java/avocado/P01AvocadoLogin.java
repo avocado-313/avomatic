@@ -12,7 +12,7 @@ public class P01AvocadoLogin extends PageBase {
     private final By input_email = By.xpath("//input[@id='email']");
     private final By input_password = By.xpath("(//input[@id = 'password'])[1]");
     private final By login_to_your_account_label = By.xpath("//*[normalize-space() = 'Login to your account']");
-    private final By mottasl_logo = By.xpath("//img[@alt=\"Mottasl\"]");
+    private final By mottasl_logo = By.xpath("//img[@alt='Azeer']");
     private final By remember_me_label = By.xpath("(//*[@class='MuiStack-root css-1r5to7m'][normalize-space()='Remember me'])");
     private final By login_CTA = By.xpath("(//button[@type='button'][normalize-space()='Login'])");
     private final By forget_password_link = By.xpath("//a[normalize-space()='Forgot Password?']");

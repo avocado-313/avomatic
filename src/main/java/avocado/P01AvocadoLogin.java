@@ -25,6 +25,7 @@ public class P01AvocadoLogin extends PageBase {
     private final By avocado_logo_from_home = By.xpath("//img[@alt='avocado icon']");
     public void validateLoginScreenLocators(String email,String password,String workspace) {
         waitForVisibilityOfElement(input_password);
+        waitForTime(5000);
         ElementsValidator(mottasl_logo,login_to_your_account_label,input_email,input_password,login_CTA,forget_password_link,dont_have_an_account_register,language, remember_me_label);
         validateScreenTexts();
         validateForgetPasswordScreen();

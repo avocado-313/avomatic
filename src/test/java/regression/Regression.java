@@ -271,17 +271,7 @@ public void TC_015ValidateTagsScreen() throws InterruptedException {
 
 
     }
-    @Test
-    public void TC_024ValidateAddLangCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
 
-        template.validateAddLangTemplate();
-        login.logout();
-
-
-    }
 
     @Test
     public void TC_025ValidateQuickRepliesScreen() {

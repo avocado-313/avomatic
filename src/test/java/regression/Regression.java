@@ -34,6 +34,7 @@ public class Regression extends BaseTest {
     P22AppsCallReport appsCallReport;
     P23AppsRoboCalling appsRoboCalling;
     P24VoipAdminReport webPhone;
+    P26ChatClosing close;
 
     @BeforeClass
     public void initiateObjects(){
@@ -63,6 +64,7 @@ public class Regression extends BaseTest {
         appsCallReport = new P22AppsCallReport(driver);
         appsRoboCalling = new P23AppsRoboCalling(driver);
         webPhone = new P24VoipAdminReport(driver);
+        close = new P26ChatClosing(driver);
 
 
     }
@@ -269,17 +271,7 @@ public void TC_015ValidateTagsScreen() throws InterruptedException {
 
 
     }
-    @Test
-    public void TC_024ValidateAddLangCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
 
-        template.validateAddLangTemplate();
-        login.logout();
-
-
-    }
 
     @Test
     public void TC_025ValidateQuickRepliesScreen() {
@@ -622,6 +614,24 @@ public void TC_015ValidateTagsScreen() throws InterruptedException {
         home.checkHomeScreen();
         webPhone.checkVoipAdmin();
         login.logout();
+    }
+
+    @Test
+    public void TC_67validateClosChatReasonFromApps(){
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        close.validateChatCloseReasonFromApps();
+        login.logout();
+    }
+
+    @Test
+    public void TC_68validateCreateReason(){
+        login.loginToAvocado(username3, password3, Workspace3);
+        home.checkHomeScreen();
+        close.validateChatCloseReasonFromApps();
+        close.validateCreateCloseReason();
+        close.validateEditCloseReason();
+
     }
 //    @Test
 //    public void TC_067validateAgentAllTabs(){

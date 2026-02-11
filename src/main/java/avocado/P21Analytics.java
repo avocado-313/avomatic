@@ -20,7 +20,7 @@ public class P21Analytics extends PageBase {
     private final By AnalyticsConversationCta = By.xpath("(//button[@data-testid='setting-button'])[4]");
     private final By AnalyticsConversationTitle = By.xpath("//h5[normalize-space()='Conversations']");
 //    private final By MaintenancePopUp = By.xpath("//*[@class=\"MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-l7mppb\"]");
-    private final By Logo = By.xpath("//*[@src=\"https://assets.avocad0.dev/sdk/mottasl_orange.png\"]");
+    private final By Logo = By.xpath("//*[@src='https://assets.test.azeer.com/sdk/mottasl_blue_192.png']");
     private final By AgentDownloadReport = By.xpath("//*[@data-testid=\"AgentsTeamHeader-download-reports\"]");
     private final By TeamDownloadReport = By.xpath("//*[@data-testid=\"AgentsTeamHeader-download-reports\"]");
     private final By ConversationDownloadReport = By.xpath("//*[@data-testid=\"CONVERSATIONS.DOWNLOAD_REPORTS\"]");

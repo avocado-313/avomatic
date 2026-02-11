@@ -14,6 +14,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import Utilities.Utilities;
 
 import static Utilities.ExtentReportManager.*;
 
@@ -33,7 +34,7 @@ public class BaseTest {
         }
     }
 
-    private void initializeDriver(String browser) {
+    private void initializeDriver(String browser) throws InterruptedException {
         switch (browser.toLowerCase()) {
             case "chrome":
                 ChromeOptions options = new ChromeOptions();
@@ -78,13 +79,17 @@ public class BaseTest {
         configureDriver();
     }
 
-    private void configureDriver() {
+    private void configureDriver() throws InterruptedException {
 
 
 
         if(!Objects.equals(remote, "true"))driver.manage().window().maximize();
 
         driver.get(ReadProperties.URL);
+        Thread.sleep(10000);
+        System.out.println("Removing third-party banners...");
+        Utilities.removeThirdPartyBanners(driver);
+
     }
     private void chromeDeviceScale(ChromeOptions options){
         Map<String, Object> deviceMetrics = new HashMap<>();

@@ -36,6 +36,7 @@ public class P04AvocadoContacts extends PageBase {
     public void navigateAndValidateContactsScreen(){
         clickOnElement(contact_icon_from_label);
         waitForVisibilityOfElement(create_contact_CTA);
+        waitForTime(10000);
         Assert.assertTrue(driver.findElement(contacts_title_from_contacts_screen).getText().contains("Contacts"));
         Assert.assertTrue(driver.findElement(contacts_subTitle_from_contacts_screen).getText().contains("Manage your contacts"));
         Assert.assertTrue(assertElementDisplayed(bulk_action_CTA));

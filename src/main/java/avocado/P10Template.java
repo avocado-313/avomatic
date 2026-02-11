@@ -45,7 +45,7 @@ public class P10Template extends PageBase {
     private final By emoji = By.xpath("//*[@data-testid='select-emoji-picker']");
     private final By smileyEmojis = By.xpath("(//*[normalize-space() = 'Smileys & People'])[2]");
     private final By addCta = By.xpath("//button[.//div[normalize-space()='Next']]");
-    private final By upload_image_CTA = By.xpath("//button[normalize-space() = 'Upload image']");
+    private final By upload_image_CTA = By.xpath("//button[@data-testid='image-button']");
 //    private final By image = By.xpath("//input[@name='image']");
 
     private final By enter_Variable = By.xpath("//*[normalize-space() = 'Enter the variable 1']");
@@ -103,7 +103,7 @@ public class P10Template extends PageBase {
 
         clickOnElement(emoji);
         waitForVisibilityOfElement(smileyEmojis);
-        clickOnElement(By.xpath("(//img[@alt='smiling face with 3 hearts'])[1]"));
+        clickOnElement(By.xpath("(//img[@alt='smiling face with hearts'])[1]"));
 
         scrollToElement(addCta);
 
@@ -146,6 +146,7 @@ public class P10Template extends PageBase {
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
         clickOnElement(upload_image_CTA);
+        waitForTime(5000);
         actions.pause(Duration.ofSeconds(5)).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         clickOnElement(By.xpath("//button[normalize-space() = 'Select']"));
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("abcd").perform();
@@ -178,7 +179,9 @@ public class P10Template extends PageBase {
 
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
+        waitForTime(5000);
         clickOnElement(upload_image_CTA);
+        waitForTime(5000);
         actions.pause(Duration.ofSeconds(5)).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         clickOnElement(By.xpath("//button[normalize-space() = 'Select']"));
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("abcd").perform();
@@ -215,7 +218,7 @@ public class P10Template extends PageBase {
         driver.findElement(select_language_input).sendKeys(Keys.DELETE);
         sendTextToInputField("English", select_language_input);
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-        clickOnElement(video_media);
+        clickOnElement(image_media);
         actions.pause(Duration.ofSeconds(3)).sendKeys(Keys.TAB).sendKeys("This template is for testing the automation suites of CTA").perform();
         clickOnElement(insertVariable);
         clickOnElement(CTA_Buttons);
@@ -243,7 +246,7 @@ public class P10Template extends PageBase {
 
     }
 
-    private final By actionCTA = By.xpath("(//*[@data-testid='actions-button'])[1]");
+    private final By actionCTA = By.xpath("(//div[contains(@class,'MuiGrid-item')]//button[contains(@class,'MuiIconButton-root')])[1]");
     private final By viewCta = By.xpath("//*[normalize-space() = 'View']");
     private final By addLanguage_CTA = By.xpath("//*[normalize-space()='Add Language']");
     private final By addLanguageTitle = By.xpath("//*[normalize-space()='Add a New Language']");
@@ -263,7 +266,9 @@ public class P10Template extends PageBase {
         scrollToElement(addCta);
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
+        waitForTime(5000);
         clickOnElement(uploadVideoCta);
+        waitForTime(5000);
 
         actions.pause(Duration.ofSeconds(5)).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         clickOnElement(By.xpath("//button[normalize-space() = 'Select']"));

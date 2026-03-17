@@ -18,7 +18,7 @@ public class P01AvocadoLogin extends PageBase {
     private final By input_email = By.xpath("//input[@id='email']");
     private final By input_password = By.xpath("(//input[@id = 'password'])[1]");
     private final By login_to_your_account_label = By.xpath("//*[normalize-space() = 'Login to your account']");
-    private final By mottasl_logo = By.xpath("//img[@alt='Azeer']");
+    private final By mottasl_logo = By.xpath("//img[@alt='AZEER']");
     private final By remember_me_label = By.xpath("(//*[@class='MuiStack-root css-1r5to7m'][normalize-space()='Remember me'])");
     private final By login_CTA = By.xpath("(//button[@type='button'][normalize-space()='Login'])");
     private final By forget_password_link = By.xpath("//a[normalize-space()='Forgot Password?']");
@@ -43,7 +43,7 @@ public class P01AvocadoLogin extends PageBase {
     //locator for subscription popuo
     // Subscription Expiry popup container
     private By subscriptionExpiryPopup =
-            By.xpath("(//p[contains(.,'Your subscription')])[1]");
+            By.xpath("(//p[contains(.,'Subscription Expiry')])[1]");
 
 
     // Close button inside Subscription popup
@@ -129,53 +129,62 @@ public class P01AvocadoLogin extends PageBase {
             String popupName,
             int maxRetries
     ) {
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         for (int attempt = 1; attempt <= maxRetries; attempt++) {
+
             try {
-                if (driver.findElements(popupLocator).isEmpty()) {
-                    System.out.println(popupName + " popup not present. No action needed.");
+
+                List<WebElement> popups = driver.findElements(popupLocator);
+
+                if (popups.isEmpty()) {
+                    System.out.println(popupName + " popup not present.");
                     return;
                 }
 
-                WebElement popup = driver.findElement(popupLocator);
+                WebElement visiblePopup = null;
 
-                if (!popup.isDisplayed()) {
+                for (WebElement p : popups) {
+                    if (p.isDisplayed()) {
+                        visiblePopup = p;
+                        break;
+                    }
+                }
+
+                if (visiblePopup == null) {
                     System.out.println(popupName + " popup already hidden.");
                     return;
                 }
 
-                System.out.println("Attempt " + attempt + ": Closing " + popupName + " popup");
+                System.out.println("Attempt " + attempt + ": Closing " + popupName);
 
                 WebElement closeBtn = wait.until(
                         ExpectedConditions.elementToBeClickable(closeBtnLocator)
                 );
 
-                // 🔑 JS click to bypass overlay & animation
-                ((JavascriptExecutor) driver).executeScript(
-                        "arguments[0].click();", closeBtn
-                );
+                ((JavascriptExecutor) driver)
+                        .executeScript("arguments[0].click();", closeBtn);
 
-                // 🔑 Wait until popup disappears
-                wait.until(
-                        ExpectedConditions.invisibilityOfElementLocated(popupLocator)
-                );
+                wait.until(ExpectedConditions.invisibilityOf(visiblePopup));
 
                 System.out.println(popupName + " popup closed successfully.");
                 return;
 
             } catch (Exception e) {
+
                 System.out.println(
                         popupName + " popup close failed on attempt "
                                 + attempt + ". Retrying..."
                 );
+
                 waitForTime(500);
             }
         }
 
         System.out.println(
                 popupName + " popup could not be closed after "
-                        + maxRetries + " attempts. Continuing test."
+                        + maxRetries + " attempts."
         );
     }
     private void handlePopupsPostLogin() {

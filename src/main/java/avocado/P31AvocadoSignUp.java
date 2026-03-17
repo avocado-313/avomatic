@@ -39,6 +39,7 @@ public class P31AvocadoSignUp extends PageBase {
     private final By businessInput = By.xpath("//input[@id='display_name']");
     private final By emailInput = By.xpath("(//input[@id='email'])[1]");
     private final By passwordInput = By.xpath("//input[@id='platform_credentials']");
+    private final By confirmPasswordInput = By.xpath("//input[@id='confirm_password']");
     private final By eyeButton = By.xpath("(//*[@data-testid='VisibilityIcon'])[1]");
     private final By phoneNumber = By.xpath("//*[@id='tel-phone']");
     private final By signUpCta= By.xpath("//button[.//div[text()='Sign up']]");
@@ -62,7 +63,7 @@ public class P31AvocadoSignUp extends PageBase {
         clickOnElement(dont_have_an_account_register);
         waitForTime(10000);
         ElementsValidator(mottaslLogo, registerLanguage, registerHeader, registerDesc, nameInput,businessInput
-        , emailInput, passwordInput,eyeButton, phoneNumber, signUpCta, haveAnAccount);
+        , emailInput, passwordInput,confirmPasswordInput,eyeButton, phoneNumber, signUpCta, haveAnAccount);
 //        testEmailAlreadyExistValidation("tech@avocad0.dev", "tech@123", "8874023329");
         clickOnElement(haveAnAccount);
 
@@ -71,7 +72,7 @@ public class P31AvocadoSignUp extends PageBase {
 
 
     }
-    public void registerAccount_withoutVerification(String pass, String mobile) {
+    public void registerAccount_withoutVerification(String pass,String confirmPass, String mobile) {
         waitForVisibilityOfElement(signIntoLabel,30);
         scrollToElement(dont_have_an_account_register);
         clickOnElement(dont_have_an_account_register);
@@ -80,6 +81,8 @@ public class P31AvocadoSignUp extends PageBase {
         sendTextToInputField("test.auto" + generateRandomDigits(4)+"@gmail.com", emailInput);
         sendTextToInputField(pass,passwordInput);
         clickOnElement(eyeButton);
+        sendTextToInputField(confirmPass, confirmPasswordInput);
+
         sendTextToInputField(mobile,phoneNumber);
         clickOnElement(signUpCta);
        waitForTime(3000);

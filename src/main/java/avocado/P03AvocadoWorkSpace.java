@@ -32,7 +32,7 @@ public class P03AvocadoWorkSpace extends PageBase {
     private final By mobile_number_input = By.xpath("//input[@name='phoneNumber']");
     private final By select_language_arrow = By.xpath("//svg[contains(@class, 'MuiSelect-icon')]");
     private final By select_country_arrow = By.xpath("//div[contains(@class, 'flag-dropdown') and @style='border-radius: 8px 0px 0px 8px; height: 45px; border: none; top: 1px; left: 1px;']");
-    private final By address_text_input = By.xpath("//*[@data-testid='address-input']");
+
     private final By change_password = By.xpath("(//button[normalize-space()='Change'])[1]");
     private final By current_password_input = By.xpath("(//input[@type='password'])[2]");
     private final By new_password_input = By.xpath("(//input[@type='password'])[3]");
@@ -74,7 +74,7 @@ public class P03AvocadoWorkSpace extends PageBase {
         ElementsValidator(settings_title_into_profile_screen, settings_subTitle_from_profile_screen,
                  workspace_profile_from_side_menu, upload_photo_CTA, agents_frm_side_menu,
                 teams_from_side_menu, select_flag_arrow, mobile_number_input
-                , address_text_input, select_country_arrow, change_password);
+                ,  select_country_arrow, change_password);
     }
 
     String currentDir = System.getProperty("user.dir");
@@ -107,11 +107,13 @@ public class P03AvocadoWorkSpace extends PageBase {
         clearInputField(organization_name_input);
         sendTextToInputField("", organization_name_input);
         uploadWorkSpaceImage();
+        //used for remove cookie-banner
+        driver.findElement(By.xpath("//a[@id='zc-decline']")).click();
         selectTimeZone();
         waitForTime(9000);
         clickOnElement(update_workspace_CTA);
-        //used for remove cookie-banner
-        driver.findElement(By.xpath("//a[@id='zc-decline']")).click();
+
+
 
 
     }

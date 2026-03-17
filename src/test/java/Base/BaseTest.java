@@ -1,22 +1,30 @@
 package Base;
 import Utilities.ExtentReportManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.time.Duration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import Utilities.Utilities;
 
 import static Utilities.ExtentReportManager.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.testng.SkipException;
 
 
 public class BaseTest {
@@ -91,6 +99,47 @@ public class BaseTest {
         Utilities.removeThirdPartyBanners(driver);
 
     }
+
+    //Handling subscription expired popup - if this appear then skip the broadcast and template test case
+    public boolean isBlockingPopupPresent() {
+
+        try {
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+
+            List<WebElement> popups = wait.until(
+                    ExpectedConditions.presenceOfAllElementsLocatedBy(
+                            By.xpath("//p[contains(text(),'Subscription Expired') or contains(text(),'Wallet Balance Negative')]")
+                    )
+            );
+
+            for (WebElement popup : popups) {
+                if (popup.isDisplayed()) {
+                    return true;
+                }
+            }
+
+            return false;
+
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public void skipIfSubscriptionOrWalletIssue(String moduleName) {
+
+        if (isBlockingPopupPresent()) {
+
+            String reason =
+                    "Skipping " + moduleName +
+                            " tests because either Subscription Expired OR Wallet Balance Negative popup is displayed.";
+
+            System.out.println(reason);
+
+            throw new SkipException(reason);
+        }
+    }
+
     private void chromeDeviceScale(ChromeOptions options){
         Map<String, Object> deviceMetrics = new HashMap<>();
         deviceMetrics.put("width", 1860);

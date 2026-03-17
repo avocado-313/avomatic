@@ -3,9 +3,14 @@ package avocado;
 import PageBase.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class P013CustomAttributes extends PageBase {
     public P013CustomAttributes(WebDriver driver) {
@@ -70,18 +75,45 @@ public class P013CustomAttributes extends PageBase {
     }
 
     public void editAttribute() throws InterruptedException {
+
         waitForVisibilityOfElement(threeDots, 30);
         clickOnElement(threeDots);
+
         clickOnElement(editCTA);
-        waitForVisibilityOfElement(editHeader,60);
+        waitForVisibilityOfElement(editHeader, 60);
+
         scrollToElement(nameInput);
+
         driver.findElement(nameInput).sendKeys(Keys.CONTROL + "a");
         driver.findElement(nameInput).sendKeys(Keys.DELETE);
-        sendTextToInputField("test" + generateRandomDigits(5),nameInput);
+
+        sendTextToInputField("test" + generateRandomDigits(5), nameInput);
+
         clickOnElement(updateCTA);
-        Thread.sleep(5000);
 
+        waitForTime(5000);
+        //  Wait for either success (modal closed) OR failure (modal still visible)
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        boolean isModalStillVisible;
+        try {
+            // Wait until modal disappears
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(editHeader));
+            isModalStillVisible = false;
+        } catch (TimeoutException e) {
+            // Modal did NOT close → error case
+            isModalStillVisible = true;
+        }
+        // ✅ Condition handling
+        if (isModalStillVisible) {
 
+            System.out.println("❌ Update failed, modal still open. Clicking Cancel...");
+
+            clickOnElement(cancelCTA);
+
+        } else {
+
+            System.out.println("✅ Update successful, modal closed.");
+        }
     }
     public void searchAttribute() throws InterruptedException {
         waitForVisibilityOfElement(customAttributeHeader);

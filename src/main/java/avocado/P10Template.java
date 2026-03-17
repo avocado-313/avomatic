@@ -1,13 +1,12 @@
 package avocado;
 
 import PageBase.PageBase;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.interactions.KeyInput;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
@@ -145,7 +144,7 @@ public class P10Template extends PageBase {
         scrollToElement(addCta);
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
-        clickOnElement(upload_image_CTA);
+        clickUploadImageWithRetry(upload_image_CTA, 3);
         waitForTime(5000);
         actions.pause(Duration.ofSeconds(5)).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         clickOnElement(By.xpath("//button[normalize-space() = 'Select']"));
@@ -180,7 +179,7 @@ public class P10Template extends PageBase {
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
         waitForTime(5000);
-        clickOnElement(upload_image_CTA);
+        clickUploadImageWithRetry(upload_image_CTA, 3);
         waitForTime(5000);
         actions.pause(Duration.ofSeconds(5)).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         clickOnElement(By.xpath("//button[normalize-space() = 'Select']"));
@@ -233,7 +232,8 @@ public class P10Template extends PageBase {
         scrollToElement(addCta);
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
-        clickOnElement(uploadVideoCta);
+        clickUploadImageWithRetry(uploadVideoCta, 3);
+        waitForTime(5000);
 
         actions.pause(Duration.ofSeconds(5)).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         clickOnElement(By.xpath("//button[normalize-space() = 'Select']"));
@@ -267,7 +267,7 @@ public class P10Template extends PageBase {
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
         waitForTime(5000);
-        clickOnElement(uploadVideoCta);
+        clickUploadImageWithRetry(uploadVideoCta, 3);
         waitForTime(5000);
 
         actions.pause(Duration.ofSeconds(5)).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
@@ -298,7 +298,8 @@ public class P10Template extends PageBase {
         scrollToElement(addCta);
         clickOnElement(addCta);
         waitForVisibilityOfElement(enter_Variable);
-        clickOnElement(uploadVideoCta);
+        clickUploadImageWithRetry(uploadVideoCta, 3);
+        waitForTime(5000);
 
         actions.pause(Duration.ofSeconds(5)).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
         clickOnElement(By.xpath("//button[normalize-space() = 'Select']"));
@@ -319,6 +320,37 @@ public class P10Template extends PageBase {
         clickOnElement(By.xpath("//*[normalize-space() = 'Confirm delete']"));
         Thread.sleep(5000);
     }
+
+
+    public void clickUploadImageWithRetry(By locator, int maxAttempts) {
+        int attempt = 0;
+
+        while (attempt < maxAttempts) {
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(8));
+                WebElement element = wait.until(
+                        ExpectedConditions.elementToBeClickable(locator)
+                );
+                element.click();
+                System.out.println("Upload Image CTA clicked successfully");
+                return; // success
+            } catch (StaleElementReferenceException |
+                     ElementClickInterceptedException |
+                     TimeoutException e) {
+
+                attempt++;
+                System.out.println("Retry attempt " + attempt + " for Upload Image CTA");
+
+                try {
+                    Thread.sleep(2000); // small stabilization delay
+                } catch (InterruptedException ignored) {}
+            }
+        }
+
+        throw new RuntimeException("Failed to click Upload Image CTA after "
+                + maxAttempts + " attempts.");
+    }
+
 
 
 

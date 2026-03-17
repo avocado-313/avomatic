@@ -24,7 +24,7 @@ public class M33AvocadoSignupTest extends BaseTest {
 
     @Test
     public void TC_002ValidateRegisterNewAccount() {
-        signUp.registerAccount_withoutVerification("tech@123", "8874023329");
+        signUp.registerAccount_withoutVerification("Login@123", "Login@123", "8874023329");
         login.logout();
     }
 

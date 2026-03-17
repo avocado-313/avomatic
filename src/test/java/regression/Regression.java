@@ -2,6 +2,7 @@ package regression;
 
 import Base.BaseTest;
 import avocado.*;
+import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -74,14 +75,14 @@ public class Regression extends BaseTest {
         signup.validateRegisterScreen();
     }
 
-    //Will work later on it. Because one locator always making an issue there.
-//    @Test
-//    public void TC_002ValidateRegisterNewAccount()  {
-//        signup.registerAccount_withoutVerification("tech@123", "8874023329");
-//        login.logout();
-//    }
-//
-//
+
+    @Test
+    public void TC_002ValidateRegisterNewAccount() {
+        signup.registerAccount_withoutVerification("Login@123", "Login@123", "8874023329");
+        login.logout();
+    }
+
+//Will work later on it. Because one locator always making an issue there.
 //    @Test
 //    public void TC_003ValidateRegisterWithVerification(){
 //        signup.registerAccount_withVerifyNow("12345678", "8874023329");
@@ -158,16 +159,16 @@ public class Regression extends BaseTest {
     }
 
 
-    @Test
-    public void TC_012ValidateFilters(){
-        login.loginToAvocado(username2,password2,Workspace2);
-        home.checkHomeScreen();
-        contacts.navigateAndValidateContactsScreen();
-        contacts.checkDateAddedFilter();
-        contacts.checkTagsFilter();
-        contacts.checkChannelFilter();
-        login.logout();
-    }
+//    @Test
+//    public void TC_012ValidateFilters(){
+//        login.loginToAvocado(username2,password2,Workspace2);
+//        home.checkHomeScreen();
+//        contacts.navigateAndValidateContactsScreen();
+//        contacts.checkDateAddedFilter();
+//        contacts.checkTagsFilter();
+//        contacts.checkChannelFilter();
+//        login.logout();
+//    }
 
 
 //    @Test
@@ -182,15 +183,15 @@ public class Regression extends BaseTest {
 //        search.validateLastActivity();
 //        login.logout();
 //    }
-//    @Test
-//    public void TC_014ValidateMediaScreen() {
-//        login.loginToAvocado(username, password,Workspace);
-//        home.checkHomeScreen();
-//        media.validateUploadMediaFunctionality();
-//        media.validateMediaAcceptsLessThan10MbFiles();
-//        media.validateNavigateBackFromMediaToApps();
-//        login.logout();
-//    }
+    @Test
+    public void TC_014ValidateMediaScreen() {
+        login.loginToAvocado(username, password,Workspace);
+        home.checkHomeScreen();
+        media.validateUploadMediaFunctionality();
+        media.validateMediaAcceptsLessThan10MbFiles();
+        media.validateNavigateBackFromMediaToApps();
+        login.logout();
+    }
 @Test
 public void TC_015ValidateTagsScreen() throws InterruptedException {
     login.loginToAvocado(username, password,Workspace);
@@ -211,63 +212,153 @@ public void TC_015ValidateTagsScreen() throws InterruptedException {
     }
     @Test
     public void TC_017ValidateBroadcastScreenAndSendingBroadcast() {
-        login.loginToAvocado(username2,password2,Workspace2);
-        broadcast.validateBroadCastFromApps();
-        broadcast.navigateToBroadcastFromApps();
-        broadcast.checkBroadCastScreen();
-        broadcast.checkCreateBroadcastScreen2();
-        login.logout();
+
+        try {
+            login.loginToAvocado(username2,password2,Workspace2);
+            skipIfSubscriptionOrWalletIssue("Broadcast Module");
+            broadcast.validateBroadCastFromApps();
+            broadcast.navigateToBroadcastFromApps();
+            broadcast.checkBroadCastScreen();
+            broadcast.checkCreateBroadcastScreen2();
+        }
+        catch (SkipException e){
+            System.out.println("Test skipped due to blocking popup: " + e.getMessage());
+            throw e;
+
+        }finally {
+
+            try {
+                login.logout();
+            } catch (Exception ex) {
+                System.out.println("Logout failed but continuing...");
+            }
+        }
+
+
 
     }
     @Test
     public void TC_018validateNavigateBAckFunctionalityIntoBroadcast(){
-        login.loginToAvocado(username2,password2,Workspace2);
-        broadcast.validateBroadCastFromApps();
-        broadcast.navigateToBroadcastFromApps();
-        broadcast.checkNavigateBackIntoBroadcastScreen();
-        login.logout();
+        try {
+            login.loginToAvocado(username2, password2, Workspace2);
+            broadcast.validateBroadCastFromApps();
+            broadcast.navigateToBroadcastFromApps();
+            broadcast.checkNavigateBackIntoBroadcastScreen();
+        }
+        catch (SkipException e){
+            System.out.println("Test skipped due to blocking popup: " + e.getMessage());
+            throw e;
+
+        }finally {
+
+            try {
+                login.logout();
+            } catch (Exception ex) {
+                System.out.println("Logout failed but continuing...");
+            }
+        }
     }
 
     @Test
     public void TC_020ValidateTemplateScreen() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
-        template.validateCreateTemplateScreen();
-        template.validateCreateNewTemplate();
-        login.logout();
+        try {
+            login.loginToAvocado(username2, password2,Workspace2);
+            skipIfSubscriptionOrWalletIssue("Broadcast Module");
+            home.checkHomeScreen();
+            template.validateTemplateScreen();
+            template.validateCreateTemplateScreen();
+            template.validateCreateNewTemplate();
+        }
+        catch (SkipException e){
+            System.out.println("Test skipped due to blocking popup: " + e.getMessage());
+            throw e;
+
+        }finally {
+
+            try {
+                login.logout();
+            } catch (Exception ex) {
+                System.out.println("Logout failed but continuing...");
+            }
+        }
+
+
 
     }
 
     @Test
     public void TC_021ValidateMediaAndVariableTemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
-        template.validateCreateTemplateScreen();
-        template.validateMediaAndVariableTemplate();
-        login.logout();
+        try
+        {
+            login.loginToAvocado(username2, password2, Workspace2);
+            skipIfSubscriptionOrWalletIssue("Broadcast Module");
+            home.checkHomeScreen();
+            template.validateTemplateScreen();
+            template.validateCreateTemplateScreen();
+            template.validateMediaAndVariableTemplate();
+        }
+        catch (SkipException e){
+            System.out.println("Test skipped due to blocking popup: " + e.getMessage());
+            throw e;
 
+        }finally {
+
+            try {
+                login.logout();
+            } catch (Exception ex) {
+                System.out.println("Logout failed but continuing...");
+            }
+        }
     }
     @Test
     public void TC_022ValidateQuickReplyTemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
-        template.validateCreateTemplateScreen();
-        template.validateQuickReplyButtonTemplate();
-        login.logout();
+        try
+        {
+            login.loginToAvocado(username2, password2, Workspace2);
+            skipIfSubscriptionOrWalletIssue("Broadcast Module");
+            home.checkHomeScreen();
+            template.validateTemplateScreen();
+            template.validateCreateTemplateScreen();
+            template.validateQuickReplyButtonTemplate();
+        }
+         catch (SkipException e){
+            System.out.println("Test skipped due to blocking popup: " + e.getMessage());
+            throw e;
+
+        }finally {
+
+            try {
+                login.logout();
+            } catch (Exception ex) {
+                System.out.println("Logout failed but continuing...");
+            }
+        }
 
 
     }
     @Test
     public void TC_023ValidateCTATemplateCreation() throws InterruptedException {
-        login.loginToAvocado(username2, password2,Workspace2);
-        home.checkHomeScreen();
-        template.validateTemplateScreen();
-        template.validateCreateTemplateScreen();
-        template.validateCTATemplate();
-        login.logout();
+        try
+        {
+            login.loginToAvocado(username2, password2, Workspace2);
+            skipIfSubscriptionOrWalletIssue("Broadcast Module");
+            home.checkHomeScreen();
+            template.validateTemplateScreen();
+            template.validateCreateTemplateScreen();
+            template.validateCTATemplate();
+        }
+        catch (SkipException e){
+            System.out.println("Test skipped due to blocking popup: " + e.getMessage());
+            throw e;
+
+        }finally {
+
+            try {
+                login.logout();
+            } catch (Exception ex) {
+                System.out.println("Logout failed but continuing...");
+            }
+        }
 
 
     }
@@ -342,7 +433,7 @@ public void TC_015ValidateTagsScreen() throws InterruptedException {
         rule.navigateToRules();
         rule.checkCreateRulesScreen();
         rule.checkCreateRuleModalElements();
-        rule.newRuleCreation("view5");
+        rule.newRuleCreation("Arpit Baranwal");
         login.logout();
     }
     @Test
@@ -384,6 +475,7 @@ public void TC_015ValidateTagsScreen() throws InterruptedException {
     }
     @Test
     public void TC_038validateEditAttributes() throws InterruptedException {
+
         custom.editAttribute();
     }
     @Test

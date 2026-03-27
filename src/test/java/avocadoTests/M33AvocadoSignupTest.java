@@ -23,7 +23,7 @@ public class M33AvocadoSignupTest extends BaseTest {
     }
 
     @Test
-    public void TC_002ValidateRegisterNewAccount() {
+    public void TC_002ValidateRegisterNewAccount() throws InterruptedException {
         signUp.registerAccount_withoutVerification("Login@123", "Login@123", "8874023329");
         login.logout();
     }

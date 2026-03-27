@@ -77,7 +77,7 @@ public class Regression extends BaseTest {
 
 
     @Test
-    public void TC_002ValidateRegisterNewAccount() {
+    public void TC_002ValidateRegisterNewAccount() throws InterruptedException {
         signup.registerAccount_withoutVerification("Login@123", "Login@123", "8874023329");
         login.logout();
     }

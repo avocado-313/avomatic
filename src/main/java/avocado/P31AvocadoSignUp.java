@@ -72,9 +72,7 @@ public class P31AvocadoSignUp extends PageBase {
 
 
     }
-    public void registerAccount_withoutVerification(String pass,String confirmPass, String mobile) throws InterruptedException {
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+    public void registerAccount_withoutVerification(String pass,String confirmPass, String mobile) {
         waitForVisibilityOfElement(signIntoLabel,30);
         scrollToElement(dont_have_an_account_register);
         clickOnElement(dont_have_an_account_register);
@@ -86,75 +84,20 @@ public class P31AvocadoSignUp extends PageBase {
         sendTextToInputField(confirmPass, confirmPasswordInput);
 
         sendTextToInputField(mobile,phoneNumber);
-        // ✅ SAFE CLICK (important for CI)
-        WebElement signupBtn = wait.until(ExpectedConditions.elementToBeClickable(signUpCta));
+        clickOnElement(signUpCta);
 
-        ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].scrollIntoView({block: 'center'});", signupBtn);
+       waitForTime(15000);
+        clickOnElement(now_and_later_cta);
+//        verificationScreen();
+        waitForTime(6000);
+//        Assert.assertTrue(driver.findElement(emailBanner).getText().contains("Please confirm your email address to complete the signup process"));
 
-        try {
-            signupBtn.click();
-        } catch (Exception e) {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", signupBtn);
-        }
 
-        // ================= DEBUG BLOCK =================
-        System.out.println("Clicked signup button");
-
-        Thread.sleep(3000); // temporary debug wait
-
-        System.out.println("URL after click: " + driver.getCurrentUrl());
-
-        if (driver.getCurrentUrl().contains("register")) {
-            System.out.println("⚠️ Still on register page - signup likely failed");
-        }
-
-        List<WebElement> errors = driver.findElements(
-                By.xpath("//*[contains(@class,'error') or contains(text(),'required') or contains(text(),'invalid')]")
-        );
-
-        for (WebElement err : errors) {
-            System.out.println("Validation/Error: " + err.getText());
-        }
-        // =================================================
-
-        // ✅ LOCATORS
-        By verifyHeader = By.xpath("//*[contains(text(),'Please verify your email')]");
-        By errorToast = By.xpath("//*[contains(text(),'already') or contains(text(),'error')]");
-
-        // ✅ SMART WAIT (handles all cases)
-        wait.until(driver -> {
-            return driver.findElements(verifyHeader).size() > 0 ||
-                    driver.findElements(errorToast).size() > 0 ||
-                    !driver.getCurrentUrl().contains("register");
-        });
-
-        // ✅ RESULT CHECK
-        if (driver.findElements(verifyHeader).size() > 0) {
-            System.out.println("✅ Verification screen loaded");
-        } else {
-            throw new RuntimeException("❌ Signup failed - verification screen not reached");
-        }
-
-        // ✅ BUTTON HANDLING
-        By btnLocator = now_and_later_cta;
-
-        WebElement btn = wait.until(ExpectedConditions.presenceOfElementLocated(btnLocator));
-
-        ((JavascriptExecutor) driver).executeScript(
-                "arguments[0].scrollIntoView({block: 'center'});", btn);
-
-        btn = wait.until(ExpectedConditions.elementToBeClickable(btnLocator));
-
-        try {
-            btn.click();
-        } catch (Exception e) {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
-        }
-
-        // ✅ FINAL ASSERTION
         waitForVisibilityOfElement(avocado_logo_from_home);
+
+
     }
+
 
     private void email_verify_Screen() {
         waitForVisibilityOfElement(mottaslLogo, 30);

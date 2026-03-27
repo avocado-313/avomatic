@@ -73,6 +73,8 @@ public class P31AvocadoSignUp extends PageBase {
 
     }
     public void registerAccount_withoutVerification(String pass,String confirmPass, String mobile) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
         waitForVisibilityOfElement(signIntoLabel,30);
         scrollToElement(dont_have_an_account_register);
         clickOnElement(dont_have_an_account_register);
@@ -85,13 +87,26 @@ public class P31AvocadoSignUp extends PageBase {
 
         sendTextToInputField(mobile,phoneNumber);
         clickOnElement(signUpCta);
-       waitForTime(3000);
-        clickOnElement(now_and_later_cta);
-//        verificationScreen();
-        waitForTime(6000);
-//        Assert.assertTrue(driver.findElement(emailBanner).getText().contains("Please confirm your email address to complete the signup process"));
 
+// wait for page
+        By verifyHeader = By.xpath("//*[contains(text(),'Please verify your email')]");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(verifyHeader));
 
+// button handling
+        By btnLocator = now_and_later_cta;
+
+        WebElement btn = wait.until(ExpectedConditions.presenceOfElementLocated(btnLocator));
+
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block: 'center'});", btn);
+
+        btn = wait.until(ExpectedConditions.elementToBeClickable(btnLocator));
+
+        try {
+            btn.click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
+        }
         waitForVisibilityOfElement(avocado_logo_from_home);
 
 

@@ -88,11 +88,33 @@ public class P31AvocadoSignUp extends PageBase {
         sendTextToInputField(mobile,phoneNumber);
         clickOnElement(signUpCta);
 
-// wait for page
-        By verifyHeader = By.xpath("//*[contains(text(),'Please verify your email')]");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(verifyHeader));
 
-// button handling
+        // ✅ DEBUG LOGS (VERY IMPORTANT)
+        System.out.println("After signup Click:");
+        System.out.println("Current URL: " + driver.getCurrentUrl());
+
+        // (Optional but powerful)
+//         System.out.println("Page Source: " + driver.getPageSource());
+
+        // ✅ LOCATORS
+        By verifyHeader = By.xpath("//*[contains(text(),'Please verify your email')]");
+        By errorToast = By.xpath("//*[contains(text(),'already') or contains(text(),'error')]");
+
+        // ✅ WAIT FOR EITHER SUCCESS OR FAILURE
+        wait.until(driver -> {
+            return driver.findElements(verifyHeader).size() > 0 ||
+                    driver.findElements(errorToast).size() > 0;
+        });
+
+        // ✅ HANDLE RESULT
+        if (driver.findElements(verifyHeader).size() > 0) {
+            System.out.println("✅ Verification screen loaded");
+        } else {
+            System.out.println("❌ Signup failed. Current URL: " + driver.getCurrentUrl());
+            throw new RuntimeException("Signup failed - verification screen not reached");
+        }
+
+        // ✅ BUTTON HANDLING (ROBUST)
         By btnLocator = now_and_later_cta;
 
         WebElement btn = wait.until(ExpectedConditions.presenceOfElementLocated(btnLocator));
@@ -107,9 +129,9 @@ public class P31AvocadoSignUp extends PageBase {
         } catch (Exception e) {
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", btn);
         }
+
+        // ✅ FINAL ASSERTION
         waitForVisibilityOfElement(avocado_logo_from_home);
-
-
     }
 
 
